@@ -1,0 +1,49 @@
+body {
+    background-image: url('../images/background.png');
+    font-family: 'Open Sans';
+    font-style: normal;
+    padding: 2em 15% 0 15% !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.btntuvan {
+    background: #653FD5;
+    border-radius: 5px;
+    color: white;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .5s ease;
+    border: .5px solid #653FD5;
+    width: fit-content;
+    box-shadow: #653FD5 0px 5px 10px;
+}
+
+.btntuvan:hover {
+    border: .5px solid #653FD5;
+    color: #653FD5;
+    background-color: white;
+}
+
+.active {
+    font-weight: bold !important;
+}
+
+.navbar-collapse {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.navbar-nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    width: 100%;
+    margin: 4em 0;
+}

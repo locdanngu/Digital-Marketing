@@ -1,0 +1,60 @@
+.txtbox1{
+    font-weight: 400;
+font-size: 42px;
+
+color: #151A35;
+}
+
+.txt2box1{
+    font-weight: 400;
+font-size: 20px;
+
+color: #5B5E71;
+}
+
+.leftbox1{
+    width: 45%;
+}
+
+.rightbox1{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+}
+
+.txthead{
+    font-weight: 600;
+font-size: 36px;
+
+color: #151A35;
+}
+
+.txtfoot{
+    font-weight: 400;
+font-size: 24px;
+
+color: #5B5E71;
+}
+
+.leftbox2{
+    width: 45%;
+    padding-left: 10%;
+}
+
+.rightbox2{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+}
+
+.rightbox3{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.leftbox4{
+    width: 45%;
+    padding-left: 5%;
+    padding-right: 5%;
+}

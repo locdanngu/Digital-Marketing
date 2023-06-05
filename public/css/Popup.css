@@ -1,0 +1,38 @@
+.btn-close{
+    align-self: end;
+}
+
+.txtpopup1{
+    font-weight: 700;
+font-size: 36px;
+color: #151A35;
+}
+
+.txtpopup2{
+    font-weight: 400;
+font-size: 14px;
+
+color: #151A35;
+}
+
+.inputpopup1{
+    background: #FFFFFF;
+    color: #B8BAC2;
+border: 1px solid #E3E7EC;
+border-radius: 6px;
+padding: 0.5em .75em;
+margin: 0 0 1em 0;
+}
+
+.txtpopup3{
+    font-weight: 500;
+font-size: 16px;
+
+color: #151A35;
+}
+
+.modal-content{
+    width: 125% !important;
+    left: -15% !important;
+    padding: .5em 2em !important;
+}

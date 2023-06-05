@@ -1,0 +1,135 @@
+.box8 {
+    padding: 0 5% 0 5%;
+}
+
+.phantubox8 {
+    width: 28%;
+    text-align: center;
+}
+
+.txtbox8 {
+    font-weight: 500;
+    font-size: 70px;
+    color: #653FD5;
+
+
+}
+
+.txt2box8 {
+    font-weight: 500;
+    font-size: 30px;
+    color: #653FD5;
+}
+
+.txt3box8 {
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #151A35;
+}
+
+table {
+    width: 100%;
+text-align: center;
+}
+
+.box10 {
+    width: 100% !important;
+    padding: 0 15% 0 15%;
+}
+
+th, td {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: #151A35 !important;
+}
+
+tr {
+    height: 4em !important;
+    border-bottom: 1px solid #E3E7EC !important;
+}
+
+th{
+    height: 6em !important;
+}
+
+.link1tb{
+    font-weight: 600;
+font-size: 16px;
+text-decoration: none;
+color: #151A35;
+padding: 1em 2em;
+background: rgba(255, 255, 255, 0.41);
+border: 0.5px solid #E3E7EC;
+    border-radius: 6px;
+    transition: .5s ease;
+}
+
+.link1tb:hover{
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 1em 2em;
+    color: #FFFFFF;
+    background-color: #653FD5;
+    border-radius: 6px;
+}
+
+.bi-check-lg{
+    color: #653FD5 !important;
+}
+
+.link2tb{
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 1em 2em;
+    color: #FFFFFF;
+    background-color: #653FD5;
+    border-radius: 6px;
+    transition: .5s ease;
+}
+
+.link2tb:hover{
+    font-weight: 600;
+font-size: 16px;
+padding: 1em 2em;
+text-decoration: none;
+color: #151A35;
+background: rgba(255, 255, 255, 0.41);
+border: 0.5px solid #E3E7EC;
+    border-radius: 6px;
+}
+
+.fixtd{
+    border-left: 0.5px solid rgba(27, 37, 69, 0.09);
+    border-right: 0.5px solid rgba(27, 37, 69, 0.09);
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 48px rgba(27, 37, 69, 0.09)
+}
+.txtbold {
+    font-weight: 600;
+    font-size: 36px;
+}
+.box11{
+    padding: 0 9% 0 9%;
+}
+
+.txtbox11{
+    font-weight: 400;
+font-size: 36px;
+
+color: #151A35;
+}
+
+.txt2box11{
+    font-weight: 400;
+    font-size: 24px;
+text-align: center;
+    color: #151A35;
+}
+
+.imgbox11{
+    width: 25%;
+    margin-bottom: 1em;
+}
