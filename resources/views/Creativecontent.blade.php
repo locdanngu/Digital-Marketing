@@ -224,11 +224,11 @@
     @include('layouts.Layoutads2')
     <script>
     var form1 = document.querySelector('.tongtienform1').value;
-
+    var totalForm1 = document.getElementById("totalform1");
     var form2 = document.querySelector('.tongtienform2').value;
-
+    var totalForm2 = document.getElementById("totalform2");
     var form3 = document.querySelector('.tongtienform3').value;
-
+    var totalForm3 = document.getElementById("totalform3");
     function increaseQuantity() {
         if (!checkAppleCheckbox.checked) {
             return; // Khi checkbox không được chọn, không thực hiện gì cả
@@ -237,7 +237,6 @@
         var value = parseInt(input.value);
         input.value = value + 1;
         var form1 = input.value * 200000;
-        var totalForm1 = document.getElementById("totalform1");
         totalForm1.innerHTML = form1.toLocaleString() + " đ";
     }
 
@@ -250,7 +249,6 @@
         if (value > 0) {
             input.value = value - 1;
             var form1 = input.value * 200000;
-            var totalForm1 = document.getElementById("totalform1");
             totalForm1.innerHTML = form1.toLocaleString() + " đ";
         }
     }
@@ -268,7 +266,6 @@
         } else {
             var form2 = Math.floor(input.value / 50) * 200000;
         }
-        var totalForm2 = document.getElementById("totalform2");
         totalForm2.innerHTML = form2.toLocaleString() + " đ";
     }
 
@@ -285,7 +282,6 @@
             } else {
                 var form2 = (input.value / 50) * 200000;
             }
-            var totalForm2 = document.getElementById("totalform2");
             totalForm2.innerHTML = form2.toLocaleString() + " đ";
         }
     }
@@ -298,7 +294,6 @@
         var value = parseInt(input.value);
         input.value = value + 1;
         var form3 = input.value * 200000;
-        var totalForm3 = document.getElementById("totalform3");
         totalForm3.innerHTML = form3.toLocaleString() + " đ";
     }
 
@@ -311,7 +306,6 @@
         if (value > 0) {
             input.value = value - 1;
             var form3 = input.value * 200000;
-            var totalForm3 = document.getElementById("totalform3");
             totalForm3.innerHTML = form3.toLocaleString() + " đ";
         }
     }
@@ -500,9 +494,21 @@
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
-
         // Thêm lớp "active" cho nút được chọn
         button.classList.add("active");
+
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (buttonPosition == 2) {
+            var quantityValue = 5;
+            var form1 = quantityValue * 200000;
+            var totalForm1 = document.getElementById("totalform1");
+            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+        }else{
+            var quantityValue = 1;
+            var form1 = quantityValue * 200000;
+            var totalForm1 = document.getElementById("totalform1");
+            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+        }
     }
 
     function soluongform2(button) {
@@ -517,7 +523,7 @@
     }
 
     function soluongform3(button) {
-        if (checkAppleCheckbox.checked) {
+        if (checkAppleCheckbox2.checked) {
             return; // Khi checkbox không được chọn, không thực hiện gì cả
         }
         // Loại bỏ lớp "active" khỏi tất cả các nút
@@ -528,6 +534,17 @@
 
         // Thêm lớp "active" cho nút được chọn
         button.classList.add("active");
+
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (buttonPosition == 2) {
+            var form2 = 255000;
+            var totalForm2 = document.getElementById("totalform2");
+            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+        }else{
+            var form2 = 200000;
+            var totalForm2 = document.getElementById("totalform2");
+            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+        }
     }
 
     function soluongform4(button) {
@@ -542,7 +559,7 @@
     }
 
     function soluongform5(button) {
-        if (checkAppleCheckbox.checked) {
+        if (checkAppleCheckbox3.checked) {
             return; // Khi checkbox không được chọn, không thực hiện gì cả
         }
         // Loại bỏ lớp "active" khỏi tất cả các nút
@@ -553,6 +570,19 @@
 
         // Thêm lớp "active" cho nút được chọn
         button.classList.add("active");
+
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (buttonPosition == 2) {
+            var quantityValue = 5;
+            var form3 = quantityValue * 200000;
+            var totalForm3 = document.getElementById("totalform3");
+            totalForm3.innerHTML = form3.toLocaleString() + " đ";
+        }else{
+            var quantityValue = 1;
+            var form3 = quantityValue * 200000;
+            var totalForm3 = document.getElementById("totalform3");
+            totalForm3.innerHTML = form3.toLocaleString() + " đ";
+        }
     }
 
     function soluongform6(button) {
