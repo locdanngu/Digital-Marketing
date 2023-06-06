@@ -84,9 +84,9 @@
                 <div class="icon2" style="margin-right:1em">
                     <img src="images/letter.png">
                 </div>
-                <div class="d-flex flex-column align-items-baseline justify-content-start">
-                    <span style="color: #151A35;">Liên hệ với chúng tôi</span>
-                    <i class="txt6" style="color: #5B5E71;">Ấn để gửi mail</i>
+                <div class="d-flex flex-column align-items-baseline">
+                    <span class="contactus">Liên hệ với chúng tôi</span>
+                    <i class="txt6">Ấn để gửi mail</i>
                 </div>
             </a>
         </div>

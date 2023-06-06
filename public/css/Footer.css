@@ -158,3 +158,24 @@
     text-decoration: none;
     align-items: center;
 }
+
+.contactus{
+    font-weight: 600;
+font-size: 16px;
+color: #151A35;
+
+
+}
+
+.txt6{
+    font-weight: 400;
+font-size: 11px;
+
+color: #5B5E71;
+
+opacity: 0.6;
+}
+
+.fixa:hover{
+    opacity: 0.7;
+}

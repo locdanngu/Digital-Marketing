@@ -55,8 +55,8 @@
                     <img src="images/letter.png">
                 </div>
                 <div class="d-flex flex-column align-items-baseline">
-                    <span>Liên hệ với chúng tôi</span>
-                    <span class="txt6">Ấn để gửi mail</span>
+                    <span class="contactus">Liên hệ với chúng tôi</span>
+                    <i class="txt6">Ấn để gửi mail</i>
                 </div>
             </a>
         </div>
