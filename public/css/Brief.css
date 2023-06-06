@@ -1,0 +1,45 @@
+.box1 {
+    width: 70%;
+    text-align: center;
+}
+
+.txtbox1 {
+    font-weight: 600;
+    font-size: 24px;
+
+    color: #151A35;
+
+
+}
+
+.box2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.txt2box1 {
+    font-weight: 500;
+    font-size: 18px;
+
+    color: #5B5E71;
+}
+
+.phantubox2 {
+    
+    padding: 1.5em;
+    height: 18em;
+    background: #FFFFFF;
+
+    /* Dropshadow2 */
+    box-shadow: 0px 4px 48px rgba(27, 37, 69, 0.09);
+    border-radius: 20px;
+}
+
+
+
+/* .box {
+    background-color: #f0f0f0;
+    height: 100px;
+} */

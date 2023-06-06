@@ -46,3 +46,19 @@ Route::get('/KOL', function () {
 Route::get('/booking', function () {
     return view('Booking');
 })->name('booking.page');
+
+Route::get('/brief', function () {
+    return view('Brief');
+})->name('brief.page');
+
+Route::get('/portfolio', function () {
+    return view('Portfolio');
+})->name('portfolio.page');
+
+Route::get('/blog', function () {
+    return view('Blog');
+})->name('blog.page');
+
+Route::get('/contact', function () {
+    return view('Contact');
+})->name('contact.page');
