@@ -88,22 +88,32 @@
             <p class="txt2box4">Chia sẻ</p>
         </div>
     </div>
-    <div class="box box5 d-flex justify-content-between align-items-center">
-        <i class="bi bi-chevron-left"></i>
-        <div class="anhbox5">
-            <img src="images/cr2.png">
-            <!-- <img src="images/cr2.png">
-            <img src="images/cr2.png">
-            <img src="images/cr2.png">
-            <img src="images/cr2.png"> -->
+    <div class="box box5 d-flex justify-content-between align-items-center" style="margin:1em !important">
+        <i class="bi bi-chevron-left" onclick="changeActiveImage('previous')"></i>
+        <div class="anhbox5 d-flex">
+            <img src="images/cr2.png" class="fadeimg active">
+            <img src="images/cr3.png" class="fadeimg">
+            <img src="images/cr4.png" class="fadeimg">
+            <img src="images/cr5.png" class="fadeimg">
+            <img src="images/cr6.png" class="fadeimg">
         </div>
-        <i class="bi bi-chevron-right"></i>
+        <i class="bi bi-chevron-right" onclick="changeActiveImage('next')"></i>
     </div>
+
     <div class="d-flex justify-content-center" style="width:100%">
         <p class="footbox5 d-flex justify-content-center text-center" style="width:60%">Sau 1 ngày lên sóng, MV quảng
             cáo của JustaTee x ViettelPay lọt vào Top Trending trên
             Youtube
             với vị trí 40 cùng 600 nghìn lượt xem.</p>
+    </div>
+    <div class="box d-flex justify-content-center" style="width:100%;margin:0 !important">
+        <div class="box d-flex justify-content-between" style="width: 15%;margin:0 0 2em 0 !important">
+            <button class="btnchuyenanh active" onclick="changeImage(0)"></button>
+            <button class="btnchuyenanh" onclick="changeImage(1)"></button>
+            <button class="btnchuyenanh" onclick="changeImage(2)"></button>
+            <button class="btnchuyenanh" onclick="changeImage(3)"></button>
+            <button class="btnchuyenanh" onclick="changeImage(4)"></button>
+        </div>
     </div>
     <p class="txthead text-center">Lựa chọn dịch vụ phù hợp cho doanh nghiệp của bạn</p>
     <div class="d-flex justify-content-center mt-5">
@@ -229,86 +239,15 @@
     var totalForm2 = document.getElementById("totalform2");
     var form3 = document.querySelector('.tongtienform3').value;
     var totalForm3 = document.getElementById("totalform3");
-    function increaseQuantity() {
-        if (!checkAppleCheckbox.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity");
-        var value = parseInt(input.value);
-        input.value = value + 1;
-        var form1 = input.value * 200000;
-        totalForm1.innerHTML = form1.toLocaleString() + " đ";
-    }
-
-    function decreaseQuantity() {
-        if (!checkAppleCheckbox.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity");
-        var value = parseInt(input.value);
-        if (value > 0) {
-            input.value = value - 1;
-            var form1 = input.value * 200000;
-            totalForm1.innerHTML = form1.toLocaleString() + " đ";
-        }
-    }
-
-    function increaseQuantity2() {
-        if (!checkAppleCheckbox2.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity2");
-        var value = parseInt(input.value);
-        input.value = value + 1;
-        var tam = input.value % 50;
-        if (tam > 0) {
-            var form2 = (Math.floor(input.value / 50) + 1) * 200000;
-        } else {
-            var form2 = Math.floor(input.value / 50) * 200000;
-        }
-        totalForm2.innerHTML = form2.toLocaleString() + " đ";
-    }
-
-    function decreaseQuantity2() {
-        if (!checkAppleCheckbox2.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity2");
-        var value = parseInt(input.value);
-        if (value > 0) {
-            input.value = value - 1;
-            if (tam > 0) {
-                var form2 = ((input.value / 50) + 1) * 200000;
-            } else {
-                var form2 = (input.value / 50) * 200000;
-            }
-            totalForm2.innerHTML = form2.toLocaleString() + " đ";
-        }
-    }
-
-    function increaseQuantity3() {
-        if (!checkAppleCheckbox3.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity3");
-        var value = parseInt(input.value);
-        input.value = value + 1;
-        var form3 = input.value * 200000;
-        totalForm3.innerHTML = form3.toLocaleString() + " đ";
-    }
-
-    function decreaseQuantity3() {
-        if (!checkAppleCheckbox3.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
-        }
-        var input = document.getElementById("quantity3");
-        var value = parseInt(input.value);
-        if (value > 0) {
-            input.value = value - 1;
-            var form3 = input.value * 200000;
-            totalForm3.innerHTML = form3.toLocaleString() + " đ";
-        }
-    }
+    var soluongbaiviet1 = 1,
+        soluongbaiviet2 = 50,
+        soluongbaiviet3 = 1;
+    var osoluongbaiviet1 = parseInt(document.getElementById("quantity").value);
+    var osoluongbaiviet2 = parseInt(document.getElementById("quantity2").value);
+    var osoluongbaiviet3 = parseInt(document.getElementById("quantity3").value);
+    var sotubaiviet1 = 1,
+        sotubaiviet2 = 1,
+        sotubaiviet3 = 1;
 
 
     const checkAppleCheckbox = document.getElementById('check-apple');
@@ -327,153 +266,6 @@
     const all2 = quantity2.querySelectorAll('*');
     const all3 = quantity3.querySelectorAll('*');
 
-    if (!checkAppleCheckbox.checked) { //nút 1
-        input1.style.opacity = '0.2';
-        cf1[0].style.opacity = '';
-        cf1[1].style.opacity = '';
-        cf1[0].style.cursor = '';
-        cf1[1].style.cursor = '';
-        all1.forEach(function(element) {
-            element.disabled = true;
-            element.style.opacity = '0.2';
-            element.style.cursor = 'not-allowed';
-        });
-    } else {
-        cf1[0].style.opacity = '0.2';
-        cf1[1].style.opacity = '0.2';
-        cf1[0].style.cursor = 'not-allowed';
-        cf1[1].style.cursor = 'not-allowed';
-        input1.style.opacity = '';
-        all1.forEach(function(element) {
-            element.disabled = false;
-            element.style.opacity = '';
-            element.style.cursor = '';
-        });
-    }
-    checkAppleCheckbox.addEventListener('change', function() {
-        if (!checkAppleCheckbox.checked) {
-            input1.style.opacity = '0.2';
-            cf1[0].style.opacity = '';
-            cf1[1].style.opacity = '';
-            cf1[0].style.cursor = '';
-            cf1[1].style.cursor = '';
-            all1.forEach(function(element) {
-                element.disabled = true;
-                element.style.opacity = '0.2';
-                element.style.cursor = 'not-allowed';
-            });
-        } else {
-            input1.style.opacity = '';
-            cf1[0].style.opacity = '0.2';
-            cf1[1].style.opacity = '0.2';
-            cf1[0].style.cursor = 'not-allowed';
-            cf1[1].style.cursor = 'not-allowed';
-            all1.forEach(function(element) {
-                element.disabled = false;
-                element.style.opacity = '';
-                element.style.cursor = '';
-            });
-        }
-    });
-
-    if (!checkAppleCheckbox2.checked) { //nút 2
-        input2.style.opacity = '0.2';
-        cf3[0].style.opacity = '';
-        cf3[1].style.opacity = '';
-        cf3[0].style.cursor = '';
-        cf3[1].style.cursor = '';
-        all2.forEach(function(element) {
-            element.disabled = true;
-            element.style.opacity = '0.2';
-            element.style.cursor = 'not-allowed';
-        });
-    } else {
-        cf3[0].style.opacity = '0.2';
-        cf3[1].style.opacity = '0.2';
-        cf3[0].style.cursor = 'not-allowed';
-        cf3[1].style.cursor = 'not-allowed';
-        input2.style.opacity = '';
-        all2.forEach(function(element) {
-            element.disabled = false;
-            element.style.opacity = '';
-            element.style.cursor = '';
-        });
-    }
-    checkAppleCheckbox2.addEventListener('change', function() {
-        if (!checkAppleCheckbox2.checked) {
-            cf3[0].style.opacity = '';
-            cf3[1].style.opacity = '';
-            cf3[0].style.cursor = '';
-            cf3[1].style.cursor = '';
-            input2.style.opacity = '0.2';
-            all2.forEach(function(element) {
-                element.disabled = true;
-                element.style.opacity = '0.2';
-                element.style.cursor = 'not-allowed';
-            });
-        } else {
-            cf3[0].style.opacity = '0.2';
-            cf3[1].style.opacity = '0.2';
-            cf3[0].style.cursor = 'not-allowed';
-            cf3[1].style.cursor = 'not-allowed';
-            input2.style.opacity = '';
-            all2.forEach(function(element) {
-                element.disabled = false;
-                element.style.opacity = '';
-                element.style.cursor = '';
-            });
-        }
-    });
-
-    if (!checkAppleCheckbox3.checked) { //nút 3
-        input3.style.opacity = '0.2';
-        cf5[0].style.opacity = '';
-        cf5[1].style.opacity = '';
-        cf5[0].style.cursor = '';
-        cf5[1].style.cursor = '';
-        all3.forEach(function(element) {
-            element.disabled = true;
-            element.style.opacity = '0.2';
-            element.style.cursor = 'not-allowed';
-        });
-    } else {
-        input3.style.opacity = '';
-        cf5[0].style.opacity = '0.2';
-        cf5[1].style.opacity = '0.2';
-        cf5[0].style.cursor = 'not-allowed';
-        cf5[1].style.cursor = 'not-allowed';
-        all3.forEach(function(element) {
-            element.disabled = false;
-            element.style.opacity = '';
-            element.style.cursor = '';
-        });
-    }
-    checkAppleCheckbox3.addEventListener('change', function() {
-        if (!checkAppleCheckbox3.checked) {
-            cf5[0].style.opacity = '';
-            cf5[1].style.opacity = '';
-            cf5[0].style.cursor = '';
-            cf5[1].style.cursor = '';
-            input3.style.opacity = '0.2';
-            all3.forEach(function(element) {
-                element.disabled = true;
-                element.style.opacity = '0.2';
-                element.style.cursor = 'not-allowed';
-            });
-        } else {
-            input3.style.opacity = '';
-            cf5[0].style.opacity = '0.2';
-            cf5[1].style.opacity = '0.2';
-            cf5[0].style.cursor = 'not-allowed';
-            cf5[1].style.cursor = 'not-allowed';
-            all3.forEach(function(element) {
-                element.disabled = false;
-                element.style.opacity = '';
-                element.style.cursor = '';
-            });
-        }
-    });
-
     function toggleActive(button) {
         // Loại bỏ lớp "active" khỏi tất cả các nút
         var buttons = document.getElementsByClassName("btnchoice");
@@ -485,9 +277,38 @@
         button.classList.add("active");
     }
 
+    function deleteform2() {
+        var buttons = document.getElementsByClassName("choiceform2");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        buttons[0].classList.add("active");
+    }
+
+    function deleteform4() {
+        var buttons = document.getElementsByClassName("choiceform4");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        buttons[0].classList.add("active");
+    }
+
+    function deleteform6() {
+        var buttons = document.getElementsByClassName("choiceform6");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        buttons[0].classList.add("active");
+    }
+
+
+
     function soluongform1(button) {
         if (checkAppleCheckbox.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
+            return; // Khi checkbox được chọn, không thực hiện gì cả
         }
         // Loại bỏ lớp "active" khỏi tất cả các nút
         var buttons = document.getElementsByClassName("choiceform1");
@@ -499,32 +320,19 @@
 
         var buttonPosition = Array.from(buttons).indexOf(button) + 1;
         if (buttonPosition == 2) {
-            var quantityValue = 5;
-            var form1 = quantityValue * 200000;
-            var totalForm1 = document.getElementById("totalform1");
-            totalForm1.innerHTML = form1.toLocaleString() + " đ";
-        }else{
-            var quantityValue = 1;
-            var form1 = quantityValue * 200000;
-            var totalForm1 = document.getElementById("totalform1");
-            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            soluongbaiviet1 = 5;
+        } else {
+            soluongbaiviet1 = 1;
         }
-    }
-
-    function soluongform2(button) {
-        // Loại bỏ lớp "active" khỏi tất cả các nút
-        var buttons = document.getElementsByClassName("choiceform2");
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-        }
-
-        // Thêm lớp "active" cho nút được chọn
-        button.classList.add("active");
+        form1 = soluongbaiviet1 * 200000;
+        totalForm1.innerHTML = form1.toLocaleString() + " đ";
+        // console.log(soluongbaiviet1);
+        deleteform2();
     }
 
     function soluongform3(button) {
         if (checkAppleCheckbox2.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
+            return; // Khi checkbox được chọn, không thực hiện gì cả
         }
         // Loại bỏ lớp "active" khỏi tất cả các nút
         var buttons = document.getElementsByClassName("choiceform3");
@@ -537,30 +345,19 @@
 
         var buttonPosition = Array.from(buttons).indexOf(button) + 1;
         if (buttonPosition == 2) {
-            var form2 = 255000;
-            var totalForm2 = document.getElementById("totalform2");
-            totalForm2.innerHTML = form2.toLocaleString() + " đ";
-        }else{
-            var form2 = 200000;
-            var totalForm2 = document.getElementById("totalform2");
-            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            form2 = 255000;
+            soluongbaiviet2 = 100;
+        } else {
+            form2 = 200000;
+            soluongbaiviet2 = 50;
         }
-    }
-
-    function soluongform4(button) {
-        // Loại bỏ lớp "active" khỏi tất cả các nút
-        var buttons = document.getElementsByClassName("choiceform4");
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-        }
-
-        // Thêm lớp "active" cho nút được chọn
-        button.classList.add("active");
+        totalForm2.innerHTML = form2.toLocaleString() + " đ";
+        deleteform4();
     }
 
     function soluongform5(button) {
         if (checkAppleCheckbox3.checked) {
-            return; // Khi checkbox không được chọn, không thực hiện gì cả
+            return; // Khi checkbox được chọn, không thực hiện gì cả
         }
         // Loại bỏ lớp "active" khỏi tất cả các nút
         var buttons = document.getElementsByClassName("choiceform5");
@@ -573,17 +370,386 @@
 
         var buttonPosition = Array.from(buttons).indexOf(button) + 1;
         if (buttonPosition == 2) {
-            var quantityValue = 5;
-            var form3 = quantityValue * 200000;
-            var totalForm3 = document.getElementById("totalform3");
+            soluongbaiviet3 = 5;
+        } else {
+            soluongbaiviet3 = 1;
+        }
+        form3 = soluongbaiviet3 * 200000;
+        totalForm3.innerHTML = form3.toLocaleString() + " đ";
+        deleteform6();
+    }
+
+    if (!checkAppleCheckbox.checked) { //nút 1
+        input1.style.opacity = '0.2';
+        for (var i = 0; i < 2; i++) {
+            cf1[i].style.opacity = '';
+            cf1[i].style.cursor = '';
+        }
+        all1.forEach(function(element) {
+            element.disabled = true;
+            element.style.opacity = '0.2';
+            element.style.cursor = 'not-allowed';
+        });
+        form1 = soluongbaiviet1 * 200000;
+        totalForm1.innerHTML = form1.toLocaleString() + " đ";
+    } else {
+        for (var i = 0; i < 2; i++) {
+            cf1[i].style.opacity = '0.2';
+            cf1[i].style.cursor = 'not-allowed';
+        }
+        input1.style.opacity = '';
+        all1.forEach(function(element) {
+            element.disabled = false;
+            element.style.opacity = '';
+            element.style.cursor = '';
+        });
+
+        form1 = osoluongbaiviet1 * 200000;
+        totalForm1.innerHTML = form1.toLocaleString() + " đ";
+    }
+    checkAppleCheckbox.addEventListener('change', function() {
+        if (!checkAppleCheckbox.checked) {
+            input1.style.opacity = '0.2';
+            for (var i = 0; i < 2; i++) {
+                cf1[i].style.opacity = '';
+                cf1[i].style.cursor = '';
+            }
+            all1.forEach(function(element) {
+                element.disabled = true;
+                element.style.opacity = '0.2';
+                element.style.cursor = 'not-allowed';
+            });
+            form1 = soluongbaiviet1 * 200000;
+            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            deleteform2();
+        } else {
+            input1.style.opacity = '';
+            for (var i = 0; i < 2; i++) {
+                cf1[i].style.opacity = '0.2';
+                cf1[i].style.cursor = 'not-allowed';
+            }
+            all1.forEach(function(element) {
+                element.disabled = false;
+                element.style.opacity = '';
+                element.style.cursor = '';
+            });
+
+            form1 = osoluongbaiviet1 * 200000;
+            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            deleteform2();
+        }
+    });
+
+
+    if (!checkAppleCheckbox2.checked) { //nút 2
+        input2.style.opacity = '0.2';
+        for (var i = 0; i < 2; i++) {
+            cf3[i].style.opacity = '';
+            cf3[i].style.cursor = '';
+        }
+        all2.forEach(function(element) {
+            element.disabled = true;
+            element.style.opacity = '0.2';
+            element.style.cursor = 'not-allowed';
+        });
+        form2 = soluongbaiviet2 / 50 * 200000;
+        totalForm2.innerHTML = form2.toLocaleString() + " đ";
+    } else {
+        for (var i = 0; i < 2; i++) {
+            cf3[i].style.opacity = '0.2';
+            cf3[i].style.cursor = 'not-allowed';
+        }
+        input2.style.opacity = '';
+        all2.forEach(function(element) {
+            element.disabled = false;
+            element.style.opacity = '';
+            element.style.cursor = '';
+        });
+        if (osoluongbaiviet2 < 51) {
+            form2 = 200000;
+        } else {
+            form2 = 200000 + ((Math.floor(osoluongbaiviet2 / 50)) * 55000);
+        }
+        totalForm2.innerHTML = form2.toLocaleString() + " đ";
+    }
+    checkAppleCheckbox2.addEventListener('change', function() {
+        if (!checkAppleCheckbox2.checked) {
+            for (var i = 0; i < 2; i++) {
+                cf3[i].style.opacity = '';
+                cf3[i].style.cursor = '';
+            }
+            input2.style.opacity = '0.2';
+            all2.forEach(function(element) {
+                element.disabled = true;
+                element.style.opacity = '0.2';
+                element.style.cursor = 'not-allowed';
+            });
+            if (soluongbaiviet2 < 51) {
+                form2 = 200000;
+            } else {
+                form2 = 200000 + (((soluongbaiviet2 / 50) - 1) * 55000);
+            }
+            console.log(soluongbaiviet2);
+            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            deleteform4();
+        } else {
+            for (var i = 0; i < 2; i++) {
+                cf3[i].style.opacity = '0.2';
+                cf3[i].style.cursor = 'not-allowed';
+            }
+            input2.style.opacity = '';
+            all2.forEach(function(element) {
+                element.disabled = false;
+                element.style.opacity = '';
+                element.style.cursor = '';
+            });
+            if (osoluongbaiviet2 < 51) {
+                form2 = 200000;
+            } else {
+                form2 = 200000 + (Math.floor(osoluongbaiviet2 / 50) * 55000);
+            }
+            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            deleteform4();
+        }
+    });
+
+
+    if (!checkAppleCheckbox3.checked) { //nút 3
+        input3.style.opacity = '0.2';
+        for (var i = 0; i < 2; i++) {
+            cf5[i].style.opacity = '';
+            cf5[i].style.cursor = '';
+        }
+        all3.forEach(function(element) {
+            element.disabled = true;
+            element.style.opacity = '0.2';
+            element.style.cursor = 'not-allowed';
+        });
+        form3 = soluongbaiviet3 * 200000;
+        totalForm3.innerHTML = form3.toLocaleString() + " đ";
+    } else {
+        input3.style.opacity = '';
+        for (var i = 0; i < 2; i++) {
+            cf5[i].style.opacity = '0.2';
+            cf5[i].style.cursor = 'not-allowed';
+        }
+        all3.forEach(function(element) {
+            element.disabled = false;
+            element.style.opacity = '';
+            element.style.cursor = '';
+        });
+        form3 = osoluongbaiviet3 * 200000;
+        totalForm3.innerHTML = form3.toLocaleString() + " đ";
+    }
+    checkAppleCheckbox3.addEventListener('change', function() {
+        if (!checkAppleCheckbox3.checked) {
+            for (var i = 0; i < 2; i++) {
+                cf5[i].style.opacity = '';
+                cf5[i].style.cursor = '';
+            }
+            input3.style.opacity = '0.2';
+            all3.forEach(function(element) {
+                element.disabled = true;
+                element.style.opacity = '0.2';
+                element.style.cursor = 'not-allowed';
+            });
+            form3 = soluongbaiviet3 * 200000;
             totalForm3.innerHTML = form3.toLocaleString() + " đ";
-        }else{
-            var quantityValue = 1;
-            var form3 = quantityValue * 200000;
-            var totalForm3 = document.getElementById("totalform3");
+            deleteform6();
+        } else {
+            input3.style.opacity = '';
+            for (var i = 0; i < 2; i++) {
+                cf5[i].style.opacity = '0.2';
+                cf5[i].style.cursor = 'not-allowed';
+            }
+            all3.forEach(function(element) {
+                element.disabled = false;
+                element.style.opacity = '';
+                element.style.cursor = '';
+            });
+            form3 = osoluongbaiviet3 * 200000;
+            totalForm3.innerHTML = form3.toLocaleString() + " đ";
+            deleteform6();
+        }
+    });
+
+
+
+
+
+
+
+    function increaseQuantity() {
+        if (!checkAppleCheckbox.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity");
+        var value = parseInt(input.value);
+        input.value = value + 1;
+        var form1 = input.value * 200000;
+        totalForm1.innerHTML = form1.toLocaleString() + " đ";
+        deleteform2();
+    }
+
+    function decreaseQuantity() {
+        if (!checkAppleCheckbox.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity");
+        var value = parseInt(input.value);
+        if (value > 0) {
+            input.value = value - 1;
+            var form1 = input.value * 200000;
+            totalForm1.innerHTML = form1.toLocaleString() + " đ";
+        }
+        deleteform2();
+    }
+
+    function increaseQuantity2() {
+        if (!checkAppleCheckbox2.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity2");
+        var value = parseInt(input.value);
+        input.value = value + 1;
+        var form2 = 200000 + (Math.floor(input.value / 50) * 55000);
+        totalForm2.innerHTML = form2.toLocaleString() + " đ";
+        deleteform4();
+    }
+
+    function decreaseQuantity2() {
+        if (!checkAppleCheckbox2.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity2");
+        var value = parseInt(input.value);
+        if (value > 0) {
+            input.value = value - 1;
+            var form2 = 200000 + (Math.floor(input.value / 50) * 55000);
+            totalForm2.innerHTML = form2.toLocaleString() + " đ";
+        }
+        deleteform4();
+    }
+
+    function increaseQuantity3() {
+        if (!checkAppleCheckbox3.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity3");
+        var value = parseInt(input.value);
+        input.value = value + 1;
+        var form3 = input.value * 200000;
+        totalForm3.innerHTML = form3.toLocaleString() + " đ";
+        deleteform6();
+    }
+
+    function decreaseQuantity3() {
+        if (!checkAppleCheckbox3.checked) {
+            return; // Khi checkbox không được chọn, không thực hiện gì cả
+        }
+        var input = document.getElementById("quantity3");
+        var value = parseInt(input.value);
+        if (value > 0) {
+            input.value = value - 1;
+            var form3 = input.value * 200000;
             totalForm3.innerHTML = form3.toLocaleString() + " đ";
         }
+        deleteform6();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function soluongform2(button) {
+        // Loại bỏ lớp "active" khỏi tất cả các nút
+        var buttons = document.getElementsByClassName("choiceform2");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        // Thêm lớp "active" cho nút được chọn
+        button.classList.add("active");
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (!checkAppleCheckbox.checked) {
+            if (buttonPosition == 2) {
+                form1 = soluongbaiviet1 * 255000;
+                totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            } else {
+                form1 = soluongbaiviet1 * 200000;
+                totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            }
+        } else {
+            if (buttonPosition == 2) {
+                var osoluongbaiviet1 = parseInt(document.getElementById("quantity").value);
+                form1 = osoluongbaiviet1 * 255000;
+                totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            } else {
+                var osoluongbaiviet1 = parseInt(document.getElementById("quantity").value);
+                form1 = osoluongbaiviet1 * 200000;
+                totalForm1.innerHTML = form1.toLocaleString() + " đ";
+            }
+        }
+    }
+
+
+
+
+
+    function soluongform4(button) {
+        // Loại bỏ lớp "active" khỏi tất cả các nút
+        var buttons = document.getElementsByClassName("choiceform4");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        // console.log(soluongbaiviet2);
+        // Thêm lớp "active" cho nút được chọn
+        button.classList.add("active");
+
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (!checkAppleCheckbox2.checked) {
+            if (buttonPosition == 2) {
+                if (soluongbaiviet2 < 51) {
+                    form2 = 255000;
+                } else {
+                    form2 = 200000 + ((Math.floor(soluongbaiviet2 / 50)) * 55000);
+                }
+                totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            } else {
+                form2 = 200000 + ((Math.floor(soluongbaiviet2 / 50) - 1) * 55000);
+                totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            }
+        } else {
+            if (buttonPosition == 2) {
+                var osoluongbaiviet2 = parseInt(document.getElementById("quantity2").value);
+                if (osoluongbaiviet2 < 51) {
+                    form2 = 255000;
+                } else {
+                    form2 = 255000 + ((Math.floor(osoluongbaiviet2 / 50)) * 110000);
+                }
+                totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            } else {
+                var osoluongbaiviet2 = parseInt(document.getElementById("quantity2").value);
+                if (osoluongbaiviet2 < 51) {
+                    form2 = 255000;
+                } else {
+                    form2 = 200000 + ((Math.floor(osoluongbaiviet2 / 50)) * 55000);
+                }
+                totalForm2.innerHTML = form2.toLocaleString() + " đ";
+            }
+        }
+    }
+
+
 
     function soluongform6(button) {
         // Loại bỏ lớp "active" khỏi tất cả các nút
@@ -594,6 +760,27 @@
 
         // Thêm lớp "active" cho nút được chọn
         button.classList.add("active");
+
+        var buttonPosition = Array.from(buttons).indexOf(button) + 1;
+        if (!checkAppleCheckbox3.checked) {
+            if (buttonPosition == 2) {
+                form3 = soluongbaiviet3 * 255000;
+                totalForm3.innerHTML = form3.toLocaleString() + " đ";
+            } else {
+                form3 = soluongbaiviet3 * 200000;
+                totalForm3.innerHTML = form3.toLocaleString() + " đ";
+            }
+        } else {
+            if (buttonPosition == 2) {
+                var osoluongbaiviet3 = parseInt(document.getElementById("quantity3").value);
+                form3 = osoluongbaiviet3 * 255000;
+                totalForm3.innerHTML = form3.toLocaleString() + " đ";
+            } else {
+                var osoluongbaiviet3 = parseInt(document.getElementById("quantity3").value);
+                form3 = osoluongbaiviet3 * 200000;
+                totalForm3.innerHTML = form3.toLocaleString() + " đ";
+            }
+        }
     }
 
 
@@ -643,6 +830,48 @@
             totalForm3.innerHTML = form3.toLocaleString() + " đ";
             // console.log(form1);
         }
+    }
+
+    function changeActiveImage(direction) {
+        var fadeImages = document.querySelectorAll('.anhbox5 .fadeimg');
+        var buttons = document.querySelectorAll('.box .btnchuyenanh');
+        var activeIndex = -1;
+
+        for (var i = 0; i < fadeImages.length; i++) {
+            if (fadeImages[i].classList.contains('active')) {
+                activeIndex = i;
+                fadeImages[i].classList.remove('active');
+                buttons[i].classList.remove('active');
+                break;
+            }
+        }
+
+        if (activeIndex !== -1) {
+            var nextIndex;
+
+            if (direction === 'previous') {
+                nextIndex = activeIndex === 0 ? fadeImages.length - 1 : activeIndex - 1;
+            } else if (direction === 'next') {
+                nextIndex = activeIndex === fadeImages.length - 1 ? 0 : activeIndex + 1;
+            }
+
+            fadeImages[nextIndex].classList.add('active');
+            buttons[nextIndex].classList.add('active');
+        }
+    }
+
+
+    function changeImage(index) {
+        var fadeImages = document.querySelectorAll('.anhbox5 .fadeimg');
+        var buttons = document.querySelectorAll('.box .btnchuyenanh');
+
+        for (var i = 0; i < fadeImages.length; i++) {
+            fadeImages[i].classList.remove('active');
+            buttons[i].classList.remove('active');
+        }
+
+        fadeImages[index].classList.add('active');
+        buttons[index].classList.add('active');
     }
     </script>
 

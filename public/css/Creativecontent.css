@@ -324,3 +324,23 @@ input.no-spin::-webkit-outer-spin-button {
 input.no-spin {
     -moz-appearance: textfield;
 } */
+
+
+.fadeimg.active{
+    display: block;
+}
+
+.fadeimg{
+    display: none;
+}
+
+.btnchuyenanh{
+    height: .75em;
+    width: .75em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btnchuyenanh.active{
+    background-color: #000000;
+}
