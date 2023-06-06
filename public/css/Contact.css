@@ -1,0 +1,46 @@
+.box1 {
+    width: 70%;
+    text-align: center;
+}
+
+.txtbox1 {
+    font-weight: 600;
+    font-size: 24px;
+
+    color: #151A35;
+
+
+}
+
+.txt2box1 {
+    font-weight: 500;
+    font-size: 18px;
+
+    color: #5B5E71;
+}
+
+.txtformbox6{
+    font-weight: 400;
+font-size: 16px;
+
+color: #000000;
+}
+
+.phantubox6{
+    width: 48%;
+}
+
+.txtbox6{
+    font-weight: 400;
+font-size: 24px;
+
+color: #5B5E71;
+}
+
+.phantubox61{
+    width: 43%;
+}
+
+.mapimg{
+    width: 100%;
+}
