@@ -125,8 +125,8 @@
                     <img src="images/letter.png">
                 </div>
                 <div class="d-flex flex-column align-items-baseline">
-                    <span>Liên hệ với chúng tôi</span>
-                    <span class="txt6">Ấn để gửi mail</span>
+                    <span class="contactus">Liên hệ với chúng tôi</span>
+                    <i class="txt6">Ấn để gửi mail</i>
                 </div>
             </a>
         </div>
@@ -197,7 +197,7 @@
 
     <div class="box box8 d-flex flex-column">
         <p class="txt2 text-center">Thêm thông tin, Thêm hiểu biết</p>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between fixclass1">
             <div class="minibox4">
                 <img src="images/img1.png" class="widthimg">
                 <div class="p-3">

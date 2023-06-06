@@ -14,9 +14,12 @@
                 <a class="nav-link" href="#">Portfolio</a>
                 <a class="nav-link" href="#">Blog</a>
                 <a class="nav-link" href="#">Contact</a>
+                <button type="button" class="nav-link hidemobile" data-bs-toggle="modal" data-bs-target="#a">
+                    Tư vấn miễn phí
+                </button>
             </div>
         </div>
-        <button type="button" class="btntuvan" data-bs-toggle="modal" data-bs-target="#a">
+        <button type="button" class="btntuvan hidemobilebtntuvan" data-bs-toggle="modal" data-bs-target="#a">
             Tư vấn miễn phí
         </button>
     </div>
