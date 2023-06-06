@@ -47,3 +47,27 @@ body {
     width: 100%;
     margin: 4em 0;
 }
+
+.btnchitiet {
+    background: transparent;
+    border-radius: 5px;
+    color: black;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .5s ease;
+    border: .5px solid transparent;
+    margin-left: 2em;
+    font-weight: 600;
+    border: 1px solid #F3F3F5;
+border-radius: 4px;
+}
+
+.btnchitiet:hover {
+    border: .5px solid #653FD5;
+    color: white;
+    background-color: #653FD5;
+    box-shadow: #653FD5 0px 5px 10px;
+    border: 1px solid #653FD5;
+border-radius: 4px;
+}

@@ -88,7 +88,7 @@
             <p class="txt2box4">Chia sẻ</p>
         </div>
     </div>
-    <div class="box box5 d-flex justify-content-between align-items-center" style="margin:1em !important">
+    <div class="box box5 d-flex justify-content-between align-items-center" style="margin:1em 0 1em 0 !important">
         <i class="bi bi-chevron-left" onclick="changeActiveImage('previous')"></i>
         <div class="anhbox5 d-flex">
             <img src="images/cr2.png" class="fadeimg active">
