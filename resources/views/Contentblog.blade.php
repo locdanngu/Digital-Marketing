@@ -191,7 +191,7 @@
             <p class="txt5">Tư vấn miễn phí</p>
 
             <p>Tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?</p>
-            <a href="" class="d-flex fixa">
+            <button class="d-flex fixa" type="button" data-bs-toggle="modal" data-bs-target="#a">
                 <div class="icon2">
                     <img src="images/letter.png">
                 </div>
@@ -199,7 +199,7 @@
                     <span class="contactus">Liên hệ với chúng tôi</span>
                     <i class="txt6">Ấn để gửi mail</i>
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 
