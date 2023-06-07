@@ -8,12 +8,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{ route('home.page') }}">Trang chủ</a>
-                <a class="nav-link" href="#">Giới thiệu</a>
-                <a class="nav-link" href="#">Giải pháp</a>
-                <a class="nav-link" href="#">Portfolio</a>
-                <a class="nav-link" href="{{ route('blog.page') }}">Blog</a>
-                <a class="nav-link" href="{{ route('contact.page') }}">Contact</a>
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home.page') }}">Trang chủ</a>
+                <a class="nav-link {{ request()->is('gioithieu') ? 'active' : '' }}" href="{{ route('gioithieu.page') }}">Giới thiệu</a>
+                <a class="nav-link {{ request()->is('giaiphap') ? 'active' : '' }}" href="{{ route('giaiphap.page') }}">Giải pháp</a>
+                <a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.page') }}">Portfolio</a>
+                <a class="nav-link {{ request()->is('blog') ? 'active' : '' }}" href="{{ route('blog.page') }}">Blog</a>
+                <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact.page') }}">Contact</a>
                 <button type="button" class="nav-link hidemobile" data-bs-toggle="modal" data-bs-target="#a">
                     Tư vấn miễn phí
                 </button>

@@ -66,3 +66,15 @@ Route::get('/contact', function () {
 Route::get('/contentblog', function () {
     return view('Contentblog');
 })->name('contentblog.page');
+
+Route::get('/gioithieu', function () {
+    return view('Gioithieu');
+})->name('gioithieu.page');
+
+Route::get('/giaiphap', function () {
+    return view('Giaiphap');
+})->name('giaiphap.page');
+
+Route::get('/portfolio', function () {
+    return view('Portfolio');
+})->name('portfolio.page');
