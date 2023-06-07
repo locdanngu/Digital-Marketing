@@ -26,9 +26,9 @@
     color: #000000;
 }
 
-.box2fix{
+.box2fix {
 
-   width: 100% !important;
+    width: 100% !important;
 }
 
 .phantubox2 {
@@ -194,51 +194,174 @@
     color: #653FD5;
 }
 
-.fadeimg.active{
+.fadeimg.active {
     display: block;
 }
 
-.fadeimg{
+.fadeimg {
     display: none;
 }
 
-.btnchuyenanh{
+.btnchuyenanh {
     height: .75em;
     width: .75em;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.btnchuyenanh.active{
+.btnchuyenanh.active {
     background-color: #000000;
 }
 
-.leftbox6{
+.leftbox6 {
     background: #FFFFFF;
-box-shadow: 0px 4px 48px rgba(27, 37, 69, 0.09);
-border-radius: 16px;
-padding: 2em;
-width: 22em;
+    box-shadow: 0px 4px 48px rgba(27, 37, 69, 0.09);
+    border-radius: 16px;
+    padding: 2em;
+    width: 22em;
 }
 
-p .bi-check-lg{
+p .bi-check-lg {
     margin-right: 1em !important;
 }
 
-.leftbox6 p:not(.txthead){
+.leftbox6 p:not(.txthead) {
     font-weight: 400;
-font-size: 16px;
-color: #5B5E71;
-display: flex;
+    font-size: 16px;
+    color: #5B5E71;
+    display: flex;
 
 }
 
-.leftbox6 span{
+.leftbox6 span {
     font-weight: 600;
-font-size: 20px;
+    font-size: 20px;
 
-text-transform: uppercase;
+    text-transform: uppercase;
 
-/* Text secondary */
-color: #B8BAC2;
+    /* Text secondary */
+    color: #B8BAC2;
+}
+
+.phantubox2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+
+
+    .box1, .box2, .box2fix div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftbox1, .rightbox1, .phantubox2 {
+        width: 100%;
+    }
+
+    .box.box3, .box.box5 {
+        display: none !important;
+    }
+
+    .txthead {
+        font-size: 24px;
+    }
+
+    .txtfoot {
+        width: 100% !important;
+        font-size: 16px;
+    }
+
+    .box4 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phantubox4 {
+        width: 100%;
+    }
+
+    .hidemobile {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .box6 div {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .leftbox6 {
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
+
+    .rightbox1 img {
+        width: 100%;
+    }
+
+    .box2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phantubox2 {
+        width: 100%;
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+        text-align: left;
+    }
+
+    .box2fix div {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .phantubox3 {
+        align-items: center;
+    }
+
+    .phantubox3 img {
+        width: 22%;
+        height: fit-content;
+    }
+
+    .box4{
+        padding: 0;
+    }
+
+    .anhbox5{
+        width: 100vw;
+    }
+
+    .fadeimg{
+        width: 100%;
+    }
+
+    .footbox5{
+        width: 100% !important;
+        font-size: 1em;
+    }
+
+    .box6 div{
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftbox6{
+        margin: 2em 0 0 0;
+    }
+   
+
+
 }

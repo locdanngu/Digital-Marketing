@@ -24,44 +24,59 @@
     </div>
     <p class="txthead text-center">Quy trình tạo ra sản phẩm</p>
     <div class="box box2 justify-content-between d-flex">
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/vr2.png">
-            <p class="txtbox2">Nhận Brief</p>
-            <p class="txt2box2">Nhận thông tin yêu cầu từ phía khách hàng (client) theo biểu mẫu có sẵn</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Nhận Brief</p>
+                <p class="txt2box2">Nhận thông tin yêu cầu từ phía khách hàng (client) theo biểu mẫu có sẵn</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/vr3.png">
-            <p class="txtbox2">Ý tưởng kịch bản</p>
-            <p class="txt2box2">Lên ý tưởng kịch bản sáng tạo, bứt phá, mới lạ cho TVC / Viral Video</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Ý tưởng kịch bản</p>
+                <p class="txt2box2">Lên ý tưởng kịch bản sáng tạo, bứt phá, mới lạ cho TVC / Viral Video</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/vr4.png">
-            <p class="txtbox2">Ký hợp đồng thực hiện</p>
-            <p class="txt2box2">Ký kết hợp đồng triển khai từ timeline, kịch bản, chi phí,...</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Ký hợp đồng thực hiện</p>
+                <p class="txt2box2">Ký kết hợp đồng triển khai từ timeline, kịch bản, chi phí,...</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/vr5.png">
-            <p class="txtbox2">Tổ chức sản xuất</p>
-            <p class="txt2box2">Tiến hành lựa chọn bối cảnh, đạo cụ, trang phục, casting</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Tổ chức sản xuất</p>
+                <p class="txt2box2">Tiến hành lựa chọn bối cảnh, đạo cụ, trang phục, casting</p>
+            </div>
         </div>
     </div>
     <div class="box box2fix justify-content-center d-flex">
         <div class="d-flex justify-content-between" style="width: 80%;">
-            <div class="phantubox2 d-flex flex-column text-center">
+            <div class="phantubox2">
                 <img src="images/vr6.png">
-                <p class="txtbox2">Shooting</p>
-                <p class="txt2box2">Tiến hành quay TVC/ Viral Video theo đúng kịch bản đã lên</p>
+                <div class="d-flex flex-column">
+                    <p class="txtbox2">Shooting</p>
+                    <p class="txt2box2">Tiến hành quay TVC/ Viral Video theo đúng kịch bản đã lên</p>
+                </div>
             </div>
-            <div class="phantubox2 d-flex flex-column text-center">
+            <div class="phantubox2">
                 <img src="images/vr7.png">
-                <p class="txtbox2">Hậu kỳ</p>
-                <p class="txt2box2">Dựng phim offline: Kĩ xảo, 3D/ 2D Animation, Hậu kì, chỉnh màu, Âm nhạc</p>
+                <div class="d-flex flex-column">
+                    <p class="txtbox2">Hậu kỳ</p>
+                    <p class="txt2box2">Dựng phim offline: Kĩ xảo, 3D/ 2D Animation, Hậu kì, chỉnh màu, Âm nhạc</p>
+                </div>
             </div>
-            <div class="phantubox2 d-flex flex-column text-center">
+            <div class="phantubox2">
                 <img src="images/vr8.png">
-                <p class="txtbox2">Nghiệm thu</p>
-                <p class="txt2box2">Thực hiện nghiệm thu TVC / Viral Video để phát hành phiên bản phù hợp với định dạng
-                    quảng cáo / truyền thông</p>
+                <div class="d-flex flex-column">
+                    <p class="txtbox2">Nghiệm thu</p>
+                    <p class="txt2box2">Thực hiện nghiệm thu TVC / Viral Video để phát hành phiên bản phù hợp với định
+                        dạng
+                        quảng cáo / truyền thông</p>
+                </div>
             </div>
         </div>
     </div>
@@ -113,13 +128,13 @@
         <i class="bi bi-chevron-right" onclick="changeActiveImage('next')"></i>
     </div>
 
-    <div class="d-flex justify-content-center" style="width:100%">
+    <div class="d-flex justify-content-center hidemobile" style="width:100%">
         <p class="footbox5 d-flex justify-content-center text-center" style="width:60%">Sau 1 ngày lên sóng, MV quảng
             cáo của JustaTee x ViettelPay lọt vào Top Trending trên
             Youtube
             với vị trí 40 cùng 600 nghìn lượt xem.</p>
     </div>
-    <div class="box d-flex justify-content-center" style="width:100%;margin:0 !important">
+    <div class="box d-flex justify-content-center hidemobile" style="width:100%;margin:0 !important">
         <div class="box d-flex justify-content-between" style="width: 15%;margin:0 0 2em 0 !important">
             <button class="btnchuyenanh active" onclick="changeImage(0)"></button>
             <button class="btnchuyenanh" onclick="changeImage(1)"></button>

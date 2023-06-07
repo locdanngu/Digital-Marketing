@@ -27,7 +27,7 @@
             <img src="images/kol1.png">
         </div>
     </div>
-    <div class="box box1 d-flex justify-content-between align-items-center">
+    <div class="box box2 d-flex justify-content-between align-items-center">
         <div class="rightbox2">
             <img src="images/kol2.png">
         </div>
@@ -42,7 +42,7 @@
         </div>
 
     </div>
-    <div class="box box1 d-flex justify-content-between align-items-center">
+    <div class="box box4 d-flex justify-content-between align-items-center">
         <div class="leftbox4">
             <p class="txtbox1">Influencer</p>
             <p class="txtbox2">Sở hữu và quản lý danh sách các Influencer có sức ảnh hưởng trong cộng đồng mạng
