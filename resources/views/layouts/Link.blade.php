@@ -10,6 +10,9 @@
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous">
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link type="image/png" sizes="16x16" rel="icon" href="/images/icon.png">
 <link rel="stylesheet" href="/css/Header.css">
 <link rel="stylesheet" href="/css/Footer.css">
 <link rel="stylesheet" href="/css/Popup.css">
+
+

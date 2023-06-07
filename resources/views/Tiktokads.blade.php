@@ -29,9 +29,9 @@
             <p class="txt2box2">Ngay lập tức thu hút sự chú ý của người dùng bằng toàn màn hình tĩnh hoặc động, đem đến
                 tác động trực quan cho thương hiệu của bạn.</p>
             <ul>
-                <li>Thu hút sự chú ý của người dùng thông qua trải nghiệm hình ảnh toàn màn hình.</li>
-                <li>Có nhiều tùy chọn định dạng sáng tạo với màn hình tĩnh hoặc động.</li>
-                <li>Hỗ trợ cả JPG 3 giây và video 3-5 giây.</li>
+                <li class="fixli">Thu hút sự chú ý của người dùng thông qua trải nghiệm hình ảnh toàn màn hình.</li>
+                <li class="fixli">Có nhiều tùy chọn định dạng sáng tạo với màn hình tĩnh hoặc động.</li>
+                <li class="fixli">Hỗ trợ cả JPG 3 giây và video 3-5 giây.</li>
             </ul>
         </div>
         <div class="rightbox1 d-flex justify-content-center">
