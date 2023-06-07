@@ -1,0 +1,40 @@
+.txtbox1{
+    font-weight: 400;
+font-size: 30px;
+
+color: #5B5E71;
+
+
+}
+
+.txt2box1{
+    font-weight: 600;
+font-size: 46px;
+
+color: #151A35;
+}
+
+.txt3box1{
+    font-weight: 400;
+font-size: 16px;
+
+color: #151A35;
+}
+
+.leftbox1,.rightbox1{
+    width: 48%;
+}
+
+
+
+
+
+.imgmocha{
+    margin-top: 2em;
+    width: 100%;
+}
+
+.imgmochaads{
+    width: 40%;
+    align-self: flex-end;
+}

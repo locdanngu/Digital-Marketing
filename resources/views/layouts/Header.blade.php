@@ -8,12 +8,38 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home.page') }}">Trang chủ</a>
-                <a class="nav-link {{ request()->is('gioithieu') ? 'active' : '' }}" href="{{ route('gioithieu.page') }}">Giới thiệu</a>
-                <a class="nav-link {{ request()->is('giaiphap') ? 'active' : '' }}" href="{{ route('giaiphap.page') }}">Giải pháp</a>
-                <a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.page') }}">Portfolio</a>
-                <a class="nav-link {{ request()->is('blog') || request()->is('contentblog') ? 'active' : '' }}" href="{{ route('blog.page') }}">Blog</a>
-                <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact.page') }}">Contact</a>
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
+                    href="{{ route('home.page') }}">Trang chủ</a>
+                <a class="nav-link {{ request()->is('gioithieu') ? 'active' : '' }}"
+                    href="{{ route('gioithieu.page') }}">Giới thiệu</a>
+                <!-- <a class="nav-link {{ request()->is('giaiphap') ? 'active' : '' }}" href="{{ route('giaiphap.page') }}">Giải pháp</a> -->
+                <div class="dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Giải pháp
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('googleads.page') }}">Google Ads</a></li>
+                        <li><a class="dropdown-item" href="{{ route('facebookads.page') }}">Facebook Ads</a></li>
+                        <li><a class="dropdown-item" href="{{ route('tiktokads.page') }}">Tiktok Ads</a></li>
+                        <li><a class="dropdown-item" href="{{ route('creativecontent.page') }}">Create Content</a></li>
+                        <li><a class="dropdown-item" href="{{ route('viralvideo.page') }}">TVC/Viral Videos</a></li>
+                        <li><a class="dropdown-item" href="{{ route('KOL.page') }}">KOLs, Influencers</a></li>
+                        <li><a class="dropdown-item" href="{{ route('booking.page') }}">PR, Booking</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">Dowload bản Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="">Dowload bản Tiếng Anh</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link {{ request()->is('blog') || request()->is('contentblog') ? 'active' : '' }}"
+                    href="{{ route('blog.page') }}">Blog</a>
+                <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+                    href="{{ route('contact.page') }}">Contact</a>
                 <button type="button" class="nav-link hidemobile" data-bs-toggle="modal" data-bs-target="#a">
                     Tư vấn miễn phí
                 </button>
