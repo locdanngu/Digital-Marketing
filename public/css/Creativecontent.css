@@ -210,7 +210,7 @@
     min-height: 8em;
 }
 
-.choiceform1,.choiceform2,.choiceform3,.choiceform4,.choiceform5,.choiceform6 {
+.choiceform1, .choiceform2, .choiceform3, .choiceform4, .choiceform5, .choiceform6 {
     background: #FFFFFF;
     padding: .75em 1em;
     border: 2px solid #B8BAC2;
@@ -220,11 +220,11 @@
     cursor: pointer;
 }
 
-.choiceform1.active,.choiceform2.active,.choiceform3.active,.choiceform4.active,.choiceform5.active,.choiceform6.active {
+.choiceform1.active, .choiceform2.active, .choiceform3.active, .choiceform4.active, .choiceform5.active, .choiceform6.active {
     border: 2px solid #653FD5;
 }
 
-.choiceform1:hover,.choiceform2:hover,.choiceform3:hover,.choiceform4:hover,.choiceform5:hover,.choiceform6:hover {
+.choiceform1:hover, .choiceform2:hover, .choiceform3:hover, .choiceform4:hover, .choiceform5:hover, .choiceform6:hover {
     background: #653FD5;
     color: #FFFFFF;
 }
@@ -289,7 +289,7 @@
     height: 25px;
 }
 
-.quantity,.quantity2,.quantity3 {
+.quantity, .quantity2, .quantity3 {
     display: flex;
     align-items: center;
     margin-bottom: 2em;
@@ -315,32 +315,181 @@ input[type="number"] {
     /* border-radius: 0px 6px 6px 0px; */
 }
 
+.phantubox2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 input.no-spin::-webkit-inner-spin-button,
 input.no-spin::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 /* 
 input.no-spin {
     -moz-appearance: textfield;
 } */
 
 
-.fadeimg.active{
+.fadeimg.active {
     display: block;
 }
 
-.fadeimg{
+.fadeimg {
     display: none;
 }
 
-.btnchuyenanh{
+.btnchuyenanh {
     height: .75em;
     width: .75em;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.btnchuyenanh.active{
+.btnchuyenanh.active {
     background-color: #000000;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    .box1, .box2, .box4 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftbox1, .rightbox1, .phantubox4 {
+        width: 100%;
+    }
+
+    .phantubox2, .phantubox6 {
+        width: 100%;
+    }
+
+    .txtbox3 {
+        font-size: 24px;
+    }
+
+    .box.box3, .box.box5 {
+        display: none !important;
+    }
+
+    .txthead {
+        font-size: 24px;
+    }
+
+    .txtfoot {
+        width: 100% !important;
+        font-size: 1em;
+    }
+
+    .hidemobile {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+
+    .box6 {
+        flex-direction: column;
+    }
+
+    .phantubox6 {
+        margin-bottom: 2em;
+        margin-top: 2em;
+    }
+
+    .hrform {
+        height: 1px;
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
+
+    .rightbox1 img {
+        width: 100%;
+    }
+
+    .txtbox3 {
+        font-size: 28px;
+    }
+
+
+    .txthead {
+        font-size: 28px;
+    }
+
+    .txtfoot {
+        width: 100% !important;
+        font-size: 1.25em;
+    }
+
+    .txtbox1{
+        font-size: 30px;
+    }
+
+
+    .txt2box1{
+        font-size: 1em;
+    }
+
+    .box2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phantubox2{
+        width: 100%;
+        display: flex;
+        flex-direction: row !important ;
+        align-items: center;
+        text-align: left;
+    }
+    .phantubox3{
+        align-items: center;
+    }
+
+    .phantubox3 img{
+        width: 22%;
+        height: fit-content;
+    }
+
+    .box4{
+        padding: 0 !important;
+    }
+
+    .anhbox5{
+        width: 100vw;
+    }
+
+    .fadeimg{
+        width: 100%;
+    }
+
+    .footbox5{
+        width: 100% !important;
+        font-size: 1em;
+    }
+
+    .box6{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phantubox6 {
+        width: 100%;
+        margin-bottom: 2em;
+        margin-top: 2em;
+    }
+
+    .hrform {
+        height: 1px;
+        width: 100%;
+    }
 }

@@ -112,7 +112,7 @@
 @media screen and (max-width: 767px) {
 
     /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình mobile */
-    .box1,.box3,.box4,.box5,.box6,.box8{
+    .box1,.box3,.box4,.box5,.box6{
         display: flex;
         flex-direction: column;
     }

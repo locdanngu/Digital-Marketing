@@ -175,6 +175,11 @@ th {
         font-size: 1em;
     }
 
+    .box8{
+        display: flex;
+        flex-direction: column;
+    }
+
     
 }
 

@@ -25,31 +25,42 @@
     </div>
     <p class="txthead text-center">Quy trình tạo ra sản phẩm</p>
     <div class="box box2 justify-content-between d-flex">
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/cr3.png">
-            <p class="txtbox2">Tìm hiểu</p>
-            <p class="txt2box2">Trao đổi với khách hàng (Client) về mục tiêu kỳ vọng và tìm hiểu các thông tin liên quan
-                để đưa ra giải pháp</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Tìm hiểu</p>
+                <p class="txt2box2">Trao đổi với khách hàng (Client) về mục tiêu kỳ vọng và tìm hiểu các thông tin liên
+                    quan
+                    để đưa ra giải pháp</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/cr4.png">
-            <p class="txtbox2">Lập kế hoạch</p>
-            <p class="txt2box2">Tiến hành ký kết hợp đồng và timeline triển khai sơ bộ</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Lập kế hoạch</p>
+                <p class="txt2box2">Tiến hành ký kết hợp đồng và timeline triển khai sơ bộ</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/cr5.png">
-            <p class="txtbox2">Ký hợp đồng</p>
-            <p class="txt2box2">Lên kế hoạch triển khai chi tiết cho khách hàng (Client)</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Ký hợp đồng</p>
+                <p class="txt2box2">Lên kế hoạch triển khai chi tiết cho khách hàng (Client)</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/cr6.png">
-            <p class="txtbox2">Sản phẩm</p>
-            <p class="txt2box2">Triển khai và xuất bản nội dung theo kế hoạch đã đề ra</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Sản phẩm</p>
+                <p class="txt2box2">Triển khai và xuất bản nội dung theo kế hoạch đã đề ra</p>
+            </div>
         </div>
-        <div class="phantubox2 d-flex flex-column text-center">
+        <div class="phantubox2">
             <img src="images/cr7.png">
-            <p class="txtbox2">Báo cáo</p>
-            <p class="txt2box2">Báo cáo và nghiệm thu kết quả của quá trình sản xuất nội dụng sáng tạo</p>
+            <div class="d-flex flex-column">
+                <p class="txtbox2">Báo cáo</p>
+                <p class="txt2box2">Báo cáo và nghiệm thu kết quả của quá trình sản xuất nội dụng sáng tạo</p>
+            </div>
         </div>
     </div>
     <div class="box box3 d-flex flex-column align-items-center justify-content-between">
@@ -100,13 +111,13 @@
         <i class="bi bi-chevron-right" onclick="changeActiveImage('next')"></i>
     </div>
 
-    <div class="d-flex justify-content-center" style="width:100%">
+    <div class="d-flex justify-content-center hidemobile" style="width:100%">
         <p class="footbox5 d-flex justify-content-center text-center" style="width:60%">Sau 1 ngày lên sóng, MV quảng
             cáo của JustaTee x ViettelPay lọt vào Top Trending trên
             Youtube
             với vị trí 40 cùng 600 nghìn lượt xem.</p>
     </div>
-    <div class="box d-flex justify-content-center" style="width:100%;margin:0 !important">
+    <div class="box d-flex justify-content-center hidemobile" style="width:100%;margin:0 !important">
         <div class="box d-flex justify-content-between" style="width: 15%;margin:0 0 2em 0 !important">
             <button class="btnchuyenanh active" onclick="changeImage(0)"></button>
             <button class="btnchuyenanh" onclick="changeImage(1)"></button>
