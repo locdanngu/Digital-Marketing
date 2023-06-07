@@ -12,7 +12,7 @@
                 <a class="nav-link {{ request()->is('gioithieu') ? 'active' : '' }}" href="{{ route('gioithieu.page') }}">Giới thiệu</a>
                 <a class="nav-link {{ request()->is('giaiphap') ? 'active' : '' }}" href="{{ route('giaiphap.page') }}">Giải pháp</a>
                 <a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.page') }}">Portfolio</a>
-                <a class="nav-link {{ request()->is('blog') ? 'active' : '' }}" href="{{ route('blog.page') }}">Blog</a>
+                <a class="nav-link {{ request()->is('blog') || request()->is('contentblog') ? 'active' : '' }}" href="{{ route('blog.page') }}">Blog</a>
                 <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact.page') }}">Contact</a>
                 <button type="button" class="nav-link hidemobile" data-bs-toggle="modal" data-bs-target="#a">
                     Tư vấn miễn phí
