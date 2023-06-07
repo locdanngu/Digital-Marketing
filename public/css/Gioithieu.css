@@ -38,3 +38,38 @@ color: #151A35;
     width: 40%;
     align-self: flex-end;
 }
+
+@media screen and (max-width: 767px) {
+
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình mobile */
+    .box1{
+        display: flex;
+        flex-direction: column;
+    }
+    .leftbox1,.rightbox1{
+        width: 100% ;
+    }
+
+    .imgmochaads{
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
+
+   
+    .box1{
+        display: flex;
+        flex-direction: column;
+    }
+    .leftbox1,.rightbox1{
+        width: 100% ;
+    }
+
+    .imgmochaads{
+        width: 50%;
+        align-self: center;
+    }
+}

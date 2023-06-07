@@ -67,7 +67,7 @@ border: 0.5px solid #E3E7EC;
 
 .link1tb:hover{
     font-weight: 600;
-    font-size: 16px;
+
     text-decoration: none;
     padding: 1em 2em;
     color: #FFFFFF;
@@ -92,7 +92,7 @@ border: 0.5px solid #E3E7EC;
 
 .link2tb:hover{
     font-weight: 600;
-font-size: 16px;
+
 padding: 1em 2em;
 text-decoration: none;
 color: #151A35;
@@ -132,4 +132,40 @@ text-align: center;
 .imgbox11{
     width: 25%;
     margin-bottom: 1em;
+}
+
+
+@media screen and (max-width: 767px) {
+
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình mobile */
+    .txtbold{
+        font-size: 24px;
+    }
+
+    .phantubox8{
+        width: 100%;
+    }
+
+    .box10{
+        padding: 0;
+    }
+
+    .link1tb,.link2tb{
+        display: flex;
+        width: 100%;
+        padding: .75em;
+        font-size: 0.75em;
+    }
+
+    .link1tb:hover,.link2tb:hover{
+        padding: .75em;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
+
+   
+    
 }

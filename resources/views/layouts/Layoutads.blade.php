@@ -27,10 +27,10 @@
     </div>
 </div>
 <div class="box box9 text-center">
-    <p class="txtbold">Lựa chọn dịch vụ</p>
+    <span class="txtbold">Lựa chọn dịch vụ</span>
     <p class="txtbold">phù hợp cho doanh nghiệp của bạn</p>
 </div>
-<div class="box box10">
+<div class="box10">
     <table>
         <thead>
             <th></th>

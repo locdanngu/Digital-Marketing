@@ -9,7 +9,7 @@
             <button class="btnfoot">Nhận tin tức</button>
         </form>
     </div>
-    <div class="box d-flex justify-content-between">
+    <div class="box d-flex justify-content-between vechungtoifoot">
         <div class="foot1 d-flex flex-column">
             <img src="images/logomocha.png" class="imgfoot1">
             <p class="txt12">Mocha Ads - Hệ thống dịch vụ

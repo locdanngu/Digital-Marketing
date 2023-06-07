@@ -93,12 +93,23 @@ body {
         margin: 0 !important;
     }
 
-    
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
 
+    .hidemobile {
+        display: block;
+        text-align: left;
+    }
 
+    .hidemobilebtntuvan {
+        display: none;
+    }
+
+    .navbar-collapse {
+        margin: 0 !important;
+    }
 
 }

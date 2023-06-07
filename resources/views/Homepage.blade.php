@@ -65,7 +65,8 @@
                 <img src="images/facebook.png">
             </div>
             <p class="txt5 mt-2">Facebook Ads</p>
-            <p class="txtlink">Là đối tác cao cấp của Faceboo với lịch sử đã triển khai hơn 10.000 chiến dịch về thương hiệu & chuyển
+            <p class="txtlink">Là đối tác cao cấp của Faceboo với lịch sử đã triển khai hơn 10.000 chiến dịch về thương
+                hiệu & chuyển
                 đổi cho khách hàng (Clients)</p>
         </a>
         <a href="{{ route('googleads.page') }}" class="boxmini d-flex flex-column align-items-center">
@@ -73,7 +74,8 @@
                 <img src="images/google.png">
             </div>
             <p class="txt5 mt-2">Google Ads</p>
-            <p class="txtlink">+9.800 Chiến dịch quảng cáo được triển khai Google Search, Google Display, Youtube Trueview,
+            <p class="txtlink">+9.800 Chiến dịch quảng cáo được triển khai Google Search, Google Display, Youtube
+                Trueview,
                 Bumper... và
                 là đối tác cấp cao của Google</p>
         </a>
@@ -82,7 +84,8 @@
                 <img src="images/tiktok.png">
             </div>
             <p class="txt5 mt-2">Tiktok Ads</p>
-            <p class="txtlink">+100 chiến dịch quảng cáo trên nền tảng quảng cáo video sáng tạo được triển khai và sự ghi nhận
+            <p class="txtlink">+100 chiến dịch quảng cáo trên nền tảng quảng cáo video sáng tạo được triển khai và sự
+                ghi nhận
                 thành quả
                 của +20 nhãn hàng</p>
         </a>
@@ -98,7 +101,8 @@
                 <img src="images/video.png">
             </div>
             <p class="txt5 mt-2">TVC / Video Viral</p>
-            <p class="txtlink">Biến thông điệp khô cứng thành video sáng tạo với sự thành công của hơn +50 nhãn hàng lớn</p>
+            <p class="txtlink">Biến thông điệp khô cứng thành video sáng tạo với sự thành công của hơn +50 nhãn hàng lớn
+            </p>
         </a>
         <a href="{{ route('booking.page') }}" class="boxmini d-flex flex-column align-items-center">
             <div class="icon">
@@ -113,23 +117,27 @@
                 <img src="images/light.png">
             </div>
             <p class="txt5 mt-2">Content Creative</p>
-            <p class="txtlink">Tiếp cận khách hàng một cách khác biệt thông qua nội dung sáng tạo là cách nhanh nhất để thành
+            <p class="txtlink">Tiếp cận khách hàng một cách khác biệt thông qua nội dung sáng tạo là cách nhanh nhất để
+                thành
                 công</p>
         </a>
-        <div class="boxmini2 d-flex flex-column">
-            <p class="txt5">Dịch vụ chưa phù hợp</p>
+        <div class="d-flex flex-column align-items-center">
+            <div class="boxmini2 d-flex flex-column">
+                <p class="txt5">Dịch vụ chưa phù hợp</p>
 
-            <p>Hãy liên hệ với chúng tôi để được tư vấn dịch vụ phù hợp nhất với bạn!</p>
-            <button class="d-flex fixa" type="button" data-bs-toggle="modal" data-bs-target="#a">
-                <div class="icon2">
-                    <img src="images/letter.png">
-                </div>
-                <div class="d-flex flex-column align-items-baseline">
-                    <span class="contactus">Liên hệ với chúng tôi</span>
-                    <i class="txt6">Ấn để gửi mail</i>
-                </div>
-            </button>
+                <p>Hãy liên hệ với chúng tôi để được tư vấn dịch vụ phù hợp nhất với bạn!</p>
+                <button class="d-flex fixa" type="button" data-bs-toggle="modal" data-bs-target="#a">
+                    <div class="icon2">
+                        <img src="images/letter.png">
+                    </div>
+                    <div class="d-flex flex-column align-items-baseline">
+                        <span class="contactus">Liên hệ với chúng tôi</span>
+                        <i class="txt6">Ấn để gửi mail</i>
+                    </div>
+                </button>
+            </div>
         </div>
+
     </div>
     <div class="box box5">
         <div class="fixbox">

@@ -66,6 +66,10 @@
     justify-content: center;
 }
 
+.imgbox6{
+    width: 100%;
+}
+
 .rightbox5 {
     width: 50%;
     display: flex;
@@ -105,3 +109,32 @@
     color: #151A35;
 }
 
+@media screen and (max-width: 767px) {
+
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình mobile */
+    .box1,.box3,.box4,.box5,.box6,.box8{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box4{
+        flex-direction: column-reverse;
+    }
+
+    .leftbox1,.rightbox1,.leftbox3,.rightbox3,.leftbox4,.leftbox5,.rightbox4,.rightbox5{
+        width: 100%;
+    }
+
+    .txt1box1{
+        font-size: 24px;
+    }
+
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Các quy tắc CSS chỉ áp dụng cho kích cỡ màn hình tablet */
+
+   
+    
+}
