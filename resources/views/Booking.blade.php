@@ -25,7 +25,7 @@
             <img src="images/book1.png">
         </div>
     </div>
-    <div class="box box1 d-flex justify-content-between align-items-center">
+    <div class="box box2 d-flex justify-content-between align-items-center">
         <div class="rightbox2">
             <img src="images/book2.png">
         </div>
