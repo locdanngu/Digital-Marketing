@@ -12,8 +12,8 @@
                 <a class="nav-link" href="#">Giới thiệu</a>
                 <a class="nav-link" href="#">Giải pháp</a>
                 <a class="nav-link" href="#">Portfolio</a>
-                <a class="nav-link" href="#">Blog</a>
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{{ route('blog.page') }}">Blog</a>
+                <a class="nav-link" href="{{ route('contact.page') }}">Contact</a>
                 <button type="button" class="nav-link hidemobile" data-bs-toggle="modal" data-bs-target="#a">
                     Tư vấn miễn phí
                 </button>
