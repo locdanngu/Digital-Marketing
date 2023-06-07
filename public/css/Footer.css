@@ -249,6 +249,10 @@
         width: 86% !important;
     }
 
+
+    .imgfoot1{
+        width: 30%;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

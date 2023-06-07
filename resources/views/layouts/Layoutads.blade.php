@@ -71,10 +71,17 @@
             </tr>
             <tr style="border:0 !important;height:6em !important">
                 <td></td>
-                <td><a href="" class="link1tb">Đăng ký ngay</a></td>
+                <td>
+                    <div style="width:100%" class="d-flex justify-content-center">
+                        <a href="" class="link1tb">Đăng ký ngay</a>
+                    </div>
+                </td>
                 <td
                     style="background-color:white;box-shadow: 0px 0px 48px rgba(27, 37, 69, 0.09);border-radius: 0px 0px 23px 23px;">
-                    <a href="" class="link2tb">Đăng ký ngay</a>
+                    <div style="width:100%" class="d-flex justify-content-center">
+                        <a href="" class="link2tb">Đăng ký ngay</a>
+                    </div>
+
                 </td>
             </tr>
         </tbody>

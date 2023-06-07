@@ -42,7 +42,7 @@
         </div>
 
     </div>
-    <div class="box box4 d-flex justify-content-between">
+    <div class="box box4 d-flex justify-content-between align-items-center">
 
         <div class="leftbox4">
             <img class="imgbox4" src="images/img2box3.png">
@@ -69,7 +69,7 @@
         </div>
 
     </div>
-    <div class="box box6 d-flex">
+    <div class="box box6 d-flex align-items-center">
         <div class="leftbox6">
             <img class="imgbox6" src="images/img4box3.png">
         </div>
