@@ -18,24 +18,24 @@ Route::get('/', function () {
 })->name('home.page');
 
 
-Route::get('/googleads', function () {
+Route::get('/google-ads', function () {
     return view('Googleads');
 })->name('googleads.page');
 
-Route::get('/tiktokads', function () {
+Route::get('/tiktok-ads', function () {
     return view('Tiktokads');
 })->name('tiktokads.page');
 
 
-Route::get('/facebookads', function () {
+Route::get('/facebook-ads', function () {
     return view('Facebookads');
 })->name('facebookads.page');
 
-Route::get('/creativecontent', function () {
+Route::get('/creative-content', function () {
     return view('Creativecontent');
 })->name('creativecontent.page');
 
-Route::get('/viralvideo', function () {
+Route::get('/viral-video', function () {
     return view('Viralvideo');
 })->name('viralvideo.page');
 
@@ -63,18 +63,20 @@ Route::get('/contact', function () {
     return view('Contact');
 })->name('contact.page');
 
-Route::get('/contentblog', function () {
+Route::get('/content-blog', function () {
     return view('Contentblog');
 })->name('contentblog.page');
 
-Route::get('/gioithieu', function () {
+Route::get('/gioi-thieu', function () {
     return view('Gioithieu');
 })->name('gioithieu.page');
 
-Route::get('/giaiphap', function () {
+Route::get('/giai-phap', function () {
     return view('Giaiphap');
 })->name('giaiphap.page');
 
-Route::get('/portfolio', function () {
-    return view('Portfolio');
-})->name('portfolio.page');
+
+
+Route::get('/Admin-home-page', function () {
+    return view('Adminhomepage');
+})->name('adminhomepage.page');
