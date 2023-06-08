@@ -35,6 +35,7 @@
 <script>
 $(document).ready(function() {
     $('#sendformtuvan').click(function() {
+        
         var nameform = $('#nameform').val(); // Lấy giá trị của input có class "a"
         console.log(nameform);
         var emailform = $('#emailform').val(); // Lấy giá trị của input có class "a"
@@ -52,12 +53,14 @@ $(document).ready(function() {
             }, // Dữ liệu gửi đi (giá trị của input)
             success: function(response) {
                 // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                toastr.success(response.message, 'Thành công');
+                toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
             },
             error: function() {
                 // Xử lý lỗi (nếu có)
+                toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
             }
         });
     });
 });
+
 </script>
