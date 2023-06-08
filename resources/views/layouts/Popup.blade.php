@@ -52,7 +52,7 @@ $(document).ready(function() {
             }, // Dữ liệu gửi đi (giá trị của input)
             success: function(response) {
                 // Xử lý phản hồi thành công từ AdminController (nếu cần)
-
+                toastr.success(response.message, 'Thành công');
             },
             error: function() {
                 // Xử lý lỗi (nếu có)

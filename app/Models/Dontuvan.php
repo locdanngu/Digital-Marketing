@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Dontuvan extends Authenticatable
 {
     protected $table = 'dontuvan'; // Tên bảng trong CSDL
     protected $primaryKey = 'idtuvan'; // Tên trường khóa chính
