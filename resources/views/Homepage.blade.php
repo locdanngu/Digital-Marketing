@@ -125,7 +125,6 @@
         <div class="d-flex flex-column align-items-center">
             <div class="boxmini2 d-flex flex-column">
                 <p class="txt5">Dịch vụ chưa phù hợp</p>
-
                 <p>Hãy liên hệ với chúng tôi để được tư vấn dịch vụ phù hợp nhất với bạn!</p>
                 <a href="mailto:tranvanloc96lhp@gmail.com" class="d-flex fixa">
                     <div class="icon2">
