@@ -53,11 +53,11 @@ $(document).ready(function() {
             }, // Dữ liệu gửi đi (giá trị của input)
             success: function(response) {
                 // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                toastr.success('<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới.</b>')
             },
             error: function() {
                 // Xử lý lỗi (nếu có)
-                toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+                toastr.error('<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>')
             }
         });
     });

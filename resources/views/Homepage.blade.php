@@ -127,7 +127,7 @@
                 <p class="txt5">Dịch vụ chưa phù hợp</p>
 
                 <p>Hãy liên hệ với chúng tôi để được tư vấn dịch vụ phù hợp nhất với bạn!</p>
-                <button class="d-flex fixa" type="button" data-bs-toggle="modal" data-bs-target="#a">
+                <a href="mailto:tranvanloc96lhp@gmail.com" class="d-flex fixa">
                     <div class="icon2">
                         <img src="images/letter.png">
                     </div>
@@ -135,7 +135,7 @@
                         <span class="contactus">Liên hệ với chúng tôi</span>
                         <i class="txt6">Ấn để gửi mail</i>
                     </div>
-                </button>
+                </a>
             </div>
         </div>
 
