@@ -8,6 +8,13 @@ use Hash;
 
 class AdminController extends Controller
 {
+
+    public function adminhomepage(Request $request)
+    {
+        $user = Auth::user();
+        return view('Adminhomepage', ['user' => $user]);
+    }
+
     public function registerformadmin(Request $request)
     {
         if (Auth::check()) {

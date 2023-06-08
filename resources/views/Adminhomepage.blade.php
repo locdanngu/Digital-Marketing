@@ -139,14 +139,32 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="bi bi-person"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            Cài đặt thông tin
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            Chỉnh sửa mật khẩu
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-logout">
+                            Đăng xuất
+                        </button>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="bi bi-arrows-fullscreen"></i>
+                        <i class="bi bi-arrows-fullscreen"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="bi bi-microsoft"></i>
+                        <i class="bi bi-microsoft"></i>
                     </a>
                 </li>
             </ul>
@@ -156,21 +174,21 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ route('adminhome.page') }}" class="brand-link justify-content-center d-flex">
+            <!-- <a href="{{ route('adminhome.page') }}" class="brand-link justify-content-center d-flex">
                 <img src="images/icon.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <!-- <i class="bi bi-badge-ad"></i> -->
+                <i class="bi bi-badge-ad"></i>
                 <span class="brand-text font-weight-light">Admin</span>
-            </a>
+            </a> -->
 
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="">
+                        <img src="{{ $user->avatar }}" class="img-circle elevation-2" alt="">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{ $user->name }}</a>
                     </div>
                 </div>
 
@@ -191,15 +209,11 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon bi bi-house-door-fill"></i>
-                                <p>
-                                    Trang điều hành
-                                    <!-- <i class="right fas fa-angle-left"></i> -->
-                                </p>
+                                <p>Trang điều hành</p>
                             </a>
                             <!-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -1106,24 +1120,11 @@
             </div>
             <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
+        @include('layouts.Modalpopupadmin')
+        @include('layouts.Footadmin')
     </div>
-    @include('layouts.Footadmin')
+
+    @include('layouts.Footlinkadmin')
 </body>
 
 </html>

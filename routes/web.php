@@ -42,7 +42,7 @@ Route::get('/gioi-thieu', function () { return view('Gioithieu'); })->name('gioi
 
 Route::get('/giai-phap', function () { return view('Giaiphap'); })->name('giaiphap.page');
 
-Route::get('/Admin-home-page', function () { return view('Adminhomepage'); })->name('adminhome.page');
+Route::get('/Admin-home-page', [AdminController::class, 'adminhomepage'])->name('adminhome.page');
 
 Route::get('/Admin-login', [AdminController::class, 'registerformadmin'])->name('adminlogin.page');
 
