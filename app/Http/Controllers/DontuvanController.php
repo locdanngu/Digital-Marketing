@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
+use App\Models\Dontuvan;
 
 
 class DontuvanController extends Controller
@@ -11,9 +11,12 @@ class DontuvanController extends Controller
     public function senddontuvan(Request $request)
     {
         $input = $request->all();
-        
-        $html ='';
-        return response()->json(['html' => $html]);
+        $dontuvan = Dontuvan::create([
+            'name' => $input['nameform'],
+            'email' => $input['email'],
+            'phone' => $input['phone'],
+            'review' => $input['review'],
+        ]);
     }
     
     
