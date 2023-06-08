@@ -43,6 +43,11 @@
                         <p style="color:red">{{ $message }}</p>
                     </div>
                     @enderror
+                    @error('error')
+                    <div class="input-group">
+                        <p style="color:red">{{ $message }}</p>
+                    </div>
+                    @enderror
                     <div class="row d-flex justify-content-center">
                         <div class="">
                             <button type="submit" class="btn btn-primary btn-block">Đăng nhập hệ thống</button>
