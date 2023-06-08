@@ -32,4 +32,25 @@ class AdminController extends Controller
         }
     }
 
+
+    public function loginadmin(Request $request)
+    {
+        // Kiểm tra tính hợp lệ của đầu vào
+        $this->validate($request, ['email' => 'required|email',
+                                'password' => 'required|min:6']);
+
+        // Lấy thông tin đăng nhập từ đầu vào
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Nếu đăng nhập thành công, kiểm tra vai trò của người dùng
+            $user = Auth::user();
+            // Chuyển hướng đến trang người dùng
+            return redirect()->route('adminhome.page');
+        } else {
+            // Nếu đăng nhập không thành công, chuyển hướng đến trang đăng nhập và hiển thị thông báo lỗi
+            return redirect()->back()->withErrors(['email' => 'Sai email hoặc mật khẩu']);
+        }
+    }
+
 }

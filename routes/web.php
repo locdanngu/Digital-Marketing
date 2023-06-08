@@ -49,3 +49,4 @@ Route::get('/Admin-login', function () { return view('Loginadmin'); })->name('ad
 Route::get('/Admin-register', function () { return view('Registeradmin'); })->name('adminregister.page');
 
 Route::post('/registeradmin', [AdminController::class, 'registeradmin'])->name('registeradmin'); 
+Route::post('/loginadmin', [AdminController::class, 'loginadmin'])->name('loginadmin');

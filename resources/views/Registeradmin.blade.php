@@ -64,12 +64,12 @@
                         </div>
                     </div>
                     @error('password')
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <p style="color:red">{{ $message }}</p>
                     </div>
                     @enderror
                     @error('email')
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <p style="color:red">{{ $message }}</p>
                     </div>
                     @enderror
