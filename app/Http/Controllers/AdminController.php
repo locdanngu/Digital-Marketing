@@ -8,6 +8,25 @@ use Hash;
 
 class AdminController extends Controller
 {
+    public function registerformadmin(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->route('adminhome.page');
+        }else{
+            return view('Registeradmin');
+        }
+    }
+
+    public function loginformadmin(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->route('adminhome.page');
+        }else{
+            return view('Loginadmin');
+        }
+    }
+
+
     public function registeradmin(Request $request)
     {
         $input = $request->all();

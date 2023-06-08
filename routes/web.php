@@ -44,9 +44,9 @@ Route::get('/giai-phap', function () { return view('Giaiphap'); })->name('giaiph
 
 Route::get('/Admin-home-page', function () { return view('Adminhomepage'); })->name('adminhome.page');
 
-Route::get('/Admin-login', function () { return view('Loginadmin'); })->name('adminlogin.page');
+Route::get('/Admin-login', [AdminController::class, 'registerformadmin'])->name('adminlogin.page');
 
-Route::get('/Admin-register', function () { return view('Registeradmin'); })->name('adminregister.page');
+Route::get('/Admin-register', [AdminController::class, 'loginformadmin'])->name('adminregister.page');
 
 Route::post('/registeradmin', [AdminController::class, 'registeradmin'])->name('registeradmin'); 
 Route::post('/loginadmin', [AdminController::class, 'loginadmin'])->name('loginadmin');
