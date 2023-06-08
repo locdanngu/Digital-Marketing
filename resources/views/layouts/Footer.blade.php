@@ -29,7 +29,7 @@
         <div class="foot2 d-flex flex-column">
             <p class="txt13">Về chúng tôi</p>
             <a href="{{ route('brief.page') }}" class="txt14">Brief</a>
-            <a href="{{ route('portfolio.page') }}" class="txt14">Portfolio</a>
+            <a href="#" class="txt14">Portfolio</a>
             <a href="{{ route('blog.page') }}" class="txt14">Blog</a>
             <a href="{{ route('contact.page') }}" class="txt14">Liên hệ</a>
         </div>
@@ -88,27 +88,35 @@
 <script>
 $(document).ready(function() {
     $('#sendemailnhanthongbao').click(function() {
+
         var emailnhanthongbao = $('#emailnhanthongbao').val(); // Lấy giá trị của input có class "a"
-        $.ajax({
-            url: '{{ route("sendemailnhanthongbao") }}', // Đường dẫn đến AdminController
-            method: 'POST', // Phương thức HTTP để gửi dữ liệu
-            data: {
-                _token: '{{ csrf_token() }}',
-                emailnhanthongbao: emailnhanthongbao,
-            }, // Dữ liệu gửi đi (giá trị của input)
-            success: function(response) {
-                // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                toastr.success(
-                    '<b>Đăng ký nhận thông báo thành công.</b>'
-                )
-            },
-            error: function() {
-                // Xử lý lỗi (nếu có)
-                toastr.error(
-                    '<b>Tài khoản email đã được đăng ký nhận thông báo trước đó</b>'
-                )
-            }
-        });
+        if (emailnhanthongbao) {
+            $.ajax({
+                url: '{{ route("sendemailnhanthongbao") }}', // Đường dẫn đến AdminController
+                method: 'POST', // Phương thức HTTP để gửi dữ liệu
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    emailnhanthongbao: emailnhanthongbao,
+                }, // Dữ liệu gửi đi (giá trị của input)
+                success: function(response) {
+                    // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                    toastr.success(
+                        '<b>Đăng ký nhận thông báo thành công.</b>'
+                    )
+                },
+                error: function() {
+                    // Xử lý lỗi (nếu có)
+                    toastr.error(
+                        '<b>Tài khoản email đã được đăng ký nhận thông báo trước đó</b>'
+                    )
+                }
+            });
+        } else {
+            toastr.error(
+                '<b>Vui lòng nhập Email trước</b>'
+            )
+        }
+
     });
 });
 </script>

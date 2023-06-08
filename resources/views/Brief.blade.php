@@ -81,7 +81,7 @@
         <div class="phantubox2 d-flex flex-column justify-content-between text-center">
             <p class="txtbox1">Tư vấn miễn phí</p>
             <p class="txt2box1">Tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?</p>
-            <a href="" class="d-flex fixa" style="justify-content: left;">
+            <a href="mailto:tranvanloc96lhp@gmail.com" class="d-flex fixa" style="justify-content: left;">
                 <div class="icon2" style="margin-right:1em">
                     <img src="images/letter.png">
                 </div>

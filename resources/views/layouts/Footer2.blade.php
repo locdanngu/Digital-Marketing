@@ -19,7 +19,7 @@
         <div class="foot2 d-flex flex-column">
             <p class="txt13">Về chúng tôi</p>
             <a href="{{ route('brief.page') }}" class="txt14">Brief</a>
-            <a href="{{ route('portfolio.page') }}" class="txt14">Portfolio</a>
+            <a href="#" class="txt14">Portfolio</a>
             <a href="{{ route('blog.page') }}" class="txt14">Blog</a>
             <a href="{{ route('contact.page') }}" class="txt14">Liên hệ</a>
         </div>
