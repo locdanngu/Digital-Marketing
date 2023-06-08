@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @extends('layouts.Link')
     <link rel="stylesheet" href="/css/Homepage.css">
     <title>Home Page</title>
@@ -249,7 +250,7 @@
         </div>
     </div>
 
-
+    
 </body>
 @include('layouts.Footer')
 

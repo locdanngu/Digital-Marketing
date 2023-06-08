@@ -42,10 +42,11 @@ Route::get('/gioi-thieu', function () { return view('Gioithieu'); })->name('gioi
 
 Route::get('/giai-phap', function () { return view('Giaiphap'); })->name('giaiphap.page');
 
+Route::post('/senddontuvan', [DontuvanController::class, 'senddontuvan'])->name('senddontuvan');
+
+
 Route::get('/Admin-home-page', [AdminController::class, 'adminhomepage'])->middleware('user')->name('adminhome.page');
-
 Route::get('/Admin-login', [AdminController::class, 'loginformadmin'])->name('adminlogin.page');
-
 Route::get('/Admin-register', [AdminController::class, 'registerformadmin'])->name('adminregister.page');
 
 Route::post('/registeradmin', [AdminController::class, 'registeradmin'])->name('registeradmin'); 

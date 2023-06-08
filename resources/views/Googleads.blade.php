@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @extends('layouts.Link')
     <link rel="stylesheet" href="/css/Googleads.css">
     <link rel="stylesheet" href="/css/Layoutads.css">

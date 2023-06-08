@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @extends('layouts.Link')
     <link rel="stylesheet" href="/css/Contact.css">
     <link rel="stylesheet" href="/css/Layoutads.css">
@@ -58,11 +59,13 @@
             <div class="d-flex mt-4 mb-3">
                 <img src="images/contact3.png">
                 <div class="d-flex flex-column justify-content-between" style="margin-left:1em">
-                    <a href="" class="txtformbox6 text-decoration-none" style="color: #653FD5;">duongtv2@viettel.com.vn</a>
-                    <a href="" class="txtformbox6 text-decoration-none" style="color: #653FD5;">linhntd1@viettel.com.vn</a>
+                    <a href="" class="txtformbox6 text-decoration-none"
+                        style="color: #653FD5;">duongtv2@viettel.com.vn</a>
+                    <a href="" class="txtformbox6 text-decoration-none"
+                        style="color: #653FD5;">linhntd1@viettel.com.vn</a>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <div class="box">

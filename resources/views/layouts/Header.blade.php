@@ -10,11 +10,18 @@
             <div class="navbar-nav">
                 <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
                     href="{{ route('home.page') }}">Trang chủ</a>
-                <a class="nav-link {{ request()->is('gioithieu') ? 'active' : '' }}"
+                <a class="nav-link {{ request()->is('gioi-thieu') ? 'active' : '' }}"
                     href="{{ route('gioithieu.page') }}">Giới thiệu</a>
                 <!-- <a class="nav-link {{ request()->is('giaiphap') ? 'active' : '' }}" href="{{ route('giaiphap.page') }}">Giải pháp</a> -->
                 <div class="dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link {{ request()->is('google-ads') 
+                                       || request()->is('facebook-ads')
+                                       || request()->is('tiktok-ads')
+                                       || request()->is('creative-content')
+                                       || request()->is('viral-video')
+                                       || request()->is('KOL')
+                                       || request()->is('booking') ? 'active' : '' }}" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Giải pháp
                     </a>
                     <ul class="dropdown-menu">
