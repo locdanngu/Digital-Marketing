@@ -35,31 +35,40 @@
 <script>
 $(document).ready(function() {
     $('#sendformtuvan').click(function() {
-        
         var nameform = $('#nameform').val(); // Lấy giá trị của input có class "a"
         var emailform = $('#emailform').val(); // Lấy giá trị của input có class "a"
         var phoneform = $('#phoneform').val(); // Lấy giá trị của input có class "a"
         var reviewform = $('#reviewform').val(); // Lấy giá trị của input có class "a"
-        $.ajax({
-            url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
-            method: 'POST', // Phương thức HTTP để gửi dữ liệu
-            data: {
-                _token: '{{ csrf_token() }}',
-                nameform: nameform,
-                emailform: emailform,
-                phoneform: phoneform,
-                reviewform: reviewform,
-            }, // Dữ liệu gửi đi (giá trị của input)
-            success: function(response) {
-                // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                toastr.success('<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới.</b>')
-            },
-            error: function() {
-                // Xử lý lỗi (nếu có)
-                toastr.error('<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>')
-            }
-        });
+        if (nameform || emailform || phoneform || reviewform) {
+            $.ajax({
+                url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
+                method: 'POST', // Phương thức HTTP để gửi dữ liệu
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    nameform: nameform,
+                    emailform: emailform,
+                    phoneform: phoneform,
+                    reviewform: reviewform,
+                }, // Dữ liệu gửi đi (giá trị của input)
+                success: function(response) {
+                    // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                    toastr.success(
+                        '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới.</b>'
+                    )
+                },
+                error: function() {
+                    // Xử lý lỗi (nếu có)
+                    toastr.error(
+                        '<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>'
+                    )
+                }
+            });
+        } else {
+            toastr.error(
+                '<b>Vui lòng điền đầy đủ tất cả thông tin.</b>'
+            )
+        }
+
     });
 });
-
 </script>
