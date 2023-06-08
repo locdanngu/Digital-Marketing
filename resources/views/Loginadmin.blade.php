@@ -72,7 +72,7 @@
             <!-- /.login-card-body -->
         </div>
     </div>
-    @include('layouts.Footadmin')
+  
 </body>
 
 </html>

@@ -107,7 +107,7 @@
             <!-- /.form-box -->
         </div><!-- /.card -->
     </div>
-    @include('layouts.Footadmin')
+    
 </body>
 
 </html>

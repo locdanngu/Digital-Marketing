@@ -8,7 +8,6 @@ use Hash;
 
 class AdminController extends Controller
 {
-
     public function adminhomepage(Request $request)
     {
         $user = Auth::user();
@@ -77,6 +76,12 @@ class AdminController extends Controller
             // Nếu đăng nhập không thành công, chuyển hướng đến trang đăng nhập và hiển thị thông báo lỗi
             return redirect()->back()->withErrors(['email' => 'Sai email hoặc mật khẩu']);
         }
+    }
+
+    public function logoutadmin(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route('loginadmin');
     }
 
 }
