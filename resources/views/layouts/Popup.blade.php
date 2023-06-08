@@ -37,7 +37,6 @@ $(document).ready(function() {
     $('#sendformtuvan').click(function() {
         
         var nameform = $('#nameform').val(); // Lấy giá trị của input có class "a"
-        console.log(nameform);
         var emailform = $('#emailform').val(); // Lấy giá trị của input có class "a"
         var phoneform = $('#phoneform').val(); // Lấy giá trị của input có class "a"
         var reviewform = $('#reviewform').val(); // Lấy giá trị của input có class "a"

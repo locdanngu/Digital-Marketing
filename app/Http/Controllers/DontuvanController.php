@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dontuvan;
-
+use App\Models\Emailthongbao;
 
 
 class DontuvanController extends Controller
@@ -20,6 +20,21 @@ class DontuvanController extends Controller
         ]);
     }
     
+    
+    public function sendemailnhanthongbao(Request $request)
+    {
+        $input = $request->all();
+        $kiemtra = Emailthongbao::where('email', $input['emailnhanthongbao'])->first();
+        
+        if ($kiemtra) {
+            return error();    
+        }else{
+            $emailthongbao = Emailthongbao::create([
+                'email' => $input['emailnhanthongbao'],
+            ]);
+        }
+        
+    }
     
 
 }

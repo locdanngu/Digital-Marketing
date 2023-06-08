@@ -3,11 +3,11 @@
         <span class="txt10">Cập nhật xu hướng</span>
         <p class="txt10">TRUYỀN THÔNG QUẢNG CÁO ĐA KÊNH</p>
         <p class="txt11">Đừng bỏ lỡ thông tin mới nhất về ngành truyền thông quảng cáo, đón đầu xu thế bạn nhé!</p>
-        <form class="d-flex formfoot mt-3">
-            @csrf
-            <input class="inputfoot" required name="email" type="email" placeholder="Địa chỉ email của bạn là">
-            <button class="btnfoot">Nhận tin tức</button>
-        </form>
+        <div class="d-flex formfoot mt-3">
+            <input class="inputfoot" required name="email" type="email" placeholder="Địa chỉ email của bạn là"
+                name="emailnhanthongbao" id="emailnhanthongbao">
+            <button class="btnfoot" id="sendemailnhanthongbao">Nhận tin tức</button>
+        </div>
     </div>
     <div class="box d-flex justify-content-between vechungtoifoot">
         <div class="foot1 d-flex flex-column">
@@ -84,3 +84,31 @@
         </div>
     </div>
 </footer>
+
+<script>
+$(document).ready(function() {
+    $('#sendemailnhanthongbao').click(function() {
+        var emailnhanthongbao = $('#emailnhanthongbao').val(); // Lấy giá trị của input có class "a"
+        $.ajax({
+            url: '{{ route("sendemailnhanthongbao") }}', // Đường dẫn đến AdminController
+            method: 'POST', // Phương thức HTTP để gửi dữ liệu
+            data: {
+                _token: '{{ csrf_token() }}',
+                emailnhanthongbao: emailnhanthongbao,
+            }, // Dữ liệu gửi đi (giá trị của input)
+            success: function(response) {
+                // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                toastr.success(
+                    '<b>Đăng ký nhận thông báo thành công.</b>'
+                )
+            },
+            error: function() {
+                // Xử lý lỗi (nếu có)
+                toastr.error(
+                    '<b>Tài khoản email đã được đăng ký nhận thông báo trước đó</b>'
+                )
+            }
+        });
+    });
+});
+</script>
