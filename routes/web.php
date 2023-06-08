@@ -79,4 +79,4 @@ Route::get('/giai-phap', function () {
 
 Route::get('/Admin-home-page', function () {
     return view('Adminhomepage');
-})->name('adminhomepage.page');
+})->name('adminhome.page');
