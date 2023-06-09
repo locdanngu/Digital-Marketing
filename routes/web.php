@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/NSP', function () { return view('NSP'); })->name('NSP.page');
+Route::get('/NSP2', function () { return view('NSP2'); })->name('NSP2.page');
+Route::get('/NSP-korean', function () { return view('Korean_NSP'); })->name('Korean_NSP.page');
+Route::get('/NSP2-korean', function () { return view('Korean_NSP2'); })->name('Korean_NSP2.page');
+
 Route::get('/', function () { return view('Homepage'); })->name('home.page');
 
 Route::get('/google-ads', function () { return view('Googleads'); })->name('googleads.page');

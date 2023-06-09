@@ -1,0 +1,68 @@
+@media screen and (max-width: 480px) {
+    body {
+        margin: 0;
+
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    p {
+        text-align: center;
+        margin: 6px 0 !important;
+        Font-family: 'Noto Sans KR';
+    }
+
+    header {
+        margin: 1.5em 0 !important;
+    }
+    .txtheader {
+        font-style: medium;
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 600;
+        
+    }
+
+    main {
+        padding: 0 10% 0 10% !important;
+    }
+
+    .box {
+
+        text-align: center;
+        margin: 2em 0;
+    }
+
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+    }
+
+    footer {
+        display: flex;
+
+        justify-content: center;
+        padding: 2em 0;
+    }
+
+    footer div {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .txt1box2{
+        font-size: 32px;
+font-weight: bold;
+    }
+
+    .txt2box2{
+       color: #6A6A6A;
+       font-size: 22px; 
+    }
+    
+}
