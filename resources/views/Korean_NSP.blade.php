@@ -18,7 +18,7 @@
     <main>
         <div class="box box1">
             <img src="images/nsp.png">
-            <p>NSP는 한국에 본사를 둔 
+            <p>NSP는 한국에 본사를 둔
             </p>
             <p>자동차 부품 제조, 공급 및 판매 회사입니다. </p>
             <p>우리는 합리적인 가격으로 최고의 품질을 제공합니다.</p>
@@ -71,15 +71,17 @@
             <p class="txt3box3">서비스와 관련된 신상품 소식, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다.</p>
             <p class="txt3box3">입력하신 개인정보는 내부 방침에 의해 보호되며 외부로 유출되지 않습니다.</p>
             <div class="footbox3">
-                <div>
-                    <input type="checkbox" class="checkbox" id="cb1">
+                <label class="container">
+                    <input type="checkbox" checked="checked" id="cb1">
+                    <span class="checkmark"></span>
                     <label>동의함</label>
-                </div>
-                <div style="width: 10%;"></div>
-                <div>
-                    <input type="checkbox" class="checkbox" id="cb2">
+                </label>
+                <div style="width: 20%;"></div>
+                <label class="container">
+                    <input type="checkbox" checked="checked" id="cb2">
+                    <span class="checkmark"></span>
                     <label>동의안함</label>
-                </div>
+                </label>
             </div>
             <p id="errortext3"><i class="bi bi-exclamation-circle-fill"></i> 개인정보 수집 동의에 체크해주세요</p>
             <div>
@@ -117,7 +119,7 @@
         var isChecked1 = document.getElementById("cb1").checked;
         var isChecked2 = document.getElementById("cb2").checked;
         var errorText3 = document.getElementById("errortext3");
-        
+
         if (nameInput === "" && emailInput === "") {
             errorText.style.display = "block";
             errorText2.style.display = "block";

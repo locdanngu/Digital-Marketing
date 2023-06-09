@@ -74,15 +74,17 @@
                 Thông tin trên được thu thập nhằm cung cấp đến quý khách thông</p>
             <p class="txt3box3">tin sản phẩm mới, thông tin sự kiện, quyền lợi khách hàng liên quan đến dịch vụ.</p>
             <div class="footbox3">
-                <div>
-                    <input type="checkbox" class="checkbox" id="cb1">
+                <label class="container">
+                    <input type="checkbox" checked="checked" id="cb1">
+                    <span class="checkmark"></span>
                     <label>Đồng ý,</label>
-                </div>
-                <div style="width: 10%;"></div>
-                <div>
-                    <input type="checkbox" class="checkbox" id="cb2">
+                </label>
+                <div style="width: 20%;"></div>
+                <label class="container">
+                    <input type="checkbox" checked="checked" id="cb2">
+                    <span class="checkmark"></span>
                     <label>Không đồng ý</label>
-                </div>
+                </label>
             </div>
             <p id="errortext3"><i class="bi bi-exclamation-circle-fill"></i> Vui lòng chọn Đồng ý với việc Thu thập
                 thông tin cá nhân nhằm mục đích tiếp thị để hoàn tất</p>
@@ -119,7 +121,7 @@
         var isChecked1 = document.getElementById("cb1").checked;
         var isChecked2 = document.getElementById("cb2").checked;
         var errorText3 = document.getElementById("errortext3");
-        
+
         if (nameInput === "" && emailInput === "") {
             errorText.style.display = "block";
             errorText2.style.display = "block";
