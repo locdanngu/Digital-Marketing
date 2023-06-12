@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/NSP.css">
+    <link rel="stylesheet" href="assets/css/NSP-Form.css">
     <title>NSP Korean page</title>
 </head>
 
@@ -17,7 +17,7 @@
     <hr>
     <main>
         <div class="box box1">
-            <img src="images/nsp.png">
+            <img src="assets/img/nsp.png">
             <p>NSP는 한국에 본사를 둔
             </p>
             <p>자동차 부품 제조, 공급 및 판매 회사입니다. </p>
@@ -72,13 +72,13 @@
             <p class="txt3box3">입력하신 개인정보는 내부 방침에 의해 보호되며 외부로 유출되지 않습니다.</p>
             <div class="footbox3">
                 <label class="container">
-                    <input type="checkbox" checked="checked" id="cb1">
+                    <input type="checkbox" checked="checked" id="cb1" onchange="toggleCheckbox('cb1', 'cb2')">
                     <span class="checkmark"></span>
                     <label>동의함</label>
                 </label>
                 <div style="width: 20%;"></div>
                 <label class="container">
-                    <input type="checkbox" checked="checked" id="cb2">
+                    <input type="checkbox" checked="checked" id="cb2" onchange="toggleCheckbox('cb2', 'cb1')">
                     <span class="checkmark"></span>
                     <label>동의안함</label>
                 </label>
@@ -93,9 +93,9 @@
     <hr>
     <footer>
         <div>
-            <a href=""><img src="images/ins.png" class="icon"></a>
-            <a href=""><img src="images/fb.png" class="icon"></a>
-            <a href=""><img src="images/yt.png" class="icon"></a>
+            <a href=""><img src="assets/img/ins.png" class="icon"></a>
+            <a href=""><img src="assets/img/fb.png" class="icon"></a>
+            <a href=""><img src="assets/img/yt.png" class="icon"></a>
         </div>
     </footer>
 
@@ -107,6 +107,15 @@
         var labelWidth = inputWrapper.querySelector('.label').offsetWidth + 35;
         inputWrapper.querySelector('input').style.paddingLeft = labelWidth + 'px';
     });
+
+    function toggleCheckbox(checkboxId, otherCheckboxId) {
+        var checkbox = document.getElementById(checkboxId);
+        var otherCheckbox = document.getElementById(otherCheckboxId);
+
+        if (checkbox.checked) {
+            otherCheckbox.checked = false;
+        }
+    }
 
     function sendForm(event) {
         event.preventDefault();

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/NSP.css">
-    <title>NSP page</title>
+    <link rel="stylesheet" href="assets/css/NSP-Form.css">
+    <title>NSP Ver Viet Page</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <hr>
     <main>
         <div class="box box1">
-            <img src="images/nsp.png">
+            <img src="assets/img/nsp.png">
             <p>NSP Co., Ltd. Là công ty sản xuất, cung cấp và kinh doanh phụ tùng và linh
             </p>
             <p>kiện ô tô có trụ sở tại Hàn Quốc. Chúng tôi mang đến những sản phẩm</p>
@@ -75,13 +75,13 @@
             <p class="txt3box3">tin sản phẩm mới, thông tin sự kiện, quyền lợi khách hàng liên quan đến dịch vụ.</p>
             <div class="footbox3">
                 <label class="container">
-                    <input type="checkbox" checked="checked" id="cb1">
+                    <input type="checkbox" checked="checked" id="cb1" onchange="toggleCheckbox('cb1', 'cb2')">
                     <span class="checkmark"></span>
                     <label>Đồng ý,</label>
                 </label>
                 <div style="width: 20%;"></div>
                 <label class="container">
-                    <input type="checkbox" checked="checked" id="cb2">
+                    <input type="checkbox" checked="checked" id="cb2" onchange="toggleCheckbox('cb2', 'cb1')">
                     <span class="checkmark"></span>
                     <label>Không đồng ý</label>
                 </label>
@@ -97,9 +97,9 @@
     <hr>
     <footer>
         <div>
-            <a href=""><img src="images/ins.png" class="icon"></a>
-            <a href=""><img src="images/fb.png" class="icon"></a>
-            <a href=""><img src="images/yt.png" class="icon"></a>
+            <a href=""><img src="assets/img/ins.png" class="icon"></a>
+            <a href=""><img src="assets/img/fb.png" class="icon"></a>
+            <a href=""><img src="assets/img/yt.png" class="icon"></a>
         </div>
     </footer>
 
@@ -109,6 +109,15 @@
         var labelWidth = inputWrapper.querySelector('.label').offsetWidth + 35;
         inputWrapper.querySelector('input').style.paddingLeft = labelWidth + 'px';
     });
+
+    function toggleCheckbox(checkboxId, otherCheckboxId) {
+        var checkbox = document.getElementById(checkboxId);
+        var otherCheckbox = document.getElementById(otherCheckboxId);
+
+        if (checkbox.checked) {
+            otherCheckbox.checked = false;
+        }
+    }
 
     function sendForm(event) {
         event.preventDefault();
