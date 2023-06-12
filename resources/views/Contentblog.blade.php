@@ -55,7 +55,7 @@
                     điểm lưu ý nhỏ: Đừng cố gắng đề cập tất cả “thành tích” của bạn trên nền tảng online như là các
                     trang mạng xã hội nghìn followers.</p>
                 <p class="txtcontent3">Top kỹ năng và hiểu biết cần có của Digital Marketer</p>
-                <p class="txtcontent3">1. Video</p>
+                <p class="txtcontent3" style="font-weight:bold">1. Video</p>
                 <p class="txtcontent3">Có một thống kê chỉ ra rằng “Trong thời đại mà người dùng bị bủa vây bởi quá
                     nhiều thông tin, mức độ tập trung của chúng ta giảm xuống khoảng 8,25 giây”. Vì vậy để thu hút được
                     sự chú ý của người dùng online chưa bao giờ là chuyện dễ dàng. Các nghiên cứu đã cho thấy video giúp
@@ -63,7 +63,7 @@
                     nhưng bạn có thể học cách tạo ra một video cơ bản. Hiểu cách viết kịch bản, sử dụng các nền tảng và
                     apps để tạo ra video và các yếu tố ảnh hưởng của video sẽ là điểm cộng lớn cho bạn khi ứng tuyển cho
                     công việc digital marketing.</p>
-                <p class="txtcontent3">2. SEO & SEM</p>
+                <p class="txtcontent3" style="font-weight:bold">2. SEO & SEM</p>
                 <p class="txtcontent3">Tìm kiếm online điều hướng quảng cáo digital. Bạn phải hiểu về tối ưu hóa công cụ
                     tìm kiếm (SEO) và SEM (search engine marketing) nếu muốn làm việc trong ngành này. Bạn đừng cảm thấy
                     quá lo lắng về sử dụng back-end. Hiểu về tầm quan trọng của SEO và cách ứng dụng của nó trong ngành
