@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ request()->is('don-dang-ky-tu-van') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('don-dang-ky-tu-van', 'don-tra-loi-tu-van', 'danh-sach-don-tu-van') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-card-text"></i>
                         <p>
                             Đơn đăng ký tư vấn
@@ -45,13 +45,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('oldcontact.page') }}" class="nav-link {{ request()->is('don-tra-loi-tu-van') ? 'active' : '' }}">
                                 <i class="bi bi-envelope-check-fill nav-icon"></i>
                                 <p>Đơn đã trả lời</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('listcontact.page') }}" class="nav-link {{ request()->is('danh-sach-don-tu-van') ? 'active' : '' }}">
                                 <i class="bi bi-file-text nav-icon"></i>
                                 <p>Thống kê đơn</p>
                             </a>
