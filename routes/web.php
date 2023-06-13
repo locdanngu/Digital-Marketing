@@ -58,3 +58,7 @@ Route::get('/Admin-register', [AdminController::class, 'registerformadmin'])->na
 Route::post('/registeradmin', [AdminController::class, 'registeradmin'])->name('registeradmin'); 
 Route::post('/loginadmin', [AdminController::class, 'loginadmin'])->name('loginadmin');
 Route::post('/logoutadmin', [AdminController::class, 'logoutadmin'])->name('logoutadmin');
+
+Route::get('/don-dang-ky-tu-van', [AdminController::class, 'dondangky'])->name('newcontact.page');
+Route::get('/don-tra-loi-tu-van', [AdminController::class, 'dontraloi'])->name('oldcontact.page');
+Route::get('/danh-sach-don-tu-van', [AdminController::class, 'thongkedon'])->name('listcontact.page');

@@ -8,10 +8,11 @@ use Hash;
 
 class AdminController extends Controller
 {
+
     public function adminhomepage(Request $request)
     {
         $user = Auth::user();
-        return view('Adminhomepage', ['user' => $user]);
+        return view('admin/Adminhomepage', ['user' => $user]);
     }
 
     public function registerformadmin(Request $request)
@@ -19,7 +20,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             return redirect()->route('adminhome.page');
         }else{
-            return view('Registeradmin');
+            return view('admin/Registeradmin');
         }
     }
 
@@ -28,7 +29,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             return redirect()->route('adminhome.page');
         }else{
-            return view('Loginadmin');
+            return view('admin/Loginadmin');
         }
     }
 
@@ -82,6 +83,24 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect()->route('adminlogin.page');
+    }
+
+    public function dondangky(Request $request){
+        $user = Auth::user();
+
+        return view('admin/NewContact', ['user' => $user]);
+    }
+
+    public function dontraloi(Request $request){
+        $user = Auth::user();
+
+        return view('admin/OldContact', ['user' => $user]);
+    }
+
+    public function thongkedon(Request $request){
+        $user = Auth::user();
+
+        return view('admin/ListContact', ['user' => $user]);
     }
 
 }

@@ -23,13 +23,13 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="{{ route('adminhome.page') }}" class="nav-link active">
+                    <a href="{{ route('adminhome.page') }}" class="nav-link {{ request()->is('Admin-home-page') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-house-door-fill"></i>
                         <p>Trang điều hành</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{ request()->is('don-dang-ky-tu-van') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-card-text"></i>
                         <p>
                             Đơn đăng ký tư vấn
@@ -39,7 +39,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('newcontact.page') }}" class="nav-link {{ request()->is('don-dang-ky-tu-van') ? 'active' : '' }}">
                                 <i class="bi bi-envelope nav-icon"></i>
                                 <p>Mẫu đơn mới</p>
                             </a>
@@ -120,7 +120,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon bi-bi-bell"></i>
+                        <i class="nav-icon bi bi-bell"></i>
                         <p>Quản lí thông báo</p>
                     </a>
                 </li>
