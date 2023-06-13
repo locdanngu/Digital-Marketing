@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Dontuvan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -87,8 +88,8 @@ class AdminController extends Controller
 
     public function dondangky(Request $request){
         $user = Auth::user();
-
-        return view('admin/NewContact', ['user' => $user]);
+        $dontuvan = Dontuvan::all();
+        return view('admin/NewContact', ['user' => $user, 'dontuvan' => $dontuvan]);
     }
 
     public function dontraloi(Request $request){

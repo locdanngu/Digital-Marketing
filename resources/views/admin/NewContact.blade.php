@@ -52,16 +52,33 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($dontuvan as $dtv)
                                 <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    <td>a</td>
-                                    <td>a</td>
+                                    <td>{{ $dtv->idtuvan }}</td>
+                                    <td>{{ $dtv->name }}</td>
+                                    <td>{{ $dtv->email }}</td>
+                                    <td><span class="tag tag-success">{{ $dtv->phone }}</span></td>
+                                    <td>{{ $dtv->review }}</td>
+                                    <td>{{ $dtv->created_at }}</td>
+                                    <td class="project-actions text-right">
+                                        <button class="btn btn-primary btn-sm" href="#">
+                                            <i class="bi bi-folder-fill">
+                                            </i>
+                                            View
+                                        </button>
+                                        <button class="btn btn-info btn-sm" href="#">
+                                            <i class="bi bi-pencil-fill">
+                                            </i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-danger btn-sm" href="#">
+                                            <i class="bi bi-trash-fill">
+                                            </i>
+                                            Delete
+                                        </button>
+                                    </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
