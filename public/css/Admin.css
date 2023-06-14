@@ -1,3 +1,13 @@
-td{
+td {
     vertical-align: middle !important;
+}
+
+.spanpopup {
+    display: flex;
+    align-items: center;
+    margin-left: 2em;
+}
+
+#inputGroup-sizing-default{
+    width: 30% !important;
 }

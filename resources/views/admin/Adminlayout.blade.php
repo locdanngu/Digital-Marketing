@@ -26,6 +26,8 @@
     </div>
 
     @include('layouts.Footlinkadmin')
+    @yield('popup')
+    @yield('js')
 </body>
 
 </html>
