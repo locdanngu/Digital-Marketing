@@ -101,7 +101,7 @@
 <!-- Modal trả lời đơn tư vấn -->
 <div class="modal fade" id="modal-traloi-dtv">
     <div class="modal-dialog">
-        <form class="modal-content" action="" method="post">
+        <form class="modal-content" action="{{ route('newcontact.answer') }}" method="post">
             @csrf
             <div class="modal-header">
                 <h4 class="modal-title">Trả lời đơn</h4>
@@ -109,6 +109,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <input type="hidden" name="id">
             <div class="modal-body">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">ID Mẫu đơn</span>
@@ -137,7 +138,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Câu Trả Lời</span>
                     <textarea class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" required name="reason"
+                        aria-describedby="inputGroup-sizing-default" required name="traloi"
                         style="height: 10em"></textarea>
                 </div>
             </div>
@@ -168,7 +169,7 @@
             var review = button.data('review'); 
             var time = button.data('time'); 
             var modal = $(this);
-
+            modal.find('input[name="id"]').val(id);
             modal.find('span[name="id"]').text(id);
             modal.find('span[name="name"]').text(name);
             modal.find('span[name="email"]').text(email);

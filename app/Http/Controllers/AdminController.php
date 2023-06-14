@@ -93,6 +93,14 @@ class AdminController extends Controller
         return view('admin/NewContact', ['user' => $user, 'dontuvan' => $dontuvan, 'countdontuvan' => $countdontuvan]);
     }
 
+    public function traloidondangky(Request $request){
+        $dontuvan = Dontuvan::find($request['id']);
+        $dontuvan->request = $request['traloi'];
+        $dontuvan->status = 1;
+        $dontuvan->save();
+        return redirect()->route('newcontact.page');
+    }
+
     public function dontraloi(Request $request){
         $user = Auth::user();
 
