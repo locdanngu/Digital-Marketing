@@ -101,6 +101,24 @@ class AdminController extends Controller
         return redirect()->route('newcontact.page');
     }
 
+    public function timkiemdondangky(Request $request){
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $dontuvan = Dontuvan::where('status', 0)->orderBy('created_at', 'asc')->get();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $dontuvan = Dontuvan::where('status', 0)
+                ->where(function($query) use ($search) {
+                    $query->where('phone', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%');
+                })
+                ->orderBy('created_at', 'asc')
+                ->get();
+        }
+        return response()->json(['dontuvan' => $dontuvan]);
+    }
+
     public function dontraloi(Request $request){
         $user = Auth::user();
 

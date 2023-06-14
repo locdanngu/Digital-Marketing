@@ -23,23 +23,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Tổng cộng : {{ $countdontuvan }} đơn</h3>
-
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
+                        <div class="card-tools" style="width: 45%;">
+                            <div class="input-group input-group-sm">
                                 <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Tìm kiếm">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
+                                    placeholder="Tìm kiếm" id="search">
                             </div>
                         </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0" style="height: 70vh;">
-                        <table class="table table-head-fixed text-nowrap">
+                        <table class="table table-head-fixed text-nowrap" id="capnhat">
                             <thead>
                                 <tr>
                                     <th>ID Đơn</th>
@@ -159,26 +152,44 @@
 
 @section('js')
 <script>
-    $(document).ready(function() {
-        $('#modal-traloi-dtv').on('shown.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Nút "Change" được nhấn
-            var id = button.data('id'); 
-            var name = button.data('name');
-            var email = button.data('email'); 
-            var phone = button.data('phone'); 
-            var review = button.data('review'); 
-            var time = button.data('time'); 
-            var modal = $(this);
-            modal.find('input[name="id"]').val(id);
-            modal.find('span[name="id"]').text(id);
-            modal.find('span[name="name"]').text(name);
-            modal.find('span[name="email"]').text(email);
-            modal.find('span[name="phone"]').text(phone);
-            modal.find('span[name="review"]').text(review);
-            modal.find('span[name="time"]').text(time);
-        });
-
+$(document).ready(function() {
+    $('#modal-traloi-dtv').on('shown.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Nút "Change" được nhấn
+        var id = button.data('id');
+        var name = button.data('name');
+        var email = button.data('email');
+        var phone = button.data('phone');
+        var review = button.data('review');
+        var time = button.data('time');
+        var modal = $(this);
+        modal.find('input[name="id"]').val(id);
+        modal.find('span[name="id"]').text(id);
+        modal.find('span[name="name"]').text(name);
+        modal.find('span[name="email"]').text(email);
+        modal.find('span[name="phone"]').text(phone);
+        modal.find('span[name="review"]').text(review);
+        modal.find('span[name="time"]').text(time);
     });
+
+
+    $('#search').on('input', function() {
+        var search = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: '{{ route("newcontact.search") }}',
+            data: {
+                _token: '{{ csrf_token() }}',
+                search: search
+            },
+            success: function(response) {
+                var dontuvan = response.dontuvan;
+                $("#capnhat").load(window.location.href + " #capnhat");
+            },
+            error: function(xhr, status, error) {}
+        });
+    });
+
+});
 </script>
 
 @endsection
