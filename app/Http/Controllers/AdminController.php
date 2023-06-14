@@ -89,7 +89,8 @@ class AdminController extends Controller
     public function dondangky(Request $request){
         $user = Auth::user();
         $dontuvan = Dontuvan::where('status', 0)->orderBy('created_at', 'asc')->get();
-        return view('admin/NewContact', ['user' => $user, 'dontuvan' => $dontuvan]);
+        $countdontuvan = Dontuvan::where('status', 0)->count();
+        return view('admin/NewContact', ['user' => $user, 'dontuvan' => $dontuvan, 'countdontuvan' => $countdontuvan]);
     }
 
     public function dontraloi(Request $request){
