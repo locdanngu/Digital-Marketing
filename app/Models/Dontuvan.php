@@ -12,7 +12,7 @@ class Dontuvan extends Authenticatable
 {
     protected $table = 'dontuvan'; // Tên bảng trong CSDL
     protected $primaryKey = 'idtuvan'; // Tên trường khóa chính
-    protected $fillable = ['name','email','phone','review']; // Các trường trong bảng có thể được gán giá trị
+    protected $fillable = ['name','email','phone','review','status','request']; // Các trường trong bảng có thể được gán giá trị
     
     
 }

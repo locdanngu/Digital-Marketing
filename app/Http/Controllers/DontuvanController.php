@@ -17,6 +17,8 @@ class DontuvanController extends Controller
             'email' => $input['emailform'],
             'phone' => $input['phoneform'],
             'review' => $input['reviewform'],
+            'status' => 0,
+            'request' => '',
         ]);
     }
     

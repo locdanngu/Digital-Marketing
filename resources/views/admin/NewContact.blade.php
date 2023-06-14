@@ -62,11 +62,10 @@
                                     <td>{{ $dtv->created_at }}</td>
                                     <td class="project-actions text-right">
                                         <button class="btn btn-primary btn-sm" href="#">
-                                            <i class="bi bi-folder-fill">
-                                            </i>
-                                            View
+                                            <i class="bi bi-chat-right-dots-fill"></i>
+                                            Trả lời
                                         </button>
-                                        <button class="btn btn-info btn-sm" href="#">
+                                        <!-- <button class="btn btn-info btn-sm" href="#">
                                             <i class="bi bi-pencil-fill">
                                             </i>
                                             Edit
@@ -75,7 +74,7 @@
                                             <i class="bi bi-trash-fill">
                                             </i>
                                             Delete
-                                        </button>
+                                        </button> -->
                                     </td>
                                 </tr>
                                 @endforeach

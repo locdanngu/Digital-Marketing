@@ -35,6 +35,12 @@
 <script>
 $(document).ready(function() {
     $('#sendformtuvan').click(function() {
+        $(this).prop("disabled", true); // Vô hiệu hóa nút
+        $(this).css("cursor", "not-allowed");
+        setTimeout(function() {
+            $("#sendformtuvan").prop("disabled", false); // Kích hoạt lại nút sau 10 giây
+            $("#sendformtuvan").css("cursor", "");
+        }, 10000); // 10 giây = 10,000 miligiây
         var nameform = $('#nameform').val(); // Lấy giá trị của input có class "a"
         var emailform = $('#emailform').val(); // Lấy giá trị của input có class "a"
         var phoneform = $('#phoneform').val(); // Lấy giá trị của input có class "a"
@@ -53,7 +59,7 @@ $(document).ready(function() {
                 success: function(response) {
                     // Xử lý phản hồi thành công từ AdminController (nếu cần)
                     toastr.success(
-                        '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới.</b>'
+                        '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới, Cần 10 giây để gửi tiếp mẫu đơn khác.</b>'
                     )
                 },
                 error: function() {

@@ -88,7 +88,7 @@ class AdminController extends Controller
 
     public function dondangky(Request $request){
         $user = Auth::user();
-        $dontuvan = Dontuvan::all();
+        $dontuvan = Dontuvan::where('status', 0)->orderBy('created_at', 'asc')->get();
         return view('admin/NewContact', ['user' => $user, 'dontuvan' => $dontuvan]);
     }
 
