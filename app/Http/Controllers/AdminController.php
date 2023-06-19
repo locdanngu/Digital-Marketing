@@ -6,7 +6,7 @@ use App\Models\Dontuvan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
-
+use Mail;
 class AdminController extends Controller
 {
 
@@ -98,6 +98,14 @@ class AdminController extends Controller
         $dontuvan->request = $request['traloi'];
         $dontuvan->status = 1;
         $dontuvan->save();
+        // $email = $request['email'];
+        $requestmessage =  $request['traloi'];
+        $time = $request['time'];
+        $name = $request['name'];
+        Mail::send('Traloituvan', compact('name','time','requestmessage'), function($email) use($request, $name, $time,$requestmessage){
+            $email->subject('Trả lời yêu cầu tư vấn', $name,$time,$requestmessage);
+            $email->to($request->email);    
+        });
         return redirect()->route('newcontact.page');
     }
 

@@ -103,6 +103,9 @@
                 </button>
             </div>
             <input type="hidden" name="id">
+            <input type="hidden" name="email">
+            <input type="hidden" name="name">
+            <input type="hidden" name="time">
             <div class="modal-body">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">ID Mẫu đơn</span>
@@ -163,6 +166,9 @@ $(document).ready(function() {
         var time = button.data('time');
         var modal = $(this);
         modal.find('input[name="id"]').val(id);
+        modal.find('input[name="email"]').val(email);
+        modal.find('input[name="name"]').val(name);
+        modal.find('input[name="time"]').val(time);
         modal.find('span[name="id"]').text(id);
         modal.find('span[name="name"]').text(name);
         modal.find('span[name="email"]').text(email);
