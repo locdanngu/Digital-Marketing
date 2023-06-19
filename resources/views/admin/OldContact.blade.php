@@ -93,7 +93,7 @@
         <form class="modal-content" action="{{ route('newcontact.answer') }}" method="post">
             @csrf
             <div class="modal-header">
-                <h4 class="modal-title">Trả lời đơn</h4>
+                <h4 class="modal-title">Thông tin đơn</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
