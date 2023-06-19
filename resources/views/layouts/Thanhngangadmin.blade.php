@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('notification.page') }}" class="nav-link {{ request()->is('danh-sach-email-nhan-thong-bao') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-bell"></i>
                         <p>Quản lí thông báo</p>
                     </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Dontuvan;
+use App\Models\Emailthongbao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -213,4 +214,44 @@ class AdminController extends Controller
         return view('admin/ListContact', ['user' => $user,'countdontuvan' => $countdontuvan, 'donTuvanCounts' => $donTuvanCounts]);
     }
 
+
+    public function danhsachemail(Request $request){
+        $user = Auth::user();
+        $emailthongbao = Emailthongbao::all();
+        $coutnemailthongbao = Emailthongbao::all()->count();
+        return view('admin/Notification', ['user' => $user, 'emailthongbao' => $emailthongbao , 'countemailthongbao' => $coutnemailthongbao]);
+    }
+
+    public function xoaemail(Request $request){
+        $user = Auth::user();
+        $emailthongbao = Emailthongbao::where('idemailthongbao', $request['id'])->delete();
+        return redirect()->back();
+    }
+
+    public function timkiememail(Request $request){
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $emailthongbao = Emailthongbao::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $emailthongbao = Emailthongbao::where('email', 'like', '%' . $search . '%')->orderBy('created_at', 'asc')->get();
+        }
+
+        $html = '';
+        foreach ($emailthongbao as $noti) {
+            $html .= "<tr>
+                <td>{$noti->email}</td>
+                <td>{$noti->created_at}</td>
+                <td class='project-actions text-right'>
+                    <button class='btn btn-danger btn-sm' type='button' data-toggle='modal' data-target='#modal-delete-emailnoti' data-id='{$noti->idemailthongbao}' data-time='{$noti->created_at}' data-email='{$noti->email}'>
+                        <i class='bi bi-trash'></i>
+                        Xóa
+                    </button>
+                </td>
+            </tr>";
+        }
+        return response()->json(['html' => $html]);
+        
+    }
 }

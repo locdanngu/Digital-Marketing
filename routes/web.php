@@ -65,3 +65,6 @@ Route::post('/tim-kiem-don-dang-ky-tu-van', [AdminController::class, 'timkiemdon
 Route::post('/tim-kiem-don-tra-loi-tu-van', [AdminController::class, 'timkiemdontraloi'])->name('oldcontact.search');
 Route::get('/don-tra-loi-tu-van', [AdminController::class, 'dontraloi'])->name('oldcontact.page');
 Route::get('/danh-sach-don-tu-van', [AdminController::class, 'thongkedon'])->name('listcontact.page');
+Route::get('/danh-sach-email-nhan-thong-bao', [AdminController::class, 'danhsachemail'])->name('notification.page');
+Route::post('/xoa-email-nhan-thong-bao', [AdminController::class, 'xoaemail'])->name('deleteemail.noti');
+Route::post('/tim-kiem-email-nhan-thong-bao', [AdminController::class, 'timkiememail'])->name('notification.search');
