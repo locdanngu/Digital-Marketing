@@ -70,10 +70,6 @@
                                             data-timeread="{{ $lb->timeread }}" data-imageblog="{{ $lb->imageblog }}">
                                             <i class="bi bi-pencil"></i>
                                             Sửa
-                                        </button><button class="btn btn-info btn-sm" type="button" data-toggle="modal"
-                                            data-target="#modal-info-blog">
-                                            <i class="bi bi-info"></i>
-                                            Xem
                                         </button>
                                         <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
                                             data-target="#modal-delete-blog">
