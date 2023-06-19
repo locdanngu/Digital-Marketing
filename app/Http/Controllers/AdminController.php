@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Dontuvan;
 use App\Models\Emailthongbao;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -264,5 +265,35 @@ class AdminController extends Controller
             'count' => $countemail
         ]);
         
+    }
+
+    public function danhsachblog(Request $request){
+        $user = Auth::user();
+        $listblog = Blog::all();
+        return view('admin/BlogAdmin', ['user' => $user, 'listblog' => $listblog]);
+    }
+
+    public function addblog(Request $request){
+        $user = Auth::user();
+
+        $blog = new Blog;
+
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->timeread = $request->timeread;
+        $blog->id = $user->id;
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('blogimg/');
+            $image->move($path, $filename);
+            $blog->imageblog = '/blogimg/' . $filename;
+        }
+
+        $blog->save();
+
+        return redirect()->back();
     }
 }

@@ -18,6 +18,13 @@ td {
     right: 50% !important;
 }
 
+.inputpopup{
+    width: 85%;
+    padding-left: 1em;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
 
 @media screen and (max-width: 767px) {
     #inputGroup-sizing-default{

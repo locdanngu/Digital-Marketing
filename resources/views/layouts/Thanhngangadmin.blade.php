@@ -113,7 +113,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('listblog.page') }}" class="nav-link {{ request()->is('danh-sach-blog') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-file"></i>
                         <p>Quản lí Blog</p>
                     </a>
