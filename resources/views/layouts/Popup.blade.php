@@ -35,17 +35,18 @@
 <script>
 $(document).ready(function() {
     $('#sendformtuvan').click(function() {
-        $(this).prop("disabled", true); // Vô hiệu hóa nút
-        $(this).css("cursor", "not-allowed");
-        setTimeout(function() {
-            $("#sendformtuvan").prop("disabled", false); // Kích hoạt lại nút sau 10 giây
-            $("#sendformtuvan").css("cursor", "");
-        }, 10000); // 10 giây = 10,000 miligiây
+
         var nameform = $('#nameform').val(); // Lấy giá trị của input có class "a"
         var emailform = $('#emailform').val(); // Lấy giá trị của input có class "a"
         var phoneform = $('#phoneform').val(); // Lấy giá trị của input có class "a"
         var reviewform = $('#reviewform').val(); // Lấy giá trị của input có class "a"
-        if (nameform || emailform || phoneform || reviewform) {
+        if (nameform && emailform && phoneform && reviewform) {
+            $(this).prop("disabled", true); // Vô hiệu hóa nút
+            $(this).css("cursor", "not-allowed");
+            setTimeout(function() {
+                $("#sendformtuvan").prop("disabled", false); // Kích hoạt lại nút sau 10 giây
+                $("#sendformtuvan").css("cursor", "");
+            }, 10000); // 10 giây = 10,000 miligiây
             $.ajax({
                 url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
                 method: 'POST', // Phương thức HTTP để gửi dữ liệu
@@ -69,7 +70,7 @@ $(document).ready(function() {
                     )
                 }
             });
-        } else {
+        } else if (!nameform || !emailform || !phoneform || !reviewform) {
             toastr.error(
                 '<b>Vui lòng điền đầy đủ tất cả thông tin.</b>'
             )
