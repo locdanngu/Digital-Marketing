@@ -189,8 +189,20 @@ class AdminController extends Controller
 
     public function thongkedon(Request $request){
         $user = Auth::user();
+        $countdontuvan = Dontuvan::all()->count();
+        $donTuvanByMonth = Dontuvan::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->get();
 
-        return view('admin/ListContact', ['user' => $user]);
+        // Mảng chứa số lượng đơn của từng tháng
+        $donTuvanCounts = array_fill(1, 12, 0);
+        foreach ($donTuvanByMonth as $item) {
+            $month = $item->month;
+            $count = $item->count;
+            $donTuvanCounts[$month] = $count;
+        }
+        $donTuvanCounts = json_encode(array_values($donTuvanCounts));
+        return view('admin/ListContact', ['user' => $user,'countdontuvan' => $countdontuvan, 'donTuvanCounts' => $donTuvanCounts]);
     }
 
 }
