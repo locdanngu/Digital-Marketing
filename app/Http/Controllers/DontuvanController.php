@@ -12,6 +12,7 @@ class DontuvanController extends Controller
     public function senddontuvan(Request $request)
     {
         $input = $request->all();
+        // dd(nl2br($input['reviewform']));
         $dontuvan = Dontuvan::create([
             'name' => $input['nameform'],
             'email' => $input['emailform'],

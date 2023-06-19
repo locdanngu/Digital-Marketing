@@ -53,7 +53,7 @@
                                     <td>{{ $dtv->name }}</td>
                                     <td>{{ $dtv->email }}</td>
                                     <td><span class="tag tag-success">{{ $dtv->phone }}</span></td>
-                                    <td>{{ $dtv->review }}</td>
+                                    <td>{!! nl2br($dtv->review) !!}</td>
                                     <td>{{ $dtv->created_at }}</td>
                                     <td>{{ $dtv->request }}</td>
                                     <td>{{ $dtv->updated_at }}</td>
@@ -61,7 +61,7 @@
                                         <button class="btn btn-info btn-sm" type="button" data-toggle="modal"
                                             data-target="#modal-info-dtv" data-id="{{ $dtv->idtuvan }}"
                                             data-name="{{ $dtv->name }}" data-email="{{ $dtv->email }}"
-                                            data-phone="{{ $dtv->phone }}" data-review="{{ $dtv->review }}"
+                                            data-phone="{{ $dtv->phone }}" data-review="{!! nl2br($dtv->review) !!}"
                                             data-time="{{ $dtv->created_at }}" data-request="{{ $dtv->request }}"
                                             data-timerequest="{{ $dtv->updated_at }}">
                                             <i class="bi bi-info"></i>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Câu Hỏi</span>
-                    <span name="review" class="spanpopup"></span>
+                    <p name="review" class="spanpopup"></p>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian nhận</span>
@@ -166,7 +166,7 @@ $(document).ready(function() {
         modal.find('span[name="name"]').text(name);
         modal.find('span[name="email"]').text(email);
         modal.find('span[name="phone"]').text(phone);
-        modal.find('span[name="review"]').text(review);
+        modal.find('p[name="review"]').html(review);
         modal.find('span[name="time"]').text(time);
         modal.find('span[name="request"]').text(request);
         modal.find('span[name="timerequest"]').text(timerequest);

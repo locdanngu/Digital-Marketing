@@ -133,13 +133,13 @@ class AdminController extends Controller
             $html .= '<td>' . $dtv->name . '</td>';
             $html .= '<td>' . $dtv->email . '</td>';
             $html .= '<td><span class="tag tag-success">' . $dtv->phone . '</span></td>';
-            $html .= '<td>' . $dtv->review . '</td>';
+            $html .= '<td>' . nl2br($dtv->review) . '</td>';
             $html .= '<td>' . $dtv->created_at . '</td>';
             $html .= '<td class="project-actions text-right">';
             $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal"';
             $html .= ' data-target="#modal-traloi-dtv" data-id="' . $dtv->idtuvan . '"';
             $html .= ' data-name="' . $dtv->name . '" data-email="' . $dtv->email . '"';
-            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . $dtv->review . '"';
+            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . nl2br($dtv->review) . '"';
             $html .= ' data-time="' . $dtv->created_at . '">';
             $html .= '<i class="bi bi-chat-right-dots-fill"></i> Trả lời</button>';
             $html .= '</td>';
@@ -183,7 +183,7 @@ class AdminController extends Controller
             $html .= '<td>' . $dtv->name . '</td>';
             $html .= '<td>' . $dtv->email . '</td>';
             $html .= '<td><span class="tag tag-success">' . $dtv->phone . '</span></td>';
-            $html .= '<td>' . $dtv->review . '</td>';
+            $html .= '<td>' . nl2br($dtv->review) . '</td>';
             $html .= '<td>' . $dtv->created_at . '</td>';
             $html .= '<td>' . $dtv->request . '</td>';
             $html .= '<td>' . $dtv->updated_at . '</td>';
@@ -191,7 +191,7 @@ class AdminController extends Controller
             $html .= '<button class="btn btn-info btn-sm" type="button" data-toggle="modal"';
             $html .= ' data-target="#modal-info-dtv" data-id="' . $dtv->idtuvan . '"';
             $html .= ' data-name="' . $dtv->name . '" data-email="' . $dtv->email . '"';
-            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . $dtv->review . '"';
+            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . nl2br($dtv->review) . '"';
             $html .= ' data-time="' . $dtv->created_at . '" data-request="' . $dtv->request . '"';
             $html .= ' data-timerequest="' . $dtv->updated_at . '">';
             $html .= '<i class="bi bi-info"></i> Xem Chi Tiết</button>';
