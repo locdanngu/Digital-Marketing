@@ -73,4 +73,7 @@ Route::middleware('user')->group(function () {
 
     Route::get('/danh-sach-blog', [AdminController::class, 'danhsachblog'])->name('listblog.page');
     Route::post('/add-blog', [AdminController::class, 'addblog'])->name('blog.add');
+    Route::post('/change-blog', [AdminController::class, 'changeblog'])->name('blog.change');
+    Route::post('/delete-blog', [AdminController::class, 'deleteblog'])->name('blog.delete');
+    Route::post('/find-blog', [AdminController::class, 'findblog'])->name('findblog.search');
 });

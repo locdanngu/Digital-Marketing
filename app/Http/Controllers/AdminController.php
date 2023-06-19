@@ -297,4 +297,75 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function changeblog(Request $request){
+        $user = Auth::user();
+
+        $blog = Blog::where('idblog',$request['id'])->first();
+
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->timeread = $request->timeread;
+        $blog->id = $user->id;
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('blogimg/');
+            $image->move($path, $filename);
+            $blog->imageblog = '/blogimg/' . $filename;
+        }
+
+        $blog->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteblog(Request $request){
+        $user = Auth::user();
+        $blog = Blog::where('idblog',$request['id'])->first()->delete();
+        return redirect()->back();
+    }
+
+
+    public function findblog(Request $request){
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $blog = Blog::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $blog = Blog::where('title', 'like', '%' . $search . '%')->get();
+        }
+        $countblog = $blog->count();
+        $html = "";
+
+        foreach($blog as $lb) {
+            $html .= "<tr>";
+            $html .= "<td>". $lb->idblog ."</td>";
+            $html .= "<td><img src='". $lb->imageblog ."' class='fixanhnen'></td>";
+            $html .= "<td>". $lb->title ."</td>";
+            $html .= "<td>". nl2br(substr($lb->content, 0, 20)) ."...</td>";
+            $html .= "<td>". $lb->timeread ."</td>";
+            $html .= "<td>". $lb->user->name ."</td>";
+            $html .= "<td><img src='". $lb->user->avatar ."' class='lamtronavatar'></td>";
+            $html .= "<td>";
+            $html .= "<div class='d-flex justify-content-between'>";
+            $html .= "<button class='btn btn-primary btn-sm' type='button' data-toggle='modal' data-target='#modal-change-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". $lb->content ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."'>";
+            $html .= "<i class='bi bi-pencil'></i> Sửa</button>";
+            $html .= "<button class='btn btn-danger btn-sm' type='button' data-toggle='modal' data-target='#modal-delete-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". nl2br($lb->content) ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."'>";
+            $html .= "<i class='bi bi-trash'></i> Xóa</button>";
+            $html .= "</div>";
+            $html .= "</td>";
+            $html .= "</tr>";
+        }
+
+
+        return response()->json([
+            'html' => $html,
+            'count' => $countblog
+        ]);
+        
+    }
 }
