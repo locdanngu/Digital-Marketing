@@ -62,5 +62,6 @@ Route::post('/logoutadmin', [AdminController::class, 'logoutadmin'])->name('logo
 Route::get('/don-dang-ky-tu-van', [AdminController::class, 'dondangky'])->name('newcontact.page');
 Route::post('/don-dang-ky-tu-van', [AdminController::class, 'traloidondangky'])->name('newcontact.answer');
 Route::post('/tim-kiem-don-dang-ky-tu-van', [AdminController::class, 'timkiemdondangky'])->name('newcontact.search');
+Route::post('/tim-kiem-don-tra-loi-tu-van', [AdminController::class, 'timkiemdontraloi'])->name('oldcontact.search');
 Route::get('/don-tra-loi-tu-van', [AdminController::class, 'dontraloi'])->name('oldcontact.page');
 Route::get('/danh-sach-don-tu-van', [AdminController::class, 'thongkedon'])->name('listcontact.page');

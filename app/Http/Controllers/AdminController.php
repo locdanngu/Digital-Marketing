@@ -141,8 +141,50 @@ class AdminController extends Controller
 
     public function dontraloi(Request $request){
         $user = Auth::user();
+        $dontuvan = Dontuvan::where('status', 1)->orderBy('created_at', 'asc')->get();
+        $countdontuvan = Dontuvan::where('status', 1)->count();
+        return view('admin/OldContact', ['user' => $user, 'dontuvan' => $dontuvan, 'countdontuvan' => $countdontuvan]);
+    }
 
-        return view('admin/OldContact', ['user' => $user]);
+    public function timkiemdontraloi(Request $request){
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $dontuvan = Dontuvan::where('status', 1)->orderBy('created_at', 'asc')->get();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $dontuvan = Dontuvan::where('status', 1)
+                ->where(function($query) use ($search) {
+                    $query->where('phone', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%');
+                })
+                ->orderBy('created_at', 'asc')
+                ->get();
+        }
+
+        $html = '';
+        foreach ($dontuvan as $dtv) {
+            $html .= '<tr>';
+            $html .= '<td>' . $dtv->idtuvan . '</td>';
+            $html .= '<td>' . $dtv->name . '</td>';
+            $html .= '<td>' . $dtv->email . '</td>';
+            $html .= '<td><span class="tag tag-success">' . $dtv->phone . '</span></td>';
+            $html .= '<td>' . $dtv->review . '</td>';
+            $html .= '<td>' . $dtv->created_at . '</td>';
+            $html .= '<td>' . $dtv->request . '</td>';
+            $html .= '<td>' . $dtv->updated_at . '</td>';
+            $html .= '<td class="project-actions text-right">';
+            $html .= '<button class="btn btn-info btn-sm" type="button" data-toggle="modal"';
+            $html .= ' data-target="#modal-info-dtv" data-id="' . $dtv->idtuvan . '"';
+            $html .= ' data-name="' . $dtv->name . '" data-email="' . $dtv->email . '"';
+            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . $dtv->review . '"';
+            $html .= ' data-time="' . $dtv->created_at . '" data-request="' . $dtv->request . '"';
+            $html .= ' data-timerequest="' . $dtv->updated_at . '">';
+            $html .= '<i class="bi bi-info"></i> Xem Chi Tiết</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+        return response()->json(['html' => $html]);
     }
 
     public function thongkedon(Request $request){
