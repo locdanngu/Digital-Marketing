@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tổng cộng : bài viết</h3>
+                        <h3 class="card-title">Tổng cộng : {{ $count }} bài viết</h3>
                         <div class="card-tools" style="width: 45%;">
                             <div class="input-group input-group-sm">
                                 <input type="text" name="table_search" class="form-control float-right"

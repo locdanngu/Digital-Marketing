@@ -270,7 +270,8 @@ class AdminController extends Controller
     public function danhsachblog(Request $request){
         $user = Auth::user();
         $listblog = Blog::all();
-        return view('admin/BlogAdmin', ['user' => $user, 'listblog' => $listblog]);
+        $count = $listblog->count();
+        return view('admin/BlogAdmin', ['user' => $user, 'listblog' => $listblog, 'count' => $count]);
     }
 
     public function addblog(Request $request){
