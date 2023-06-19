@@ -135,7 +135,9 @@ $(document).ready(function() {
             },
             success: function(response) {
                 var html = response.html;
+                var count = response.count;
                 $('#capnhat').html(html);
+                $('.card-title').text('Tổng cộng: ' + count + ' email');
             },
             error: function(xhr, status, error) {}
         });

@@ -125,7 +125,7 @@ class AdminController extends Controller
                 ->orderBy('created_at', 'asc')
                 ->get();
         }
-
+        $countdontuvan =  $dontuvan->count();
         $html = '';
         foreach ($dontuvan as $dtv) {
             $html .= '<tr>';
@@ -145,7 +145,11 @@ class AdminController extends Controller
             $html .= '</td>';
             $html .= '</tr>';
         }
-        return response()->json(['html' => $html]);
+        return response()->json([
+            'html' => $html,
+            'count' => $countdontuvan
+        ]);
+        
     }
 
     public function dontraloi(Request $request){
@@ -170,6 +174,7 @@ class AdminController extends Controller
                 ->orderBy('created_at', 'asc')
                 ->get();
         }
+        $countdontuvan = $dontuvan->count();
 
         $html = '';
         foreach ($dontuvan as $dtv) {
@@ -193,7 +198,10 @@ class AdminController extends Controller
             $html .= '</td>';
             $html .= '</tr>';
         }
-        return response()->json(['html' => $html]);
+        return response()->json([
+            'html' => $html,
+            'count' => $countdontuvan
+        ]);
     }
 
     public function thongkedon(Request $request){
@@ -237,7 +245,7 @@ class AdminController extends Controller
             // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
             $emailthongbao = Emailthongbao::where('email', 'like', '%' . $search . '%')->orderBy('created_at', 'asc')->get();
         }
-
+        $countemail = $emailthongbao->count();
         $html = '';
         foreach ($emailthongbao as $noti) {
             $html .= "<tr>
@@ -251,7 +259,10 @@ class AdminController extends Controller
                 </td>
             </tr>";
         }
-        return response()->json(['html' => $html]);
+        return response()->json([
+            'html' => $html,
+            'count' => $countemail
+        ]);
         
     }
 }
