@@ -116,7 +116,27 @@ class AdminController extends Controller
                 ->orderBy('created_at', 'asc')
                 ->get();
         }
-        return response()->json(['dontuvan' => $dontuvan]);
+
+        $html = '';
+        foreach ($dontuvan as $dtv) {
+            $html .= '<tr>';
+            $html .= '<td>' . $dtv->idtuvan . '</td>';
+            $html .= '<td>' . $dtv->name . '</td>';
+            $html .= '<td>' . $dtv->email . '</td>';
+            $html .= '<td><span class="tag tag-success">' . $dtv->phone . '</span></td>';
+            $html .= '<td>' . $dtv->review . '</td>';
+            $html .= '<td>' . $dtv->created_at . '</td>';
+            $html .= '<td class="project-actions text-right">';
+            $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal"';
+            $html .= ' data-target="#modal-traloi-dtv" data-id="' . $dtv->idtuvan . '"';
+            $html .= ' data-name="' . $dtv->name . '" data-email="' . $dtv->email . '"';
+            $html .= ' data-phone="' . $dtv->phone . '" data-review="' . $dtv->review . '"';
+            $html .= ' data-time="' . $dtv->created_at . '">';
+            $html .= '<i class="bi bi-chat-right-dots-fill"></i> Trả lời</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+        return response()->json(['html' => $html]);
     }
 
     public function dontraloi(Request $request){

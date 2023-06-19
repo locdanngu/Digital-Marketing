@@ -32,7 +32,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0" style="height: 70vh;">
-                        <table class="table table-head-fixed text-nowrap" id="capnhat">
+                        <table class="table table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
                                     <th>ID Đơn</th>
@@ -44,7 +44,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="capnhat">
                                 @foreach($dontuvan as $dtv)
                                 <tr>
                                     <td>{{ $dtv->idtuvan }}</td>
@@ -182,8 +182,8 @@ $(document).ready(function() {
                 search: search
             },
             success: function(response) {
-                var dontuvan = response.dontuvan;
-                $("#capnhat").load(window.location.href + " #capnhat");
+                var html = response.html;
+                $('#capnhat').html(html);
             },
             error: function(xhr, status, error) {}
         });
