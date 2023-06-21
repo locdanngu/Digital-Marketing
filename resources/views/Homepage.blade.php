@@ -17,8 +17,7 @@
             <p class="txt3">Mocha Ads là một trong những đơn vị tư vấn, thực hiện các chiến dịch truyền thông quảng cáo
                 hàng đầu tại Việt Nam.</p>
             <div class="d-flex mt-3">
-                <button type="button" class="btntuvan" data-bs-toggle="modal" data-bs-target="#a">Liên hệ tư
-                    vấn</button>
+                <a href="{{ route('contact.page') }}" class="btntuvan">Liên hệ tư vấn</a>
                 <a href="" class="btnchitiet">Xem chi tiết</a>
             </div>
         </div>
@@ -47,7 +46,7 @@
                 nước. </p>
             <div class="d-flex">
                 <button type="button" class="btntuvan" data-bs-toggle="modal" data-bs-target="#a">Nhận tư vấn</button>
-                <a href="" class="btnchitiet">Mẫu Briefs</a>
+                <a href="{{ route('brief.page') }}" class="btnchitiet">Mẫu Briefs</a>
             </div>
         </div>
     </div>
@@ -249,7 +248,7 @@
         </div>
     </div>
 
-    
+
 </body>
 @include('layouts.Footer')
 
