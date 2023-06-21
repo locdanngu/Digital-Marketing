@@ -36,7 +36,7 @@
                                     class="imageblog">
                                 <!-- <img src="{{ $user->avatar }}" style="width:100px"> -->
                                 <input class="form-control" type="file" id="formFile" accept="image/*"
-                                    style="max-width:100%" onchange="previewImage(event)" name="image" required>
+                                    style="max-width:100%" onchange="previewImage(event)" name="image">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Họ và tên</label>
@@ -53,7 +53,11 @@
                                 <input type="text" name="phone" class="form-control" id="exampleInputPassword1"
                                     value="{{ $user->phone }}">
                             </div>
-
+                            @error('suc1')
+                            <div class="input-group">
+                                <p style="color:red">{{ $message }}</p>
+                            </div>
+                            @enderror
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">

@@ -35,14 +35,10 @@ Route::get('/booking', function () { return view('Booking'); })->name('booking.p
 Route::get('/brief', function () { return view('Brief'); })->name('brief.page');
 Route::get('/portfolio', function () { return view('Portfolio'); })->name('portfolio.page');
 
-// Route::get('/blog', function () { return view('Blog'); })->name('blog.page');
 Route::get('/blog', [UserController::class, 'blogview'])->name('blog.page');
 Route::get('/content-blog/{idbaiviet}', [UserController::class, 'contentblogview'])->name('contentblog.page');
 
-
 Route::get('/contact', function () { return view('Contact'); })->name('contact.page');
-
-// Route::get('/content-blog', function () { return view('Contentblog'); })->name('contentblog.page');
 
 Route::get('/gioi-thieu', function () { return view('Gioithieu'); })->name('gioithieu.page');
 

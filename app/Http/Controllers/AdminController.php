@@ -400,7 +400,7 @@ class AdminController extends Controller
 
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->withInput()->withErrors(['suc1' => 'Đổi thông tin cá nhân thành công']);
     }
 
     public function changepassadmin(Request $request){
