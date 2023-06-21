@@ -38,6 +38,7 @@ Route::get('/portfolio', function () { return view('Portfolio'); })->name('portf
 // Route::get('/blog', function () { return view('Blog'); })->name('blog.page');
 Route::get('/blog', [UserController::class, 'blogview'])->name('blog.page');
 
+
 Route::get('/contact', function () { return view('Contact'); })->name('contact.page');
 
 Route::get('/content-blog', function () { return view('Contentblog'); })->name('contentblog.page');

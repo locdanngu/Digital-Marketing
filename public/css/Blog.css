@@ -208,11 +208,11 @@ a:hover {
 .phantrang a {
     margin-right: 1em !important;
     font-weight: 400;
-
-
-
-    /* Text secondary */
     color: #B8BAC2 !important;
+}
+
+.phantrang a:hover{
+    opacity: 0.7;
 }
 
 .linkpt.active {
