@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function blogview(Request $request)
     {
-        $limit = $request->limit ?? 3;
+        $limit = $request->limit ?? 5;
         $search = $request->search;
         $topblog = Blog::orderBy('created_at', 'desc')
                 ->take(4)
