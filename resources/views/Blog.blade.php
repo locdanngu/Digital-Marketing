@@ -16,7 +16,7 @@
         @foreach($topblog as $tb)
         <a href="{{ route('contentblog.page') }}" class="leftbox1 d-flex">
             <div style="width:60%">
-                <img src="{{ $tb->imageblog }}">
+                <img src="{{ $tb->imageblog }}" style="height:100%">
             </div>
 
             <div class="d-flex flex-column justify-content-center" style="width:38%">
@@ -86,7 +86,7 @@
                 </div>
             </a>
             @endforeach
-            
+
             <div class="phantrang">
                 <a href="">Quay lại</a>
                 <a href="" class="linkpt active">1</a>
@@ -100,46 +100,18 @@
         <div class="rightbox2">
             <p class="txt5box2">Xem nhiều nhất</p>
             <div class="hrbox2"></div>
-            <div class="phanturightbox2 d-flex">
-                <p class="txt6box2">01</p>
+
+            @foreach($popularblog as $ppblog)
+            <a href="" class="phanturightbox2 d-flex">
+                <p class="txt6box2">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
                 <div style="margin-left:1em" class="d-flex flex-column">
-                    <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
+                    <span class="txt7box2">{{ $ppblog->title }}
                     </span>
-                    <span class="txt4box2">5 phút để đọc</span>
+                    <span class="txt4box2">{{ $ppblog->timeread }} phút để đọc</span>
                 </div>
-            </div>
-            <div class="phanturightbox2 d-flex">
-                <p class="txt6box2">02</p>
-                <div style="margin-left:1em" class="d-flex flex-column">
-                    <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
-                    </span>
-                    <span class="txt4box2">5 phút để đọc</span>
-                </div>
-            </div>
-            <div class="phanturightbox2 d-flex">
-                <p class="txt6box2">03</p>
-                <div style="margin-left:1em" class="d-flex flex-column">
-                    <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
-                    </span>
-                    <span class="txt4box2">5 phút để đọc</span>
-                </div>
-            </div>
-            <div class="phanturightbox2 d-flex">
-                <p class="txt6box2">04</p>
-                <div style="margin-left:1em" class="d-flex flex-column">
-                    <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
-                    </span>
-                    <span class="txt4box2">5 phút để đọc</span>
-                </div>
-            </div>
-            <div class="phanturightbox2 d-flex">
-                <p class="txt6box2">05</p>
-                <div style="margin-left:1em" class="d-flex flex-column">
-                    <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
-                    </span>
-                    <span class="txt4box2">5 phút để đọc</span>
-                </div>
-            </div>
+            </a>
+            @endforeach
+
         </div>
     </div>
 

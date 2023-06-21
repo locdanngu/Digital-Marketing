@@ -8,12 +8,15 @@ class UserController extends Controller
 {
     public function blogview(Request $request)
     {
-        $topblog = Blog::orderBy('read', 'desc')
+        $topblog = Blog::orderBy('created_at', 'desc')
                 ->take(4)
                 ->get();
 
         $allblog = Blog::all();
         
-        return view('Blog',compact('topblog', 'allblog'));
+        $popularblog = Blog::orderBy('read', 'desc')
+                ->take(5)
+                ->get();
+        return view('Blog',compact('topblog', 'allblog','popularblog'));
     }
 }
