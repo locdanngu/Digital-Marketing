@@ -82,7 +82,7 @@
                     <span class="txtbox2">{{ $ab->category }}</span>
                     <span class="txt2box2">{{ $ab->title }}
                     </span>
-                    <span class="txt3box2">{!! nl2br(substr($ab->content, 0, 40)) !!} ...</span>
+                    <span class="txt3box2">{!! $ab->content !!}</span>
                     <span class="txt4box2">{{ $ab->timeread }} phút để đọc</span>
                 </div>
             </a>
