@@ -41,7 +41,9 @@ td {
     flex: none !important;
 }
 
-
+td p{
+    margin: 0 !important;
+}
 
 
 .lamtronavatar {

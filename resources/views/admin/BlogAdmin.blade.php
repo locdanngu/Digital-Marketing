@@ -58,12 +58,14 @@
                             <tbody id="capnhat">
                                 @foreach($listblog as $lb)
                                 <tr>
-
-
                                     <td>{{ $lb->idblog }}</td>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
                                     <td>{{ $lb->title }}</td>
-                                    <td>{!! nl2br(substr($lb->content, 0, 20)) !!}...</td>
+                                    @if(strlen($lb->content) > 40)
+                                    <td>{!! substr($lb->content, 0, 40) !!}...</td>
+                                    @else
+                                    <td>{!! $lb->content !!}</td>
+                                    @endif
                                     <td>{{ $lb->timeread }}</td>
                                     <td>{{ $lb->category }}</td>
                                     <td>{{ $lb->read }}</td>
@@ -262,7 +264,7 @@
 </div>
 <script src="https://cdn.tiny.cloud/1/bw2qjgtrkbjqf50ujabs5olg0b4cue44r0pb3cg7fp98oii2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-var textareas = document.querySelectorAll('textarea');
+
 
 // Khởi tạo TinyMCE cho tất cả các textarea
 tinymce.init({
@@ -310,7 +312,8 @@ $(document).ready(function() {
         modal.find('input[name="category"]').val(category);
         modal.find('input[name="id"]').val(id);
         modal.find('input[name="title"]').val(title);
-        modal.find('textarea[name="content"]').val(content);
+        // modal.find('textarea[name="content"]').val(content);
+        tinymce.get('TinyMCE2').setContent(content);
         modal.find('input[name="timeread"]').val(timeread);
         modal.find('img.imageblog').attr('src', imageblog);
     });
