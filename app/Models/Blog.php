@@ -12,7 +12,7 @@ class Blog extends Authenticatable
 {
     protected $table = 'blog'; // Tên bảng trong CSDL
     protected $primaryKey = 'idblog'; // Tên trường khóa chính
-    protected $fillable = ['title', 'content','timeread','imageblog','id']; // Các trường trong bảng có thể được gán giá trị
+    protected $fillable = ['title', 'content','timeread','imageblog','id','category','read']; // Các trường trong bảng có thể được gán giá trị
     
     public function user()
     {
