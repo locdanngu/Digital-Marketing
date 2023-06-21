@@ -16,19 +16,21 @@
         <div class="leftbox1 d-flex flex-column">
             <div class="headbox1 d-flex justify-content-between mb-3">
                 <div class="d-flex justify-content-between" style="width: 40%;">
-                <img src="{{ asset('images/avatar.png') }}" class="avatar">
+                    <img src="{{ asset($blog->user->avatar) }}" class="avatar">
                     <div class="d-flex flex-column justify-content-between">
-                        <span class="txtuser">Nguyễn Hoàng Quân</span>
-                        <span class="txtuser2">08/07/2020</span>
+                        <span class="txtuser">{{ $blog->user->name }}</span>
+                        <span class="txtuser2">{{ $blog->updated_at }}</span>
                     </div>
                     <span class="txtuser3">Manager</span>
                 </div>
                 <a href="" class="share"><i class="bi bi-share-fill"></i></a>
             </div>
             <div class="bodybox1">
-                <p class="txtcontent">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết Digital
-                    Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến </p>
-                <p class="txtcontent2">Digital Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến thức
+                <p class="txtcontent">{{ $blog->title }}</p>
+                <!-- <p class="txtcontent">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết Digital
+                    Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến </p> -->
+                <p class="txtcontent2">{{ $blog->content }}</p>
+                <!-- <p class="txtcontent2">Digital Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến thức
                     chuyên sâu hơn các chiến lược marketing căn bản và khả năng sáng tạo.</p>
                 <p class="txtcontent3">Nếu bạn đang cân nhắc thử sức với ngành Digital Marketing thì hãy cùng tìm hiểu
                     những kỹ năng cần có và công việc của một digital marketer là gì nhé.</p>
@@ -69,19 +71,24 @@
                     quá lo lắng về sử dụng back-end. Hiểu về tầm quan trọng của SEO và cách ứng dụng của nó trong ngành
                     còn quan trọng hơn rất nhiều. Đây là bước đầu tiên cảu bất cứ chiến dịch digital marketing hay quản
                     trị nội dung nào. Hiểu cách SEO và SEM hoạt động và ảnh hưởng đến mục tiêu chung sẽ giúp bạn phối
-                    hợp tốt hơn với những mảng còn lại của team digital mà không cảm thấy lạc lõng hay ở nhầm chỗ.</p>
+                    hợp tốt hơn với những mảng còn lại của team digital mà không cảm thấy lạc lõng hay ở nhầm chỗ.</p> -->
             </div>
         </div>
         <div class="d-flex flex-column" style="width: 32%;">
             <div class="rightbox1 d-flex flex-column justify-content-between">
+                @foreach($topblog as $key => $tb)
+                @if($loop->first)
+                @continue
+                @endif
                 <a href="" class="phantubox1 d-flex">
-                    <img src="images/blog2.png">
+                    <img src="{{ $tb->imageblog }}">
                     <div class="d-flex flex-column">
-                        <p class="txt5box1">SEO</p>
-                        <p class="txt6box1">Digital Marketing là làm gì? Top những kỹ năng...</p>
+                        <p class="txt5box1">{{ $tb->category }}</p>
+                        <p class="txt6box1">{{ $tb->title }}</p>
                     </div>
                 </a>
-                <div class="phantubox1 d-flex">
+                @endforeach
+                <!-- <div class="phantubox1 d-flex">
                     <img src="images/blog3.png">
                     <div class="d-flex flex-column">
                         <p class="txt5box1">SEO</p>
@@ -94,22 +101,24 @@
                         <p class="txt5box1">SEO</p>
                         <p class="txt6box1">Digital Marketing là làm gì? Top những kỹ năng...</p>
                     </div>
-                </div>
+                </div> -->
 
 
             </div>
             <div class="d-flex flex-column">
                 <p class="txt5box2">Xem nhiều nhất</p>
                 <div class="hrbox2"></div>
-                <div class="phanturightbox2 d-flex">
-                    <p class="txt6box2">01</p>
+                @foreach($popularblog as $ppblog)
+                <a href="" class="phanturightbox2 d-flex">
+                    <p class="txt6box2">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
                     <div style="margin-left:1em" class="d-flex flex-column">
-                        <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
+                        <span class="txt7box2">{{ $ppblog->title }}
                         </span>
-                        <span class="txt4box2">5 phút để đọc</span>
+                        <span class="txt4box2">{{ $ppblog->timeread }} phút để đọc</span>
                     </div>
-                </div>
-                <div class="phanturightbox2 d-flex">
+                </a>
+                @endforeach
+                <!-- <div class="phanturightbox2 d-flex">
                     <p class="txt6box2">02</p>
                     <div style="margin-left:1em" class="d-flex flex-column">
                         <span class="txt7box2">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết
@@ -140,7 +149,7 @@
                         </span>
                         <span class="txt4box2">5 phút để đọc</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

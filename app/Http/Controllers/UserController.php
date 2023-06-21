@@ -35,8 +35,7 @@ class UserController extends Controller
         $popularblog = Blog::orderBy('read', 'desc')
                 ->take(5)
                 ->get();
-
-        
-        return view('Contentblog',compact('topblog','popularblog'));
+        $blog = Blog::where('idblog',$idbaiviet)->first();
+        return view('Contentblog',compact('topblog','popularblog','blog'));
     }
 }
