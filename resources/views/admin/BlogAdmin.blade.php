@@ -83,13 +83,11 @@
                                                 Sửa
                                             </button>
                                             <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
-                                                data-target="#modal-delete-blog" data-id="{{ $lb->idblog }}"
-                                                data-title="{{ $lb->title }}" data-content="{!! nl2br($lb->content) !!}"
-                                                data-timeread="{{ $lb->timeread }}"
-                                                data-imageblog="{{ $lb->imageblog }}"
-                                                data-category="{{ $lb->category }}" data-read="{{ $lb->read }}">
-                                                <i class="bi bi-trash"></i>
-                                                Xóa
+                                                data-target="#modal-delete-blog" data-id="15" data-title="Test thử xem"
+                                                data-content="{!! htmlspecialchars($lb->content) !!}" data-timeread="8"
+                                                data-imageblog="/blogimg/1687342348.png" data-category="132132"
+                                                data-read="0">
+                                                <i class="bi bi-trash"></i> Xóa
                                             </button>
                                         </div>
                                     </td>
@@ -262,14 +260,13 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<script src="https://cdn.tiny.cloud/1/bw2qjgtrkbjqf50ujabs5olg0b4cue44r0pb3cg7fp98oii2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/bw2qjgtrkbjqf50ujabs5olg0b4cue44r0pb3cg7fp98oii2/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
 <script>
-
-
 // Khởi tạo TinyMCE cho tất cả các textarea
 tinymce.init({
-  selector: 'textarea',
-  // Cấu hình TinyMCE tùy ý
+    selector: 'textarea',
+    // Cấu hình TinyMCE tùy ý
 });
 </script>
 @endsection
