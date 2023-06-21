@@ -1,18 +1,18 @@
 <footer>
     <div class="box d-flex justify-content-between vechungtoifoot">
         <div class="foot1 d-flex flex-column">
-            <img src="images/logomocha.png" class="imgfoot1">
+            <img src="{{ asset('images/logomocha.png') }}" class="imgfoot1">
             <p class="txt12">Mocha Ads - Hệ thống dịch vụ
                 quảng cáo truyền thông do Viettel Media triển khai.</p>
             <div class="d-flex">
                 <a href="" class="iconfoot">
-                    <img src="images/iconfb.png">
+                    <img src="{{ asset('images/iconfb.png') }}">
                 </a>
                 <a href="" class="iconfoot">
-                    <img src="images/iconyt.png">
+                    <img src="{{ asset('images/iconyt.png') }}">
                 </a>
                 <a href="" class="iconfoot">
-                    <img src="images/iconis.png">
+                    <img src="{{ asset('images/iconis.png') }}">
                 </a>
             </div>
         </div>
@@ -31,10 +31,10 @@
             <a href="{{ route('KOL.page') }}" class="txt14">KOLs/Influencer</a>
         </div>
         <div class="foot2 d-flex flex-column">
-            <img src="images/imgfoot1.png" class="imgfoot1 mb-2">
-            <img src="images/imgfoot2.png" class="imgfoot1 mb-2">
-            <img src="images/imgfoot3.png" class="imgfoot1 mb-2">
-            <img src="images/imgfoot4.png" class="imgfoot1 mb-2">
+            <img src="{{ asset('images/imgfoot1.png') }}" class="imgfoot1 mb-2">
+            <img src="{{ asset('images/imgfoot2.png') }}" class="imgfoot1 mb-2">
+            <img src="{{ asset('images/imgfoot3.png') }}" class="imgfoot1 mb-2">
+            <img src="{{ asset('images/imgfoot4.png') }}" class="imgfoot1 mb-2">
         </div>
         <div class="boxmini2 d-flex flex-column">
             <p class="txt5">Tư vấn miễn phí</p>
@@ -42,7 +42,7 @@
             <p>Tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?</p>
             <a href="mailto:tranvanloc96lhp@gmail.com" class="d-flex fixa">
                 <div class="icon2">
-                    <img src="images/letter.png">
+                    <img src="{{ asset('images/letter.png') }}">
                 </div>
                 <div class="d-flex flex-column align-items-baseline">
                     <span class="contactus">Liên hệ với chúng tôi</span>

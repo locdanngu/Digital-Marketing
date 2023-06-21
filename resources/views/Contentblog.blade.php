@@ -16,7 +16,7 @@
         <div class="leftbox1 d-flex flex-column">
             <div class="headbox1 d-flex justify-content-between mb-3">
                 <div class="d-flex justify-content-between" style="width: 40%;">
-                    <img src="images/avatar.png" class="avatar">
+                <img src="{{ asset('images/avatar.png') }}" class="avatar">
                     <div class="d-flex flex-column justify-content-between">
                         <span class="txtuser">Nguyễn Hoàng Quân</span>
                         <span class="txtuser2">08/07/2020</span>

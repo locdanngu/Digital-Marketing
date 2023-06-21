@@ -14,7 +14,7 @@
 
     <div class="box box1 d-flex justify-content-between">
         @foreach($topblog as $tb)
-        <a href="{{ route('contentblog.page') }}" class="leftbox1 d-flex">
+        <a href="" class="leftbox1 d-flex">
             <div style="width:60%">
                 <img src="{{ $tb->imageblog }}" style="height:100%">
             </div>
@@ -75,7 +75,7 @@
                 <button class="btntuvan">Tìm kiếm</button>
             </form>
             @foreach($allblog as $ab)
-            <a href="" class="phantuleftbox2 d-flex">
+            <a href="{{ route('contentblog.page', ['idbaiviet' => $ab->idblog ]) }}" class="phantuleftbox2 d-flex">
                 <img src="{{ $ab->imageblog }}" style="width:268px">
                 <div class="d-flex flex-column justify-content-between" style="margin-left:1em">
                     <span class="txtbox2">{{ $ab->category }}</span>

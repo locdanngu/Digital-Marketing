@@ -24,4 +24,19 @@ class UserController extends Controller
                 ->get();
         return view('Blog',compact('topblog', 'allblog','popularblog','search'));
     }
+
+    public function contentblogview(Request $request)
+    {
+        $idbaiviet = $request->route('idbaiviet');
+        $topblog = Blog::orderBy('created_at', 'desc')
+                ->take(4)
+                ->get();
+    
+        $popularblog = Blog::orderBy('read', 'desc')
+                ->take(5)
+                ->get();
+
+        
+        return view('Contentblog',compact('topblog','popularblog'));
+    }
 }
