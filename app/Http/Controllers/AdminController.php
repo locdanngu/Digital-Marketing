@@ -402,4 +402,29 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function changepassadmin(Request $request){
+        $user = Auth::user();
+        // $request['passold'];
+        // $request['passnew'];
+        // $request['passconfirm'];
+
+        if (!Hash::check($request['passold'], $user->password)) {
+            return redirect()->back()->withInput()->withErrors(['passold' => 'Mật khẩu bạn nhập vào không khớp']);
+        }
+        
+        if ($request['passold'] ===  $request['passnew']) {
+            return redirect()->back()->withInput()->withErrors(['passnew' => 'Mật khẩu mới không được giống mật khẩu cũ']);
+        } 
+
+        if ($request['passnew'] !== $request['passconfirm']) {
+            return redirect()->back()->withInput()->withErrors(['passcon' => 'Mật khẩu xác nhận không khớp']);
+        } 
+        
+        $user->password = Hash::make($request['passnew']);
+
+        $user->save();
+        return redirect()->back()->withInput()->withErrors(['suc' => 'Đổi mật khẩu thành công']);
+        
+    }
 }

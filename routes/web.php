@@ -78,4 +78,5 @@ Route::middleware('user')->group(function () {
     Route::post('/find-blog', [AdminController::class, 'findblog'])->name('findblog.search');
     Route::get('/in4admin', [AdminController::class, 'in4admin'])->name('adminin4.page');
     Route::post('/in4admin', [AdminController::class, 'changein4admin'])->name('adminin4.change');
+    Route::post('/in4adminpassword', [AdminController::class, 'changepassadmin'])->name('adminin4.changepass');
 });

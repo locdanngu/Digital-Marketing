@@ -45,7 +45,7 @@
                 <i class="bi bi-person"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
+                <a href="{{ route('adminin4.page') }}" class="dropdown-item">
                     Cài đặt thông tin
                 </a>
                 <div class="dropdown-divider"></div>
