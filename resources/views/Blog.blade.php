@@ -14,7 +14,7 @@
 
     <div class="box box1 d-flex justify-content-between">
         @foreach($topblog as $tb)
-        <a href="" class="leftbox1 d-flex">
+        <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="leftbox1 d-flex">
             <div style="width:60%">
                 <img src="{{ $tb->imageblog }}" style="height:100%">
             </div>
@@ -33,7 +33,7 @@
             @if($loop->first)
             @continue
             @endif
-            <a href="" class="phantubox1 d-flex">
+            <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="phantubox1 d-flex">
                 <img src="{{ $tb->imageblog }}">
                 <div class="d-flex flex-column">
                     <p class="txt5box1">{{ $tb->category }}</p>
@@ -103,7 +103,7 @@
             <div class="hrbox2"></div>
 
             @foreach($popularblog as $ppblog)
-            <a href="" class="phanturightbox2 d-flex">
+            <a href="{{ route('contentblog.page', ['idbaiviet' => $ppblog->idblog ]) }}" class="phanturightbox2 d-flex">
                 <p class="txt6box2">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
                 <div style="margin-left:1em" class="d-flex flex-column">
                     <span class="txt7box2">{{ $ppblog->title }}
