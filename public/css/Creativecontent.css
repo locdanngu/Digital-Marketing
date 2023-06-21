@@ -126,7 +126,7 @@
 .footbox5 {
     font-weight: 400;
     font-size: 18px;
-
+    transition: .6s ease-in-out;
     color: #151A35;
 }
 

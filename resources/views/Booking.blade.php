@@ -128,7 +128,8 @@
                     <div class="moneyform">
                         8.888.888đ
                     </div>
-                    <button class="btntuvan mt-4" style="width:100%">Đăng ký ngay</button>
+                    <button class="btntuvan mt-4" style="width:100%" type="button" data-bs-toggle="modal"
+                        data-bs-target="#a">Đăng ký ngay</button>
                 </div>
             </div>
             <div class="leftbox6 d-flex flex-column justify-content-between">
@@ -148,7 +149,8 @@
                     <div class="moneyform">
                         8.888.888đ
                     </div>
-                    <button class="btntuvan mt-4" style="width:100%">Đăng ký ngay</button>
+                    <button class="btntuvan mt-4" style="width:100%" type="button" data-bs-toggle="modal"
+                        data-bs-target="#a">Đăng ký ngay</button>
                 </div>
             </div>
         </div>

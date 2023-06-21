@@ -58,13 +58,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon bi bi-cart2"></i>
                         <p>
                             Các loại dịch vụ
                             <i class="bi bi-arrow-left right"></i>
-                            <!-- <span class="badge badge-info right">6</span> -->
+                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -111,7 +111,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="{{ route('listblog.page') }}" class="nav-link {{ request()->is('danh-sach-blog') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-file"></i>
@@ -124,7 +124,7 @@
                         <p>Quản lí thông báo</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon bi bi-wallet"></i>
                         <p>
@@ -146,7 +146,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -19,8 +19,8 @@
                     style="color:#653FD5">NÊN CHỌN AI?</span>
             </p>
             <div class="d-flex mt-3">
-                <button type="button" class="btntuvan" data-bs-toggle="modal" data-bs-target="#a">Liên hệ tư
-                    vấn</button>
+                <a href="{{ route('contact.page') }}" class="btntuvan">Liên hệ tư
+                    vấn</a>
                 <a href="" class="btnchitiet">Bảng giá</a>
             </div>
         </div>

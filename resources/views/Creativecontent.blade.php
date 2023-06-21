@@ -104,10 +104,10 @@
         <i class="bi bi-chevron-left" onclick="changeActiveImage('previous')"></i>
         <div class="anhbox5 d-flex">
             <img src="images/cr2.png" class="fadeimg active">
-            <img src="images/cr3.png" class="fadeimg">
-            <img src="images/cr4.png" class="fadeimg">
-            <img src="images/cr5.png" class="fadeimg">
-            <img src="images/cr6.png" class="fadeimg">
+            <img src="images/cr2.png" class="fadeimg">
+            <img src="images/cr2.png" class="fadeimg">
+            <img src="images/cr2.png" class="fadeimg">
+            <img src="images/cr2.png" class="fadeimg">
         </div>
         <i class="bi bi-chevron-right" onclick="changeActiveImage('next')"></i>
     </div>
@@ -134,8 +134,8 @@
         <button class="btnchoice" onclick="toggleActive(this)">Bài PR</button>
     </div>
     <div class="box box6 d-flex justify-content-between mb-5">
-        <form action="" method="post" class="phantubox6 d-flex flex-column">
-            @csrf
+        <div class="phantubox6 d-flex flex-column">
+            
             <input type="hidden" value="200000" name="tongtienform1" class="tongtienform1">
             <p class="headform">Bài viết mô tả sản phẩm</p>
             <p class="bodyform">Tối ưu hóa mô tả sản phẩm (product description) là yếu tố rất quan trọng giúp tăng hiệu
@@ -167,11 +167,11 @@
                 <span>+55.000 đ</span>
             </div>
             <p class="headform mt-3 mb-3" id="totalform1">200.000 đ</p>
-            <button class="btntuvan" style="width:100%">Đăng ký ngay</button>
-        </form>
+            <button class="btntuvan" style="width:100%" data-bs-toggle="modal" data-bs-target="#a">Đăng ký ngay</button>
+        </div>
         <div class="hrform"></div>
-        <form action="" method="post" class="phantubox6 d-flex flex-column">
-            @csrf
+        <div class="phantubox6 d-flex flex-column">
+
             <input type="hidden" value="200000" name="tongtienform2" class="tongtienform2">
             <p class="headform">Bài chuẩn SEO</p>
             <p class="bodyform">Bài viết tối ưu hóa nội dung nhằm cạnh tranh thứ hạng từ khóa trên các trang kết quả
@@ -203,11 +203,11 @@
                 <span>+55.000 đ</span>
             </div>
             <p class="headform mt-3 mb-3" id="totalform2">200.000 đ</p>
-            <button class="btntuvan" style="width:100%">Đăng ký ngay</button>
-        </form>
+            <button class="btntuvan" style="width:100%" data-bs-toggle="modal" data-bs-target="#a">Đăng ký ngay</button>
+        </div>
         <div class="hrform"></div>
-        <form action="" method="post" class="phantubox6 d-flex flex-column">
-            @csrf
+        <div class="phantubox6 d-flex flex-column">
+      
             <input type="hidden" value="200000" name="tongtienform3" class="tongtienform3">
             <p class="headform">Bài chuyên sâu</p>
             <p class="bodyform">Tập trung khai thác toàn diện thông tin liên quan về một chủ đề cụ thể, đảm bảo tiêu chí
@@ -239,8 +239,8 @@
                 <span>+55.000 đ</span>
             </div>
             <p class="headform mt-3 mb-3" id="totalform3">200.000 đ</p>
-            <button class="btntuvan" style="width:100%">Đăng ký ngay</button>
-        </form>
+            <button class="btntuvan" style="width:100%" data-bs-toggle="modal" data-bs-target="#a">Đăng ký ngay</button>
+        </div>
     </div>
 
     @include('layouts.Layoutads2')
