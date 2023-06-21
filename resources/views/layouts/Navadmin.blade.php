@@ -49,9 +49,9 @@
                     Cài đặt thông tin
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <!-- <a href="#" class="dropdown-item">
                     Chỉnh sửa mật khẩu
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-logout">
                     Đăng xuất

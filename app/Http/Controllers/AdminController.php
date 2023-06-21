@@ -374,4 +374,32 @@ class AdminController extends Controller
         ]);
         
     }
+
+    public function in4admin(Request $request)
+    {
+        $user = Auth::user();
+        return view('admin/Adminin4', compact('user'));
+    }
+
+    public function changein4admin(Request $request){
+        $user = Auth::user();
+
+        $user = User::where('id',$user->id)->first();
+
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('adminimg/');
+            $image->move($path, $filename);
+            $user->avatar = '/adminimg/' . $filename;
+        }
+
+        $user->save();
+
+        return redirect()->back();
+    }
 }

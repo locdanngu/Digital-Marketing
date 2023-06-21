@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-    
+
 
 Route::get('/test', function () { return view('test'); })->name('test');
 
@@ -76,4 +76,6 @@ Route::middleware('user')->group(function () {
     Route::post('/change-blog', [AdminController::class, 'changeblog'])->name('blog.change');
     Route::post('/delete-blog', [AdminController::class, 'deleteblog'])->name('blog.delete');
     Route::post('/find-blog', [AdminController::class, 'findblog'])->name('findblog.search');
+    Route::get('/in4admin', [AdminController::class, 'in4admin'])->name('adminin4.page');
+    Route::post('/in4admin', [AdminController::class, 'changein4admin'])->name('adminin4.change');
 });
