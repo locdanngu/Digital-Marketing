@@ -22,9 +22,10 @@
             <div class="d-flex flex-column justify-content-center" style="width:38%">
                 <p class="txtbox1">{{ $tb->category }}</p>
                 <p class="txt2box1">{{ $tb->title }}</p>
-                <p class="txt3box1">{!! nl2br(substr($tb->content, 0, 40)) !!}...</p>
+                <span class="txt3box1">{!! nl2br(substr($tb->content, 0, 40)) !!}...</span>
                 <p class="txt4box1">7 phút để đọc</p>
             </div>
+            
         </a>
         @break
         @endforeach

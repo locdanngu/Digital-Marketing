@@ -29,7 +29,7 @@
                 <p class="txtcontent">{{ $blog->title }}</p>
                 <!-- <p class="txtcontent">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết Digital
                     Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến </p> -->
-                <p class="txtcontent2">{{ $blog->content }}</p>
+                <p class="txtcontent2">{!!  $blog->content !!}</p>
                 <!-- <p class="txtcontent2">Digital Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến thức
                     chuyên sâu hơn các chiến lược marketing căn bản và khả năng sáng tạo.</p>
                 <p class="txtcontent3">Nếu bạn đang cân nhắc thử sức với ngành Digital Marketing thì hãy cùng tìm hiểu
