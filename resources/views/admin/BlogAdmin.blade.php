@@ -129,7 +129,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nội dung</span>
                     <textarea type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" required name="content"></textarea>
+                        aria-describedby="inputGroup-sizing-default" required name="content" id="TinyMCE"></textarea>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
@@ -179,7 +179,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nội dung</span>
                     <textarea type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" required name="content"></textarea>
+                        aria-describedby="inputGroup-sizing-default" required name="content" id="TinyMCE2"></textarea>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nội dung</span>
-                    <p name="content" class="spanpopup"></p>
+                    <p name="content" class="spanpopup" style="margin-bottom:0 !important"></p>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
@@ -260,8 +260,16 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<script src="https://cdn.tiny.cloud/1/bw2qjgtrkbjqf50ujabs5olg0b4cue44r0pb3cg7fp98oii2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+var textareas = document.querySelectorAll('textarea');
 
-
+// Khởi tạo TinyMCE cho tất cả các textarea
+tinymce.init({
+  selector: 'textarea',
+  // Cấu hình TinyMCE tùy ý
+});
+</script>
 @endsection
 
 
