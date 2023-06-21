@@ -28,6 +28,7 @@ class UserController extends Controller
     public function contentblogview(Request $request)
     {
         $idbaiviet = $request->route('idbaiviet');
+        
         $topblog = Blog::orderBy('created_at', 'desc')
                 ->take(4)
                 ->get();
@@ -36,6 +37,8 @@ class UserController extends Controller
                 ->take(5)
                 ->get();
         $blog = Blog::where('idblog',$idbaiviet)->first();
+        $blog->read += 1;
+        $blog->save();
         return view('Contentblog',compact('topblog','popularblog','blog'));
     }
 }
