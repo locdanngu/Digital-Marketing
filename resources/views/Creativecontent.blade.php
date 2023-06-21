@@ -17,8 +17,8 @@
             <p class="txt2box1">Cách thức khám phá nội dung thông minh của TikTok cho phép người dùng tìm được nội dung
                 mới dựa trên sở thích và thói quen xem của họ, </p>
             <p class="txt2box1">giúp các thương hiệu tăng trưởng nhanh và tối đa.</p>
-            <button type="button" class="btntuvan mt-4" data-bs-toggle="modal" data-bs-target="#a">Liên hệ tư
-                vấn</button>
+            <a href="{{ route('contact.page') }}" class="btntuvan">Liên hệ tư
+                vấn</a>
         </div>
         <div class="rightbox1 d-flex justify-content-center">
             <img src="images/cr1.png">
