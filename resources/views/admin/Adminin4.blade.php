@@ -19,8 +19,8 @@
     <!-- Main content -->
     <div class="content">
         <div class="row">
-            <div class="col-12">
-                <div class="card card-primary">
+            <div class="col-12 d-flex justify-content-between p-3">
+                <div class="col-5 card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Thông tin cá nhân</h3>
                     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <!-- /.card -->
 
-                <div class="card card-primary">
+                <div class="col-5 card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Mật khẩu tài khoản</h3>
                     </div>

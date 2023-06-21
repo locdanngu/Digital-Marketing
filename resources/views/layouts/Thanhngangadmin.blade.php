@@ -14,7 +14,7 @@
                 <img src="{{ $user->avatar }}" class="img-circle elevation-2" alt="">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ $user->name }}</a>
+                <a href="{{ route('adminin4.page') }}" class="d-block">{{ $user->name }}</a>
             </div>
         </div>
 
