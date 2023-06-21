@@ -12,12 +12,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+    
 
-
-Route::get('/NSP', function () { return view('NSP'); })->name('NSP.page');
-Route::get('/NSP2', function () { return view('NSP2'); })->name('NSP2.page');
-Route::get('/NSP-korean', function () { return view('Korean_NSP'); })->name('Korean_NSP.page');
-Route::get('/NSP2-korean', function () { return view('Korean_NSP2'); })->name('Korean_NSP2.page');
+Route::get('/test', function () { return view('test'); })->name('test');
 
 Route::get('/', function () { return view('Homepage'); })->name('home.page');
 
@@ -38,7 +35,8 @@ Route::get('/booking', function () { return view('Booking'); })->name('booking.p
 Route::get('/brief', function () { return view('Brief'); })->name('brief.page');
 Route::get('/portfolio', function () { return view('Portfolio'); })->name('portfolio.page');
 
-Route::get('/blog', function () { return view('Blog'); })->name('blog.page');
+// Route::get('/blog', function () { return view('Blog'); })->name('blog.page');
+Route::get('/blog', [UserController::class, 'blogview'])->name('blog.page');
 
 Route::get('/contact', function () { return view('Contact'); })->name('contact.page');
 
