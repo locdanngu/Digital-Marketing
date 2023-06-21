@@ -282,6 +282,8 @@ class AdminController extends Controller
         $blog->title = $request->title;
         $blog->content = $request->content;
         $blog->timeread = $request->timeread;
+        $blog->category = $request->category;
+        $blog->read = 0;
         $blog->id = $user->id;
 
 
@@ -306,6 +308,8 @@ class AdminController extends Controller
         $blog->title = $request->title;
         $blog->content = $request->content;
         $blog->timeread = $request->timeread;
+        $blog->category = $request->category;
+        $blog->read = $blog->read;
         $blog->id = $user->id;
 
 
@@ -348,13 +352,15 @@ class AdminController extends Controller
             $html .= "<td>". $lb->title ."</td>";
             $html .= "<td>". nl2br(substr($lb->content, 0, 20)) ."...</td>";
             $html .= "<td>". $lb->timeread ."</td>";
+            $html .= "<td>". $lb->category ."</td>";
+            $html .= "<td>". $lb->read ."</td>";
             $html .= "<td>". $lb->user->name ."</td>";
             $html .= "<td><img src='". $lb->user->avatar ."' class='lamtronavatar'></td>";
             $html .= "<td>";
             $html .= "<div class='d-flex justify-content-between'>";
-            $html .= "<button class='btn btn-primary btn-sm' type='button' data-toggle='modal' data-target='#modal-change-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". $lb->content ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."'>";
+            $html .= "<button class='btn btn-primary btn-sm' type='button' data-toggle='modal' data-target='#modal-change-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". $lb->content ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."' data-category='". $lb->category ."' data-read='". $lb->read ."'>";
             $html .= "<i class='bi bi-pencil'></i> Sửa</button>";
-            $html .= "<button class='btn btn-danger btn-sm' type='button' data-toggle='modal' data-target='#modal-delete-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". nl2br($lb->content) ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."'>";
+            $html .= "<button class='btn btn-danger btn-sm' type='button' data-toggle='modal' data-target='#modal-delete-blog' data-id='". $lb->idblog ."' data-title='". $lb->title ."' data-content='". nl2br($lb->content) ."' data-timeread='". $lb->timeread ."' data-imageblog='". $lb->imageblog ."' data-category='". $lb->category ."' data-read='". $lb->read ."'>";
             $html .= "<i class='bi bi-trash'></i> Xóa</button>";
             $html .= "</div>";
             $html .= "</td>";

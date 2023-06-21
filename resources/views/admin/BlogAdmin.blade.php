@@ -48,6 +48,8 @@
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th>Thời gian</th>
+                                    <th>Thể loại</th>
+                                    <th>Lượt xem</th>
                                     <th>Người đăng</th>
                                     <th>Avatar</th>
                                     <th></th>
@@ -63,6 +65,8 @@
                                     <td>{{ $lb->title }}</td>
                                     <td>{!! nl2br(substr($lb->content, 0, 20)) !!}...</td>
                                     <td>{{ $lb->timeread }}</td>
+                                    <td>{{ $lb->category }}</td>
+                                    <td>{{ $lb->read }}</td>
                                     <td>{{ $lb->user->name }}</td>
                                     <td><img src="{{ $lb->user->avatar }}" class="lamtronavatar"></td>
                                     <td>
@@ -71,7 +75,8 @@
                                                 data-target="#modal-change-blog" data-id="{{ $lb->idblog }}"
                                                 data-title="{{ $lb->title }}" data-content="{{$lb->content}}"
                                                 data-timeread="{{ $lb->timeread }}"
-                                                data-imageblog="{{ $lb->imageblog }}">
+                                                data-imageblog="{{ $lb->imageblog }}"
+                                                data-category="{{ $lb->category }}" data-read="{{ $lb->read }}">
                                                 <i class="bi bi-pencil"></i>
                                                 Sửa
                                             </button>
@@ -79,7 +84,8 @@
                                                 data-target="#modal-delete-blog" data-id="{{ $lb->idblog }}"
                                                 data-title="{{ $lb->title }}" data-content="{!! nl2br($lb->content) !!}"
                                                 data-timeread="{{ $lb->timeread }}"
-                                                data-imageblog="{{ $lb->imageblog }}">
+                                                data-imageblog="{{ $lb->imageblog }}"
+                                                data-category="{{ $lb->category }}" data-read="{{ $lb->read }}">
                                                 <i class="bi bi-trash"></i>
                                                 Xóa
                                             </button>
@@ -131,6 +137,11 @@
                         aria-describedby="inputGroup-sizing-default" required name="timeread">
                 </div>
                 <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Thể loại</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" required name="category">
+                </div>
+                <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Ảnh nền</span>
                     <input class="form-control" type="file" id="formFile" accept="image/*" style="max-width:100%"
                         onchange="previewImage(event)" name="image" required>
@@ -176,6 +187,15 @@
                         aria-describedby="inputGroup-sizing-default" required name="timeread">
                 </div>
                 <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Thể loại</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" required name="category">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Lượt xem</span>
+                    <span name="read" class="spanpopup"></span>
+                </div>
+                <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Ảnh nền</span>
                     <input class="form-control" type="file" id="formFile" accept="image/*" style="max-width:100%"
                         onchange="previewImage2(event)" name="image" required>
@@ -216,6 +236,14 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
                     <span name="timeread" class="spanpopup"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Thể loại</span>
+                    <span name="category" class="spanpopup"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Lượt xem</span>
+                    <span name="read" class="spanpopup"></span>
                 </div>
                 <div class="input-group mb-3 d-flex align-items-center">
                     <span class="input-group-text" id="inputGroup-sizing-default">Ảnh nền</span>
@@ -267,7 +295,11 @@ $(document).ready(function() {
         var content = button.data('content');
         var timeread = button.data('timeread');
         var imageblog = button.data('imageblog');
+        var category = button.data('category');
+        var read = button.data('read');
         var modal = $(this);
+        modal.find('span[name="read"]').text(read);
+        modal.find('input[name="category"]').val(category);
         modal.find('input[name="id"]').val(id);
         modal.find('input[name="title"]').val(title);
         modal.find('textarea[name="content"]').val(content);
@@ -282,7 +314,11 @@ $(document).ready(function() {
         var content = button.data('content');
         var timeread = button.data('timeread');
         var imageblog = button.data('imageblog');
+        var category = button.data('category');
+        var read = button.data('read');
         var modal = $(this);
+        modal.find('span[name="read"]').text(read);
+        modal.find('span[name="category"]').text(category);
         modal.find('input[name="id"]').val(id);
         modal.find('span[name="title"]').text(title);
         modal.find('p[name="content"]').html(content);
