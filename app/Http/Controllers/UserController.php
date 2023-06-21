@@ -13,8 +13,11 @@ class UserController extends Controller
         $topblog = Blog::orderBy('created_at', 'desc')
                 ->take(4)
                 ->get();
-
-        $allblog = Blog::paginate($limit);
+        if ($search) {
+            $allblog = Blog::where('title', 'like', '%' . $search . '%')->paginate($limit);
+        }else{
+            $allblog = Blog::paginate($limit);
+        }
         
         $popularblog = Blog::orderBy('read', 'desc')
                 ->take(5)
