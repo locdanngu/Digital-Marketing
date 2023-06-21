@@ -122,27 +122,28 @@
         </div>
         <!-- /.content -->
     </div>
-    @endsection
+</div>
+@endsection
 
-    @section('popup')
-    <!-- Modal trả lời đơn tư vấn -->
-
-
-
-    @endsection
+@section('popup')
+<!-- Modal trả lời đơn tư vấn -->
 
 
-    @section('js')
-    <script>
-    function previewImage(event) {
-        const preview = document.getElementById('preview');
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function() {
-            preview.src = reader.result;
-        }
-        reader.readAsDataURL(file);
+
+@endsection
+
+
+@section('js')
+<script>
+function previewImage(event) {
+    const preview = document.getElementById('preview');
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function() {
+        preview.src = reader.result;
     }
+    reader.readAsDataURL(file);
+}
 
 
-    @endsection
+@endsection
