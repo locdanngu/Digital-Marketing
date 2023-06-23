@@ -64,15 +64,15 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('dichvu.page') }}" class="nav-link">
                         <i class="nav-icon bi bi-cart2"></i>
                         <p>
-                            Các loại dịch vụ
-                            <i class="bi bi-arrow-left right"></i>
+                            Thống kê dịch vụ
+                            <!-- <i class="bi bi-arrow-left right"></i> -->
                             <!-- <span class="badge badge-info right">6</span> -->
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('dichvu.page') }}" class="nav-link">
                                 <i class="bi bi-check2-square"></i>
@@ -85,7 +85,7 @@
                                 <p>Quản lí dịch vụ</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="" class="nav-link">
