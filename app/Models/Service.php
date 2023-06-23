@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Serviceads extends Authenticatable
+class Service extends Authenticatable
 {
     protected $table = 'service'; // Tên bảng trong CSDL
     protected $primaryKey = 'idservice'; // Tên trường khóa chính

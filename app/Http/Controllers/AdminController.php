@@ -452,9 +452,24 @@ class AdminController extends Controller
     public function dichvu(Request $request)
     {
         $user = Auth::user();
-        $dichvu = Service::all();
+        $dichvu = Serviceads::all();
         $countdichvu = $dichvu->count();
-        return view('admin/Dichvu', compact('user','dichvu','countdichvu'));
+        $service = Service::all();
+        return view('admin/Dichvu', compact('user','dichvu','countdichvu','service'));
+    }
+
+    public function dichvuadd(Request $request)
+    {
+        $user = Auth::user();
+        $dichvu = new Serviceads();
+        $dichvu->name = $request['name'];
+        $dichvu->email = $request['email'];
+        $dichvu->phone = $request['phone'];
+        $dichvu->idservice = $request['idservice'];
+        $dichvu->cost = $request['cost'];
+        $dichvu->save();
+
+        return redirect()->back();
     }
 
 }
