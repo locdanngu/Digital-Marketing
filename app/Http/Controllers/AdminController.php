@@ -589,9 +589,22 @@ class AdminController extends Controller
     public function daura(Request $request)
     {
         $user = Auth::user();
+        $costdaura = Daura::sum('totalcost');
+        $daura = Daura::orderBy('created_at','desc')->get();
         
-        
-        return view('admin/Daura', compact('user'));
+        return view('admin/Daura', compact('user','daura','costdaura'));
     }
+
+    public function dauraadd(Request $request)
+    {
+        $user = Auth::user();
+        $daura = new Daura();
+        $daura->namedaura = $request['namedaura'];
+        $daura->totalcost = $request['totalcost'];
+        $daura->note = $request['note'];
+        $daura->save();
+        return redirect()->back();
+    }
+
 
 }
