@@ -79,5 +79,6 @@ Route::middleware('user')->group(function () {
     Route::post('/dichvuadd', [AdminController::class, 'dichvuadd'])->name('dichvu.add');
     Route::post('/dichvuchange', [AdminController::class, 'dichvuchange'])->name('dichvu.change');
     Route::post('/dichvudelete', [AdminController::class, 'dichvudelete'])->name('dichvu.delete');
+    Route::post('/dichvusearch', [AdminController::class, 'dichvusearch'])->name('dichvu.search');
     Route::get('/dauvao', [AdminController::class, 'dauvao'])->name('dauvao.page');
 });

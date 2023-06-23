@@ -64,12 +64,6 @@
                                     <td>{{ $dv->service->nameservice }}</td>
                                     <td>{{ number_format($dv->cost, 0, ',', '.') }} đ</td>
                                     <td>{{ $dv->created_at }}</td>
-                                    <!-- <td>
-                                        @foreach ($dv->servicechange as $change)
-                                        {{ $change->reason }}
-                                        {{ $change->created_at }}
-                                        @endforeach
-                                    </td> -->
                                     <td>@if($dv->created_at != $dv->updated_at)
                                         <button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"
                                             data-target="#modal-history-change" data-id="{{ $dv->idads }}"
@@ -320,8 +314,9 @@ $(document).ready(function() {
         modal.find('span[name="id"]').text(id);
         var modalData = '';
         for (var i = 0; i < formData.length; i++) {
-            modalData += '<span style="font-weight:bold;">Lần chỉnh sửa '+ [i+1] +': </span><br>';
-            modalData += '<span>Lý do: </span>' + formData[i].reason + '<br>'+ 'Thời gian: ' + formData[i].created_at + '<br>';
+            modalData += '<span style="font-weight:bold;">Lần chỉnh sửa ' + [i + 1] + ': </span><br>';
+            modalData += '<span>Lý do: </span>' + formData[i].reason + '<br>' + 'Thời gian: ' +
+                formData[i].created_at + '<br>';
         }
         modal.find('#modal-data').html(modalData);
 
@@ -370,7 +365,24 @@ $(document).ready(function() {
     });
 
 
-
+    $('#search').on('input', function() {
+        var search = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: '{{ route("dichvu.search") }}',
+            data: {
+                _token: '{{ csrf_token() }}',
+                search: search
+            },
+            success: function(response) {
+                var html = response.html;
+                var count = response.countdichvu;
+                $('#capnhat').html(html);
+                $('.card-title').text('Tổng cộng: ' + count + ' đơn');
+            },
+            error: function(xhr, status, error) {}
+        });
+    });
 
 });
 </script>

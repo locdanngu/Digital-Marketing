@@ -504,4 +504,68 @@ class AdminController extends Controller
     }
 
 
+    public function dichvusearch(Request $request)
+    {
+        $search = $request['search'];
+        $dichvu = Serviceads::where(function($query) use ($search){
+            $query->Where('email', 'like', '%' . $search . '%')
+            ->orWhere('phone', 'like', '%' . $search . '%');
+        })->get();
+
+        $countdichvu = $dichvu->count();
+        // $service = Service::all();
+
+        $html = '';
+        foreach($dichvu as $dv){
+            $html .= '<tr>';
+            $html .= '<td>'. $dv->idads .'</td>';
+            $html .= '<td>'. $dv->name .'</td>';
+            $html .= '<td>'. $dv->email .'</td>';
+            $html .= '<td>'. $dv->phone .'</td>';
+            $html .= '<td>'. $dv->service->nameservice .'</td>';
+            $html .= '<td>'. number_format($dv->cost, 0, ',', '.') .' đ</td>';
+            $html .= '<td>'. $dv->created_at .'</td>';
+            $html .= '<td>';
+            if($dv->created_at != $dv->updated_at){
+                $html .= '<button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"';
+                $html .= 'data-target="#modal-history-change" data-id="'. $dv->idads .'"';
+                $html .= 'data-form="'. json_encode($dv->servicechange) .'">';
+                $html .= '<i class="bi bi-list"></i>';
+                $html .= 'Lịch sử';
+                $html .= '</button>';
+            }else{
+                $html .= 'Chưa';
+            }
+            $html .= '</td>';
+            $html .= '<td class="project-actions text-right">';
+            $html .= '<button class="btn btn-primary btn-sm mr-1" type="button" data-toggle="modal"';
+            $html .= 'data-target="#modal-change-serviceads" data-id="'. $dv->idads .'"';
+            $html .= 'data-name="'. $dv->name .'" data-email="'. $dv->email .'"';
+            $html .= 'data-phone="'. $dv->phone .'" data-cost="'. $dv->cost .'"';
+            $html .= 'data-idservice="'. $dv->service->idservice .'">';
+            $html .= '<i class="bi bi-pencil"></i>';
+            $html .= 'Chỉnh sửa';
+            $html .= '</button>';
+            $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal"';
+            $html .= 'data-target="#modal-delete-serviceads" data-id="'. $dv->idads .'"';
+            $html .= 'data-name="'. $dv->name .'" data-email="'. $dv->email .'"';
+            $html .= 'data-phone="'. $dv->phone .'"';
+            $html .= 'data-cost="'. number_format($dv->cost, 0, ',', '.') .' đ"';
+            $html .= 'data-nameservice="'. $dv->service->nameservice .'">';
+            $html .= '<i class="bi bi-pencil"></i>';
+            $html .= 'Xóa';
+            $html .= '</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+
+        
+
+
+        return response()->json([
+            'html' => $html,
+            'countdichvu' => $countdichvu
+        ]);
+    }
+
 }
