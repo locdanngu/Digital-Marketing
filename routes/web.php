@@ -83,4 +83,6 @@ Route::middleware('user')->group(function () {
     Route::get('/dauvao', [AdminController::class, 'dauvao'])->name('dauvao.page');
     Route::get('/daura', [AdminController::class, 'daura'])->name('daura.page');
     Route::post('/dauraadd', [AdminController::class, 'dauraadd'])->name('daura.add');
+    Route::post('/daurachange', [AdminController::class, 'daurachange'])->name('daura.change');
+    Route::post('/dauradelete', [AdminController::class, 'dauradelete'])->name('daura.delete');
 });

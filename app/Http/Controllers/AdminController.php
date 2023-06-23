@@ -606,5 +606,25 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function daurachange(Request $request)
+    {
+        $user = Auth::user();
+        $daura = Daura::where('iddaura', $request['iddaura'])->first();
+        // dd($daura);
+        $daura->namedaura = $request['namedaura'];
+        $daura->totalcost = $request['totalcost'];
+        $daura->note = $request['note'];
+        $daura->save();
+        return redirect()->back();
+    }
+
+    public function dauradelete(Request $request)
+    {
+        $user = Auth::user();
+        $daura = Daura::where('iddaura', $request['iddaura'])->first();
+        $daura->delete();
+        return redirect()->back();
+    }
+
 
 }
