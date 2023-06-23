@@ -77,4 +77,6 @@ Route::middleware('user')->group(function () {
     Route::post('/in4adminpassword', [AdminController::class, 'changepassadmin'])->name('adminin4.changepass');
     Route::get('/dichvu', [AdminController::class, 'dichvu'])->name('dichvu.page');
     Route::post('/dichvuadd', [AdminController::class, 'dichvuadd'])->name('dichvu.add');
+    Route::post('/dichvuchange', [AdminController::class, 'dichvuchange'])->name('dichvu.change');
+    Route::post('/dichvudelete', [AdminController::class, 'dichvudelete'])->name('dichvu.delete');
 });

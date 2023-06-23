@@ -471,4 +471,28 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function dichvuchange(Request $request)
+    {
+        $user = Auth::user();
+        $dichvu = Serviceads::where('idads',$request['id'])->first();
+        $dichvu->name = $request['name'];
+        $dichvu->email = $request['email'];
+        $dichvu->phone = $request['phone'];
+        $dichvu->idservice = $request['idservice'];
+        $dichvu->cost = $request['cost'];
+        $dichvu->reason = $request['reason'];
+        $dichvu->save();
+        return redirect()->back();
+    }
+
+
+    public function dichvudelete(Request $request)
+    {
+        $user = Auth::user();
+        $dichvu = Serviceads::where('idads',$request['id'])->first();
+        $dichvu->delete();
+        return redirect()->back();
+    }
+
+
 }
