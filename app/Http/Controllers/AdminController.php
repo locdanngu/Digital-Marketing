@@ -445,4 +445,14 @@ class AdminController extends Controller
         return redirect()->back()->withInput()->withErrors(['suc' => 'Đổi mật khẩu thành công']);
         
     }
+
+
+    public function googleads(Request $request)
+    {
+        $user = Auth::user();
+        $ggads = GoogleAds::all();
+        $countggads = $ggads->count();
+        return view('admin/Googleads', compact('user','ggads','countggads'));
+    }
+
 }

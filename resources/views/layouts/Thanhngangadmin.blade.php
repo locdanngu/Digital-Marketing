@@ -69,7 +69,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('ggads.page') }}" class="nav-link">
                                 <i class="bi bi-google nav-icon"></i>
                                 <p>Google Ads</p>
                             </a>
