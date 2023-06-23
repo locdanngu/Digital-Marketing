@@ -468,7 +468,6 @@ class AdminController extends Controller
         $dichvu->idservice = $request['idservice'];
         $dichvu->cost = $request['cost'];
         $dichvu->save();
-
         return redirect()->back();
     }
 

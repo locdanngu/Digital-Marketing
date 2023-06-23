@@ -51,6 +51,7 @@
                                     <th>Số tiền</th>
                                     <th>Thời gian nhận</th>
                                     <th>Thời gian chỉnh sửa</th>
+                                    <th>Đã chỉnh sửa</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -65,14 +66,18 @@
                                     <td>{{ number_format($dv->cost, 0, ',', '.') }} đ</td>
                                     <td>{{ $dv->created_at }}</td>
                                     <td>{{ $dv->updated_at }}</td>
-                                    <td class="project-actions text-right">
-                                        @if($dv->created_at != $dv->updated_at)
+                                    <td>@if($dv->created_at != $dv->updated_at)
                                         <button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"
                                             data-target="#modal-traloi-dtv">
                                             <i class="bi bi-list"></i>
                                             Lịch sử
                                         </button>
+                                        @else
+                                        Chưa
                                         @endif
+                                    </td>
+                                    <td class="project-actions text-right">
+
                                         <button class="btn btn-primary btn-sm mr-1" type="button" data-toggle="modal"
                                             data-target="#modal-traloi-dtv">
                                             <i class="bi bi-pencil"></i>
