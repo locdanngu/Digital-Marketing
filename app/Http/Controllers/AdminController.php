@@ -5,6 +5,8 @@ use App\Models\User;
 use App\Models\Dontuvan;
 use App\Models\Emailthongbao;
 use App\Models\Blog;
+use App\Models\Service;
+use App\Models\Serviceads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -450,7 +452,7 @@ class AdminController extends Controller
     public function dichvu(Request $request)
     {
         $user = Auth::user();
-        $dichvu = Dichvu::all();
+        $dichvu = Service::all();
         $countdichvu = $dichvu->count();
         return view('admin/Dichvu', compact('user','dichvu','countdichvu'));
     }
