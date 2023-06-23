@@ -15,7 +15,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="content">
+    <!-- <div class="content">
         <div class="row">
             <div class="col-12 d-flex justify-content-center mb-3">
                 <button class="btn btn-primary btn-sm" type="button" data-toggle="modal"
@@ -23,7 +23,7 @@
                     mới</button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Main content -->
     <div class="content">
         <div class="row">
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="position-relative mb-4">
-                        <canvas id="thongkedauvao-chart" height="500"></canvas>
+                        <canvas id="thongkedauvao-chart" height="550"></canvas>
                     </div>
                 </div>
                 <!-- /.card -->

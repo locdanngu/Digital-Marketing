@@ -146,7 +146,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{ request()->is('dauvao', 'daura') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-wallet"></i>
                         <p>
                             Thống kê doanh thu
@@ -155,13 +155,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('dauvao.page') }}" class="nav-link">
+                            <a href="{{ route('dauvao.page') }}" class="nav-link {{ request()->is('dauvao') ? 'active' : '' }}">
                                 <i class="bi bi-piggy-bank nav-icon"></i>
                                 <p>Thống kê đầu vào</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="" class="nav-link {{ request()->is('daura') ? 'active' : '' }}">
                                 <i class="bi bi-wrench nav-icon"></i>
                                 <p>Thống kê đầu ra</p>
                             </a>
