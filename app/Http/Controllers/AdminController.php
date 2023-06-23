@@ -6,6 +6,7 @@ use App\Models\Dontuvan;
 use App\Models\Emailthongbao;
 use App\Models\Blog;
 use App\Models\Service;
+use App\Models\Daura;
 use App\Models\Serviceads;
 use App\Models\Servicechange;
 use Illuminate\Http\Request;
