@@ -30,82 +30,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tổng cộng : {{ $countdichvu }} đơn</h3>
+                        <h3 class="card-title">Tổng cộng : {{ number_format($dauvao, 0, ',', '.') }} đ</h3>
                         <div class="card-tools" style="width: 45%;">
-                            <div class="input-group input-group-sm">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Tìm kiếm" id="search">
-                            </div>
+
                         </div>
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0" style="height: 65vh;">
-                        <table class="table table-head-fixed text-nowrap">
-                            <thead>
-                                <tr>
-                                    <th>ID Đơn</th>
-                                    <th>Họ và tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Loại dịch vụ</th>
-                                    <th>Số tiền</th>
-                                    <th>Thời gian nhận</th>
-                                    <th>Đã chỉnh sửa</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="capnhat">
-                                @foreach($dichvu as $dv)
-                                <tr>
-                                    <td>{{ $dv->idads }}</td>
-                                    <td>{{ $dv->name }}</td>
-                                    <td>{{ $dv->email }}</td>
-                                    <td>{{ $dv->phone }}</td>
-                                    <td>{{ $dv->service->nameservice }}</td>
-                                    <td>{{ number_format($dv->cost, 0, ',', '.') }} đ</td>
-                                    <td>{{ $dv->created_at }}</td>
-                                    <!-- <td>
-                                        @foreach ($dv->servicechange as $change)
-                                        {{ $change->reason }}
-                                        {{ $change->created_at }}
-                                        @endforeach
-                                    </td> -->
-                                    <td>@if($dv->created_at != $dv->updated_at)
-                                        <button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"
-                                            data-target="#modal-history-change" data-id="{{ $dv->idads }}"
-                                            data-form="{{ json_encode($dv->servicechange) }}">
-                                            <i class="bi bi-list"></i>
-                                            Lịch sử
-                                        </button>
-                                        @else
-                                        Chưa
-                                        @endif
-                                    </td>
-                                    <td class="project-actions text-right">
-                                        <button class="btn btn-primary btn-sm mr-1" type="button" data-toggle="modal"
-                                            data-target="#modal-change-serviceads" data-id="{{ $dv->idads }}"
-                                            data-name="{{ $dv->name }}" data-email="{{ $dv->email }}"
-                                            data-phone="{{ $dv->phone }}" data-cost="{{ $dv->cost }}"
-                                            data-idservice="{{ $dv->service->idservice }}">
-                                            <i class="bi bi-pencil"></i>
-                                            Chỉnh sửa
-                                        </button>
-                                        <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
-                                            data-target="#modal-delete-serviceads" data-id="{{ $dv->idads }}"
-                                            data-name="{{ $dv->name }}" data-email="{{ $dv->email }}"
-                                            data-phone="{{ $dv->phone }}"
-                                            data-cost="{{ number_format($dv->cost, 0, ',', '.') }} đ"
-                                            data-nameservice="{{ $dv->service->nameservice }}">
-                                            <i class="bi bi-pencil"></i>
-                                            Xóa
-                                        </button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+
+                    <div class="position-relative mb-4">
+                        <canvas id="thongkedauvao-chart" height="500"></canvas>
                     </div>
-                    <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
             </div>
@@ -125,7 +58,76 @@
 
 @section('js')
 <script>
+$(function() {
+    'use strict'
 
+    var ticksStyle = {
+        fontColor: '#495057',
+        fontStyle: 'bold'
+    }
+
+    var mode = 'index'
+    var intersect = true
+
+    var donTuvanCounts = <?php echo $dauvaoTotals; ?>;
+    var $thongkedonChart = $('#thongkedauvao-chart')
+    // eslint-disable-next-line no-unused-vars
+    var thongkedonChart = new Chart($thongkedonChart, {
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+                'September', 'October', 'November', 'December'
+            ],
+            datasets: [{
+                type: 'line',
+                data: donTuvanCounts,
+
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                pointBorderColor: '#007bff',
+                pointBackgroundColor: '#007bff',
+                fill: false
+                // pointHoverBackgroundColor: '#007bff',
+                // pointHoverBorderColor    : '#007bff'
+            }, ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                mode: mode,
+                intersect: intersect
+            },
+            hover: {
+                mode: mode,
+                intersect: intersect
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    // display: false,
+                    gridLines: {
+                        display: true,
+                        lineWidth: '4px',
+                        color: 'rgba(0, 0, 0, .2)',
+                        zeroLineColor: 'transparent'
+                    },
+                    ticks: $.extend({
+                        beginAtZero: true,
+                        suggestedMax: 200
+                    }, ticksStyle)
+                }],
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: ticksStyle
+                }]
+            }
+        }
+    })
+})
 </script>
 
 @endsection

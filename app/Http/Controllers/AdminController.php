@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\Serviceads;
 use App\Models\Servicechange;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Mail;
@@ -559,13 +560,29 @@ class AdminController extends Controller
             $html .= '</tr>';
         }
 
-        
-
-
         return response()->json([
             'html' => $html,
             'countdichvu' => $countdichvu
         ]);
+    }
+
+    public function dauvao(Request $request)
+    {
+        $user = Auth::user();
+        $dauvao = Serviceads::sum('cost');
+        $dauvaoByMonth = Serviceads::selectRaw('MONTH(created_at) as month, SUM(cost) as total_cost')
+            ->groupBy('month')
+            ->get();
+        $dauvaoTotals = array_fill(1, 12, 0);
+        foreach ($dauvaoByMonth as $item) {
+            $month = $item->month;
+            $totalCost = $item->total_cost;
+            $dauvaoTotals[$month] = $totalCost;
+        }
+        $dauvaoTotals = json_encode(array_values($dauvaoTotals));
+        
+        
+        return view('admin/Dauvao', compact('user','dauvaoTotals','dauvao'));
     }
 
 }

@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dichvu.page') }}" class="nav-link">
+                    <a href="{{ route('dichvu.page') }}" class="nav-link {{ request()->is('dichvu') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-cart2"></i>
                         <p>
                             Thống kê dịch vụ
@@ -155,7 +155,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('dauvao.page') }}" class="nav-link">
                                 <i class="bi bi-piggy-bank nav-icon"></i>
                                 <p>Thống kê đầu vào</p>
                             </a>
