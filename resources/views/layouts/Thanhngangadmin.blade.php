@@ -59,7 +59,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('dichvu.page') }}" class="nav-link">
                         <i class="nav-icon bi bi-cart2"></i>
                         <p>
                             Các loại dịch vụ
@@ -67,9 +67,9 @@
                             <!-- <span class="badge badge-info right">6</span> -->
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('ggads.page') }}" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="bi bi-google nav-icon"></i>
                                 <p>Google Ads</p>
                             </a>
@@ -110,7 +110,7 @@
                                 <p>PR, Bookings</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('listblog.page') }}" class="nav-link {{ request()->is('danh-sach-blog') ? 'active' : '' }}">

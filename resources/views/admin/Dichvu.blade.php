@@ -1,6 +1,6 @@
 @extends('admin.Adminlayout')
 
-@section('title', 'Admin Google Ads')
+@section('title', 'Admin Service')
 <!-- Content Wrapper. Contains page content -->
 @section('body')
 <div class="content-wrapper">
@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Quản lý dịch vụ Google Ads</h1>
+                    <h1 class="m-0">Quản lý dịch vụ</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tổng cộng : {{ $countggads }} đơn</h3>
+                        <h3 class="card-title">Tổng cộng : {{ $countdichvu }} đơn</h3>
                         <div class="card-tools" style="width: 45%;">
                             <div class="input-group input-group-sm">
                                 <input type="text" name="table_search" class="form-control float-right"
@@ -39,21 +39,23 @@
                                     <th>Họ và tên</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
+                                    <th>Loại dịch vụ</th>
                                     <th>Số tiền</th>
                                     <th>Thời gian nhận</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody id="capnhat">
-                                @foreach($ggads as $gg)
+                                @foreach($dichvu as $dv)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><span class="tag tag-success"></span></td>
+                                    <td>{{ $dv->idggads }}</td>
+                                    <td>{{ $dv->name }}</td>
+                                    <td>{{ $dv->email }}</td>
+                                    <td>{{ $dv->phone }}</td>
+                                    <td>{{ $dv->category }}</td>
                                     <!-- <td>{{ $dtv->review }}</td> -->
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{ $dv->cost }}</td>
+                                    <td>{{ $dv->created_at }}</td>
                                     <td class="project-actions text-right">
                                         <button class="btn btn-primary btn-sm" type="button" data-toggle="modal"
                                             data-target="#modal-traloi-dtv">

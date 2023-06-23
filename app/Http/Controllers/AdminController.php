@@ -447,12 +447,12 @@ class AdminController extends Controller
     }
 
 
-    public function googleads(Request $request)
+    public function dichvu(Request $request)
     {
         $user = Auth::user();
-        $ggads = GoogleAds::all();
-        $countggads = $ggads->count();
-        return view('admin/Googleads', compact('user','ggads','countggads'));
+        $dichvu = Dichvu::all();
+        $countdichvu = $dichvu->count();
+        return view('admin/Dichvu', compact('user','dichvu','countdichvu'));
     }
 
 }
