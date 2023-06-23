@@ -161,7 +161,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link {{ request()->is('daura') ? 'active' : '' }}">
+                            <a href="{{ route('daura.page') }}" class="nav-link {{ request()->is('daura') ? 'active' : '' }}">
                                 <i class="bi bi-wrench nav-icon"></i>
                                 <p>Thống kê đầu ra</p>
                             </a>

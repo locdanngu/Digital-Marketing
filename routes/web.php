@@ -81,4 +81,5 @@ Route::middleware('user')->group(function () {
     Route::post('/dichvudelete', [AdminController::class, 'dichvudelete'])->name('dichvu.delete');
     Route::post('/dichvusearch', [AdminController::class, 'dichvusearch'])->name('dichvu.search');
     Route::get('/dauvao', [AdminController::class, 'dauvao'])->name('dauvao.page');
+    Route::get('/daura', [AdminController::class, 'daura'])->name('daura.page');
 });

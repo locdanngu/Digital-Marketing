@@ -585,4 +585,23 @@ class AdminController extends Controller
         return view('admin/Dauvao', compact('user','dauvaoTotals','dauvao'));
     }
 
+    public function daura(Request $request)
+    {
+        $user = Auth::user();
+        $dauvao = Serviceads::sum('cost');
+        $dauvaoByMonth = Serviceads::selectRaw('MONTH(created_at) as month, SUM(cost) as total_cost')
+            ->groupBy('month')
+            ->get();
+        $dauvaoTotals = array_fill(1, 12, 0);
+        foreach ($dauvaoByMonth as $item) {
+            $month = $item->month;
+            $totalCost = $item->total_cost;
+            $dauvaoTotals[$month] = $totalCost;
+        }
+        $dauvaoTotals = json_encode(array_values($dauvaoTotals));
+        
+        
+        return view('admin/Daura', compact('user','dauvaoTotals','dauvao'));
+    }
+
 }
