@@ -20,7 +20,7 @@ class Serviceads extends Authenticatable
 
     public function servicechange()
     {
-        return $this->hasMany(Serviceads::class, 'idchange');
+        return $this->hasMany(Servicechange::class, 'idads');
     }
 }
 

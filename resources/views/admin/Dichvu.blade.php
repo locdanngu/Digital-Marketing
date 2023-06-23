@@ -64,9 +64,16 @@
                                     <td>{{ $dv->service->nameservice }}</td>
                                     <td>{{ number_format($dv->cost, 0, ',', '.') }} đ</td>
                                     <td>{{ $dv->created_at }}</td>
+                                    <!-- <td>
+                                        @foreach ($dv->servicechange as $change)
+                                        {{ $change->reason }}
+                                        {{ $change->created_at }}
+                                        @endforeach
+                                    </td> -->
                                     <td>@if($dv->created_at != $dv->updated_at)
                                         <button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"
-                                            data-target="#modal-traloi-dtv">
+                                            data-target="#modal-history-change" data-id="{{ $dv->idads }}"
+                                            data-form="{{ json_encode($dv->servicechange) }}">
                                             <i class="bi bi-list"></i>
                                             Lịch sử
                                         </button>
@@ -86,7 +93,8 @@
                                         <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
                                             data-target="#modal-delete-serviceads" data-id="{{ $dv->idads }}"
                                             data-name="{{ $dv->name }}" data-email="{{ $dv->email }}"
-                                            data-phone="{{ $dv->phone }}" data-cost="{{ number_format($dv->cost, 0, ',', '.') }} đ"
+                                            data-phone="{{ $dv->phone }}"
+                                            data-cost="{{ number_format($dv->cost, 0, ',', '.') }} đ"
                                             data-nameservice="{{ $dv->service->nameservice }}">
                                             <i class="bi bi-pencil"></i>
                                             Xóa
@@ -110,6 +118,33 @@
 @endsection
 
 @section('popup')
+<!-- Modal trả lời đơn tư vấn -->
+<div class="modal fade" id="modal-history-change">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Lịch sử chỉnh sửa thông tin dịch vụ</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Id đơn</span>
+                    <span class="spanpopup" name="id">
+                </div>
+
+                <div id="modal-data"></div>
+            </div>
+            <div class="modal-footer justify-align-content-end">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
 <!-- Modal trả lời đơn tư vấn -->
 <div class="modal fade" id="modal-add-serviceads">
     <div class="modal-dialog">
@@ -277,6 +312,22 @@
 @section('js')
 <script>
 $(document).ready(function() {
+    $('#modal-history-change').on('shown.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Nút "Change" được nhấn
+        var id = button.data('id');
+        var formData = button.data('form');
+        var modal = $(this);
+        modal.find('span[name="id"]').text(id);
+        var modalData = '';
+        for (var i = 0; i < formData.length; i++) {
+            modalData += '<span style="font-weight:bold;">Lần chỉnh sửa '+ [i+1] +': </span><br>';
+            modalData += '<span>Lý do: </span>' + formData[i].reason + '<br>'+ 'Thời gian: ' + formData[i].created_at + '<br>';
+        }
+        modal.find('#modal-data').html(modalData);
+
+    });
+
+
     $('#modal-change-serviceads').on('shown.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Nút "Change" được nhấn
         var id = button.data('id');
