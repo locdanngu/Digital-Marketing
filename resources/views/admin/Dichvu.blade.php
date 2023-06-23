@@ -66,11 +66,24 @@
                                     <td>{{ $dv->created_at }}</td>
                                     <td>{{ $dv->updated_at }}</td>
                                     <td class="project-actions text-right">
-                                        <button class="btn btn-primary btn-sm" type="button" data-toggle="modal"
+                                        @if($dv->created_at != $dv->updated_at)
+                                        <button class="btn btn-secondary btn-sm mr-1" type="button" data-toggle="modal"
+                                            data-target="#modal-traloi-dtv">
+                                            <i class="bi bi-list"></i>
+                                            Lịch sử
+                                        </button>
+                                        @endif
+                                        <button class="btn btn-primary btn-sm mr-1" type="button" data-toggle="modal"
                                             data-target="#modal-traloi-dtv">
                                             <i class="bi bi-pencil"></i>
                                             Chỉnh sửa
                                         </button>
+                                        <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
+                                            data-target="#modal-traloi-dtv">
+                                            <i class="bi bi-pencil"></i>
+                                            Xóa
+                                        </button>
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -122,7 +135,7 @@
                     <select style="width: 85%" name="idservice">
                         @foreach($service as $sv)
                         <option value="{{ $sv->idservice }}">{{ $sv->idservice }}.
-                        {{ $sv->nameservice }}</option>
+                            {{ $sv->nameservice }}</option>
                         @endforeach
                     </select>
                 </div>
