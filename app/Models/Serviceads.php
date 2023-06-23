@@ -12,10 +12,15 @@ class Serviceads extends Authenticatable
 {
     protected $table = 'serviceads'; // Tên bảng trong CSDL
     protected $primaryKey = 'idads'; // Tên trường khóa chính
-    protected $fillable = ['name','email','phone','idservice','cost','reason']; // Các trường trong bảng có thể được gán giá trị
+    protected $fillable = ['name','email','phone','idservice','cost']; // Các trường trong bảng có thể được gán giá trị
     
     public function service(){
         return $this->belongsTo(Service::class, 'idservice');
+    }
+
+    public function servicechange()
+    {
+        return $this->hasMany(Serviceads::class, 'idchange');
     }
 }
 

@@ -7,6 +7,7 @@ use App\Models\Emailthongbao;
 use App\Models\Blog;
 use App\Models\Service;
 use App\Models\Serviceads;
+use App\Models\Servicechange;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
@@ -480,8 +481,12 @@ class AdminController extends Controller
         $dichvu->phone = $request['phone'];
         $dichvu->idservice = $request['idservice'];
         $dichvu->cost = $request['cost'];
-        $dichvu->reason = $request['reason'];
+        $dichvu->timechange += 1;
         $dichvu->save();
+        $dichvuchange = new Servicechange();
+        $dichvuchange->reason = $request['reason'];
+        $dichvuchange->idads = $request['id'];
+        $dichvuchange->save();
         return redirect()->back();
     }
 
@@ -490,6 +495,10 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $dichvu = Serviceads::where('idads',$request['id'])->first();
+        $dichvuchange = Servicechange::where('idads',$request['id'])->get();
+        foreach ($dichvuchange as $change) {
+            $change->delete();
+        }
         $dichvu->delete();
         return redirect()->back();
     }
