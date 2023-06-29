@@ -20,7 +20,48 @@ class AdminController extends Controller
     public function adminhomepage(Request $request)
     {
         $user = Auth::user();
-        return view('admin/Adminhomepage', ['user' => $user]);
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+        $dauvao2 = Serviceads::sum('cost');
+        $dauvaoByMonth = Serviceads::selectRaw('MONTH(created_at) as month, SUM(cost) as total_cost')
+            ->whereYear('created_at', $currentYear)
+            ->groupBy('month')
+            ->get();
+        $dauvaoTotals2 = array_fill(1, 12, 0);
+        foreach ($dauvaoByMonth as $item) {
+            $month = $item->month;
+            $totalCost = $item->total_cost;
+            $dauvaoTotals2[$month] = $totalCost;
+        }
+
+        $daura = Daura::sum('totalcost');
+        $dauvao = $dauvao2 - $daura;
+        $dauraByMonth = Daura::selectRaw('MONTH(created_at) as month, SUM(totalcost) as total_cost')
+            ->whereYear('created_at', $currentYear)
+            ->groupBy('month')
+            ->get();
+        $dauraTotals = array_fill(1, 12, 0);
+        foreach ($dauraByMonth as $item) {
+            $month = $item->month;
+            $totalCost = $item->total_cost;
+            $dauraTotals[$month] = $totalCost;
+        }
+    
+        $dauvaoTotals = array();
+        for ($i = 1; $i <= 12; $i++) {
+            $dauvaoTotals[$i] = $dauvaoTotals2[$i] - $dauraTotals[$i];
+        }
+
+        $dauvaoTotals = json_encode(array_values($dauvaoTotals));
+       
+        $dvht = Serviceads::whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', $currentYear)
+            ->sum('cost');
+        $drht = Daura::whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', $currentYear)
+            ->sum('totalcost');
+        $loi = $dvht - $drht;
+        return view('admin/Adminhomepage', compact('user','dauvaoTotals','dauvao','currentMonth','loi','currentYear'));
     }
 
     public function registerformadmin(Request $request)
