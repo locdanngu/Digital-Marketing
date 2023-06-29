@@ -83,10 +83,10 @@
                                                 Sửa
                                             </button>
                                             <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
-                                                data-target="#modal-delete-blog" data-id="15" data-title="Test thử xem"
-                                                data-content="{!! htmlspecialchars($lb->content) !!}" data-timeread="8"
-                                                data-imageblog="/blogimg/1687342348.png" data-category="132132"
-                                                data-read="0">
+                                                data-target="#modal-delete-blog" data-id="{{ $lb->idblog }}" data-title="{{ $lb->title }}"
+                                                data-content="{!! htmlspecialchars($lb->content) !!}" data-timeread="{{ $lb->timeread }}"
+                                                data-imageblog="{{ $lb->imageblog }}" data-category="{{ $lb->category }}"
+                                                data-read="{{ $lb->read }}">
                                                 <i class="bi bi-trash"></i> Xóa
                                             </button>
                                         </div>
