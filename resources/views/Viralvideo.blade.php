@@ -158,7 +158,7 @@
                 <p><i class="bi bi-check-lg"></i>Ưu đãi khi sử dụng dịch vụ lần 2</p>
                 <p><i class="bi bi-check-lg"></i>Hỗ trợ 24/7</p>
                 <p><i class="bi bi-check-lg"></i>Nhân viên hỗ trợ riêng</p>
-                <button class="btntuvan mt-4" style="width:100%">Đăng ký ngay</button>
+                <button class="btntuvan mt-4" style="width:100%" data-bs-toggle="modal" data-bs-target="#a">Đăng ký ngay</button>
             </div>
             <div class="leftbox6">
                 <span>Sản xuất</span>
@@ -170,7 +170,7 @@
                 <p><i class="bi bi-check-lg"></i>Ưu đãi khi sử dụng dịch vụ lần 2</p>
                 <p><i class="bi bi-check-lg"></i>Hỗ trợ 24/7</p>
                 <p><i class="bi bi-check-lg"></i>Nhân viên hỗ trợ riêng</p>
-                <button class="btntuvan mt-4" style="width:100%">Đăng ký ngay</button>
+                <button class="btntuvan mt-4" style="width:100%" data-bs-toggle="modal" data-bs-target="#a">Đăng ký ngay</button>
             </div>
         </div>
 
