@@ -61,8 +61,8 @@
                                     <td>{{ $lb->idblog }}</td>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
                                     <td>{{ $lb->title }}</td>
-                                    @if(strlen($lb->content) > 40)
-                                    <td>{!! substr($lb->content, 0, 40) !!}...</td>
+                                    @if(strlen($lb->content) > 100)
+                                    <td>{!! substr($lb->content, 0, 100) !!}...</td>
                                     @else
                                     <td>{!! $lb->content !!}</td>
                                     @endif
