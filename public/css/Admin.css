@@ -13,6 +13,11 @@ td {
 }
 
 
+.modal-content.fix {
+    width: 100% !important;
+    right: 0% !important;
+}
+
 .modal-content {
     width: 200% !important;
     right: 50% !important;
