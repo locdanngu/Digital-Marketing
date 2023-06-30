@@ -65,8 +65,8 @@
                                     @else
                                     <td>{!! $lb->title !!}</td>
                                     @endif
-                                    @if(strlen($lb->content) > 50)
-                                    <td>{!! substr(strip_tags($lb->content), 0, 50) !!}...</td>
+                                    @if(strlen($lb->content) > 40)
+                                    <td>{!! substr(strip_tags($lb->content), 0, 40) !!}...</td>
                                     @else
                                     <td>{!! $lb->content !!}</td>
                                     @endif
@@ -235,7 +235,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nội dung</span>
-                    <p name="content" class="spanpopup" style="margin:1em 0 0 0 !important;display: block;"></p>
+                    <p name="content" class="spanpopup" style="margin:1em 0 0 1em !important;display: block;"></p>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
