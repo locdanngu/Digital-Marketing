@@ -12,6 +12,10 @@ td {
     width: 15% !important;
 }
 
+.card-footer{
+    background-color: transparent !important;
+}
+
 
 .modal-content.fix {
     width: 100% !important;

@@ -22,11 +22,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header justify-content-between d-flex">
                         <h3 class="card-title">Doanh thu năm {{ $currentYear }} : {{ number_format($dauvao, 0, ',', '.') }} đ</h3>
-                        <div class="card-tools" style="width: 45%;">
                         <h3 class="card-title">Doanh thu tháng {{ $currentMonth }}/{{ $currentYear }} : {{ number_format($loi, 0, ',', '.') }} đ</h3>
-                        </div>
                     </div>
                     <div class="position-relative mb-4 p-4">
                         <canvas id="thongkedauvao-chart" height="500"></canvas>

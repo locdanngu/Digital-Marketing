@@ -34,6 +34,7 @@
                                 <label for="exampleInputPassword1">Avatar</label>
                                 <img id="preview" src="{{ $user->avatar }}" alt="" style="width:100px;margin-bottom:1em"
                                     class="imageblog">
+                                <!-- <img id="preview" src="" alt="" style="width:100px;margin-bottom:1emm"> -->
                                 <!-- <img src="{{ $user->avatar }}" style="width:100px"> -->
                                 <input class="form-control" type="file" id="formFile" accept="image/*"
                                     style="max-width:100%" onchange="previewImage(event)" name="image">
@@ -148,6 +149,7 @@ function previewImage(event) {
     }
     reader.readAsDataURL(file);
 }
+</script>
 
 
 @endsection
