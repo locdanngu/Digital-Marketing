@@ -32,10 +32,10 @@
                     <div class="card-header">
                         <h3 class="card-title">Tổng cộng : {{ $count }} bài viết</h3>
                         <div class="card-tools" style="width: 45%;">
-                            <div class="input-group input-group-sm">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Tìm kiếm" id="search">
-                            </div>
+                            <form method="get" action="" class="input-group input-group-sm">
+                                <input type="text" name="search" class="form-control float-right"
+                                    placeholder="Tìm kiếm" value="{{ request('search')}}">
+                            </form>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -348,24 +348,24 @@ $(document).ready(function() {
     });
 
 
-    $('#search').on('input', function() {
-        var search = $(this).val();
-        $.ajax({
-            type: 'POST',
-            url: '{{ route("findblog.search") }}',
-            data: {
-                _token: '{{ csrf_token() }}',
-                search: search
-            },
-            success: function(response) {
-                var html = response.html;
-                var count = response.count;
-                $('#capnhat').html(html);
-                $('.card-title').text('Tổng cộng: ' + count + ' đơn');
-            },
-            error: function(xhr, status, error) {}
-        });
-    });
+    // $('#search').on('input', function() {
+    //     var search = $(this).val();
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '{{ route("findblog.search") }}',
+    //         data: {
+    //             _token: '{{ csrf_token() }}',
+    //             search: search
+    //         },
+    //         success: function(response) {
+    //             var html = response.html;
+    //             var count = response.count;
+    //             $('#capnhat').html(html);
+    //             $('.card-title').text('Tổng cộng: ' + count + ' đơn');
+    //         },
+    //         error: function(xhr, status, error) {}
+    //     });
+    // });
 
 });
 </script>

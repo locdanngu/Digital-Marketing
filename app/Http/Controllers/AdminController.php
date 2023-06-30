@@ -315,9 +315,18 @@ class AdminController extends Controller
 
     public function danhsachblog(Request $request){
         $user = Auth::user();
-        $listblog = Blog::all();
+        
+        $search = $request['search'];
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $listblog = Blog::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $listblog = Blog::where('title', 'like', '%' . $search . '%')->get();
+        }
         $count = $listblog->count();
-        return view('admin/BlogAdmin', ['user' => $user, 'listblog' => $listblog, 'count' => $count]);
+        // return view('admin/BlogAdmin', ['user' => $user, 'listblog' => $listblog, 'count' => $count]);
+        return view('admin/BlogAdmin', compact('user','listblog','count','search'));
     }
 
     public function addblog(Request $request){
@@ -390,57 +399,6 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-
-    public function findblog(Request $request){
-        $search = $request->input('search');
-        if(!$search || !is_string($search)){
-            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
-            $blog = Blog::all();
-        } else {
-            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
-            $blog = Blog::where('title', 'like', '%' . $search . '%')->get();
-        }
-        $countblog = $blog->count();
-        $html = "";
-
-        foreach ($blog as $lb) {
-            $html .= "<tr>";
-            $html .= "<td>" . $lb->idblog . "</td>";
-            $html .= "<td><img src='" . $lb->imageblog . "' class='fixanhnen'></td>";
-            if (strlen($lb->title) > 30) {
-                $html .= "<td>" . substr(strip_tags($lb->title), 0, 30) . "...</td>";
-            } else {
-                $html .= "<td>" . $lb->title . "</td>";
-            }
-            
-            if (strlen($lb->content) > 30) {
-                $html .= "<td>" . substr(strip_tags($lb->content), 0, 30) . "...</td>";
-            } else {
-                $html .= "<td>" . $lb->content . "</td>";
-            }
-            $html .= "<td>" . $lb->timeread . "</td>";
-            $html .= "<td>" . $lb->category . "</td>";
-            $html .= "<td>" . $lb->read . "</td>";
-            $html .= "<td>" . $lb->user->name . "</td>";
-            $html .= "<td><img src='" . $lb->user->avatar . "' class='lamtronavatar'></td>";
-            $html .= "<td>";
-            $html .= "<div class='d-flex justify-content-between'>";
-            $html .= "<button class='btn btn-primary btn-sm' type='button' data-toggle='modal' data-target='#modal-change-blog' data-id='" . $lb->idblog . "' data-title='" . $lb->title . "' data-content='" . $lb->content . "' data-timeread='" . $lb->timeread . "' data-imageblog='" . $lb->imageblog . "' data-category='" . $lb->category . "' data-read='" . $lb->read . "'>";
-            $html .= "<i class='bi bi-pencil'></i> Sửa</button>";
-            $html .= "<button class='btn btn-danger btn-sm' type='button' data-toggle='modal' data-target='#modal-delete-blog' data-id='" . $lb->idblog . "' data-title='" . $lb->title . "' data-content='" . htmlspecialchars($lb->content) . "' data-timeread='" . $lb->timeread . "' data-imageblog='" . $lb->imageblog . "' data-category='" . $lb->category . "' data-read='" . $lb->read . "'>";
-            $html .= "<i class='bi bi-trash'></i> Xóa</button>";
-            $html .= "</div>";
-            $html .= "</td>";
-            $html .= "</tr>";
-        }
-
-
-        return response()->json([
-            'html' => $html,
-            'count' => $countblog
-        ]);
-        
-    }
 
     public function in4admin(Request $request)
     {
