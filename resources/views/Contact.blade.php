@@ -22,25 +22,27 @@
     </div>
 
     <div class="box box6 d-flex justify-content-between">
-        <form action="" method="post" class="phantubox6 d-flex flex-column">
-            @csrf
+        <div class="phantubox6 d-flex flex-column">
             <p class="txtformbox6">Họ và tên</p>
-            <input type="text" name="name" placeholder="Họ và tên của bạn là" class="inputpopup1" required>
+            <input type="text" name="name" placeholder="Họ và tên của bạn là" class="inputpopup1" required
+                id="nameform1">
             <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column" style="width: 48%;">
                     <p class="txtformbox6">Địa chỉ email</p>
-                    <input type="email" name="email" placeholder="Địa chỉ Email của bạn là" class="inputpopup1"
-                        required>
+                    <input type="email" name="email" placeholder="Địa chỉ Email của bạn là" class="inputpopup1" required
+                        id="emailform1">
                 </div>
                 <div class="d-flex flex-column" style="width: 48%;">
                     <p class="txtformbox6">Số điện thoại</p>
-                    <input type="text" name="phone" placeholder="Số điện thoại của bạn là" class="inputpopup1" required>
+                    <input type="text" name="phone" placeholder="Số điện thoại của bạn là" class="inputpopup1" required
+                        id="phoneform1">
                 </div>
             </div>
             <p class="txtformbox6">Chi tiết yêu cầu</p>
-            <textarea type="text" name="review" placeholder="Hãy viết gì đó..." class="inputpopup1" required></textarea>
-            <button type="submit" class="btntuvan mt-3 mb-5">Liên hệ ngay</button>
-        </form>
+            <textarea type="text" name="review" placeholder="Hãy viết gì đó..." class="inputpopup1" required
+                id="reviewform1"></textarea>
+            <button type="submit" class="btntuvan mt-3 mb-5" id="sendformtuvan1">Liên hệ ngay</button>
+        </div>
         <div class="phantubox61 d-flex flex-column">
             <div class="d-flex mt-4 mb-3">
                 <img src="images/contact1.png">
@@ -71,6 +73,54 @@
     <div class="box">
         <img src="images/contact4.png" class="mapimg">
     </div>
+    <script>
+    $(document).ready(function() {
+        $('#sendformtuvan1').click(function() {
+
+            var nameform = $('#nameform1').val(); // Lấy giá trị của input có class "a"
+            var emailform = $('#emailform1').val(); // Lấy giá trị của input có class "a"
+            var phoneform = $('#phoneform1').val(); // Lấy giá trị của input có class "a"
+            var reviewform = $('#reviewform1').val(); // Lấy giá trị của input có class "a"
+            if (nameform && emailform && phoneform && reviewform) {
+                $(this).prop("disabled", true); // Vô hiệu hóa nút
+                $(this).css("cursor", "not-allowed");
+                setTimeout(function() {
+                    $("#sendformtuvan1").prop("disabled",
+                        false); // Kích hoạt lại nút sau 10 giây
+                    $("#sendformtuvan1").css("cursor", "");
+                }, 10000); // 10 giây = 10,000 miligiây
+                $.ajax({
+                    url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
+                    method: 'POST', // Phương thức HTTP để gửi dữ liệu
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        nameform: nameform,
+                        emailform: emailform,
+                        phoneform: phoneform,
+                        reviewform: reviewform,
+                    }, // Dữ liệu gửi đi (giá trị của input)
+                    success: function(response) {
+                        // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                        toastr.success(
+                            '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới, Cần 10 giây để gửi tiếp mẫu đơn khác.</b>'
+                        )
+                    },
+                    error: function() {
+                        // Xử lý lỗi (nếu có)
+                        toastr.error(
+                            '<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>'
+                        )
+                    }
+                });
+            } else if (!nameform || !emailform || !phoneform || !reviewform) {
+                toastr.error(
+                    '<b>Vui lòng điền đầy đủ tất cả thông tin.</b>'
+                )
+            }
+
+        });
+    });
+    </script>
 </body>
 
 @include('layouts.Footer')

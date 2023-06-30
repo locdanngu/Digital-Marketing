@@ -15,15 +15,15 @@
     <div class="box box1 d-flex justify-content-between">
         @foreach($topblog as $tb)
         <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="leftbox1 d-flex">
-            <div style="width:60%">
-                <img src="{{ $tb->imageblog }}" style="height:100%">
+            <div style="width:65%">
+                <img src="{{ $tb->imageblog }}" style="height:325px">
             </div>
 
             <div class="d-flex flex-column justify-content-center" style="width:38%">
                 <p class="txtbox1">{{ $tb->category }}</p>
                 <p class="txt2box1">{{ $tb->title }}</p>
-                <span class="txt3box1">{!! nl2br(substr($tb->content, 0, 40)) !!}...</span>
-                <p class="txt4box1">7 phút để đọc</p>
+                <span class="txt3box1">{!! substr(strip_tags($tb->content), 0, 50) !!}...</span>
+                <p class="txt4box1" style="margin:1em 0 0 1rem ;">{{ $tb->timeread }} phút để đọc</p>
             </div>
             
         </a>
@@ -35,7 +35,7 @@
             @continue
             @endif
             <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="phantubox1 d-flex">
-                <img src="{{ $tb->imageblog }}">
+                <img src="{{ $tb->imageblog }}" style="height:100px">
                 <div class="d-flex flex-column">
                     <p class="txt5box1">{{ $tb->category }}</p>
                     <p class="txt6box1">{{ $tb->title }}</p>
@@ -76,7 +76,7 @@
                     <span class="txtbox2">{{ $ab->category }}</span>
                     <span class="txt2box2">{{ $ab->title }}
                     </span>
-                    <span class="txt3box2">{!! $ab->content !!}</span>
+                    <span class="txt3box2">{!! substr(strip_tags($ab->content), 0, 100) !!}...</span>
                     <span class="txt4box2">{{ $ab->timeread }} phút để đọc</span>
                 </div>
             </a>
