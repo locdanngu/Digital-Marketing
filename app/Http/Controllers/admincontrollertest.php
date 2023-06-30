@@ -347,10 +347,11 @@ class AdminController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('blogimg/');
+            $path = '../public_html/blogimg/';
             $image->move($path, $filename);
             $blog->imageblog = '/blogimg/' . $filename;
         }
+
 
         $blog->save();
 
@@ -388,10 +389,11 @@ class AdminController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('blogimg/');
+            $path = '../public_html/blogimg/';
             $image->move($path, $filename);
             $blog->imageblog = '/blogimg/' . $filename;
         }
+
 
         $blog->save();
 
@@ -420,13 +422,22 @@ class AdminController extends Controller
         $user->phone = $request->phone;
 
 
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = public_path('adminimg/');
+        //     $image->move($path, $filename);
+        //     $user->avatar = '/adminimg/' . $filename;
+        // }
+        
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('adminimg/');
+            $path = '../public_html/adminimg/';
             $image->move($path, $filename);
             $user->avatar = '/adminimg/' . $filename;
         }
+
 
         $user->save();
 
