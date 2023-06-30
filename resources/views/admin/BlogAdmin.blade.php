@@ -43,7 +43,6 @@
                         <table class="table table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>ID blog</th>
                                     <th>Ảnh nền</th>
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
@@ -58,7 +57,6 @@
                             <tbody id="capnhat">
                                 @foreach($listblog as $lb)
                                 <tr>
-                                    <td>{{ $lb->idblog }}</td>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
                                     @if(strlen($lb->title) > 30)
                                     <td>{!! substr(strip_tags($lb->title), 0, 30) !!}...</td>

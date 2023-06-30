@@ -90,27 +90,38 @@ $(document).ready(function() {
     $('#sendemailnhanthongbao').click(function() {
 
         var emailnhanthongbao = $('#emailnhanthongbao').val(); // Lấy giá trị của input có class "a"
+        function kiemTraEmail(email) {
+            var pattern = /^[\w\.-]+@[\w\.-]+\.\w+$/;
+            return pattern.test(email);
+        }
         if (emailnhanthongbao) {
-            $.ajax({
-                url: '{{ route("sendemailnhanthongbao") }}', // Đường dẫn đến AdminController
-                method: 'POST', // Phương thức HTTP để gửi dữ liệu
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    emailnhanthongbao: emailnhanthongbao,
-                }, // Dữ liệu gửi đi (giá trị của input)
-                success: function(response) {
-                    // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                    toastr.success(
-                        '<b>Đăng ký nhận thông báo thành công.</b>'
-                    )
-                },
-                error: function() {
-                    // Xử lý lỗi (nếu có)
-                    toastr.error(
-                        '<b>Tài khoản email đã được đăng ký nhận thông báo trước đó</b>'
-                    )
-                }
-            });
+            if (kiemTraEmail(emailnhanthongbao)) {
+                $.ajax({
+                    url: '{{ route("sendemailnhanthongbao") }}', // Đường dẫn đến AdminController
+                    method: 'POST', // Phương thức HTTP để gửi dữ liệu
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        emailnhanthongbao: emailnhanthongbao,
+                    }, // Dữ liệu gửi đi (giá trị của input)
+                    success: function(response) {
+                        // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                        toastr.success(
+                            '<b>Đăng ký nhận thông báo thành công.</b>'
+                        )
+                    },
+                    error: function() {
+                        // Xử lý lỗi (nếu có)
+                        toastr.error(
+                            '<b>Tài khoản email đã được đăng ký nhận thông báo trước đó</b>'
+                        )
+                    }
+                });
+            } else {
+                toastr.error(
+                    '<b>Vui lòng nhập đúng định dạng Email</b>'
+                )
+            }
+
         } else {
             toastr.error(
                 '<b>Vui lòng nhập Email trước</b>'
