@@ -67,8 +67,10 @@
 }
 
 .box4 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    justify-content: center;
+    gap: 1.5em;
 }
 
 .icon {
@@ -152,8 +154,10 @@
 }
 
 .box6 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    justify-content: center;
+    gap: 1.5em;
 }
 
 .boxmini3 {
