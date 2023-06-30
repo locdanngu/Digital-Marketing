@@ -4,19 +4,19 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @extends('layouts.Link')
-    <link rel="stylesheet" href="/css/Blog.css">
+    <link rel="stylesheet" href="/css/Blog.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="/css/Layoutads.css">
     <title>Blog</title>
 </head>
 
 <body>
     @include('layouts.Header')
-    @if($allblog != '')
+    @if($allblog)
     <div class="box box1 d-flex justify-content-between">
         @foreach($topblog as $tb)
         <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="leftbox1 d-flex">
             <div style="width:65%">
-                <img src="{{ $tb->imageblog }}" style="height:325px">
+                <img src="{{ $tb->imageblog }}" style="height:100%">
             </div>
 
             <div class="d-flex flex-column justify-content-center" style="width:38%">
