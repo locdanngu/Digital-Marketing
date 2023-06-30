@@ -81,37 +81,47 @@
             var emailform = $('#emailform1').val(); // Lấy giá trị của input có class "a"
             var phoneform = $('#phoneform1').val(); // Lấy giá trị của input có class "a"
             var reviewform = $('#reviewform1').val(); // Lấy giá trị của input có class "a"
+            function kiemTraEmail(email) {
+                var pattern = /^[\w\.-]+@[\w\.-]+\.\w+$/;
+                return pattern.test(email);
+            }
             if (nameform && emailform && phoneform && reviewform) {
-                $(this).prop("disabled", true); // Vô hiệu hóa nút
-                $(this).css("cursor", "not-allowed");
-                setTimeout(function() {
-                    $("#sendformtuvan1").prop("disabled",
-                        false); // Kích hoạt lại nút sau 10 giây
-                    $("#sendformtuvan1").css("cursor", "");
-                }, 10000); // 10 giây = 10,000 miligiây
-                $.ajax({
-                    url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
-                    method: 'POST', // Phương thức HTTP để gửi dữ liệu
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        nameform: nameform,
-                        emailform: emailform,
-                        phoneform: phoneform,
-                        reviewform: reviewform,
-                    }, // Dữ liệu gửi đi (giá trị của input)
-                    success: function(response) {
-                        // Xử lý phản hồi thành công từ AdminController (nếu cần)
-                        toastr.success(
-                            '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới, Cần 10 giây để gửi tiếp mẫu đơn khác.</b>'
-                        )
-                    },
-                    error: function() {
-                        // Xử lý lỗi (nếu có)
-                        toastr.error(
-                            '<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>'
-                        )
-                    }
-                });
+                if (kiemTraEmail(emailform)) {
+                    $(this).prop("disabled", true); // Vô hiệu hóa nút
+                    $(this).css("cursor", "not-allowed");
+                    setTimeout(function() {
+                        $("#sendformtuvan1").prop("disabled",
+                            false); // Kích hoạt lại nút sau 10 giây
+                        $("#sendformtuvan1").css("cursor", "");
+                    }, 10000); // 10 giây = 10,000 miligiây
+                    $.ajax({
+                        url: '{{ route("senddontuvan") }}', // Đường dẫn đến AdminController
+                        method: 'POST', // Phương thức HTTP để gửi dữ liệu
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            nameform: nameform,
+                            emailform: emailform,
+                            phoneform: phoneform,
+                            reviewform: reviewform,
+                        }, // Dữ liệu gửi đi (giá trị của input)
+                        success: function(response) {
+                            // Xử lý phản hồi thành công từ AdminController (nếu cần)
+                            toastr.success(
+                                '<b>Gửi đơn đăng ký thành công, Nhân viên tư vấn sẽ liên hệ với bạn trong 12 tiếng tới, Cần 10 giây để gửi tiếp mẫu đơn khác.</b>'
+                            )
+                        },
+                        error: function() {
+                            // Xử lý lỗi (nếu có)
+                            toastr.error(
+                                '<b>Gửi đơn thất bại vì lỗi không rõ nguyên nhân, nếu còn tiếp tục xin liên hệ email: tranvanloc96lhp@gmail.com.</b>'
+                            )
+                        }
+                    });
+                } else {
+                    toastr.error(
+                        '<b>Vui lòng nhập đúng định dạng Email.</b>'
+                    )
+                }
             } else if (!nameform || !emailform || !phoneform || !reviewform) {
                 toastr.error(
                     '<b>Vui lòng điền đầy đủ tất cả thông tin.</b>'

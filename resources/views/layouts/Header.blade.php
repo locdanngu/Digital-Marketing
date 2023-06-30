@@ -39,8 +39,8 @@
                         Portfolio
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">Dowload bản Tiếng Việt</a></li>
-                        <li><a class="dropdown-item" href="">Dowload bản Tiếng Anh</a></li>
+                        <li><a class="dropdown-item" href="http://ads.viettelmedia.vn/portfolio/vi">Dowload bản Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="http://ads.viettelmedia.vn/portfolio/en">Dowload bản Tiếng Anh</a></li>
                     </ul>
                 </div>
                 <a class="nav-link {{ request()->is('blog') || request()->is('contentblog') ? 'active' : '' }}"
