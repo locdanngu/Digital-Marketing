@@ -60,13 +60,13 @@
                                 <tr>
                                     <td>{{ $lb->idblog }}</td>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
-                                    @if(strlen($lb->title) > 40)
-                                    <td>{!! substr(strip_tags($lb->title), 0, 40) !!}...</td>
+                                    @if(strlen($lb->title) > 30)
+                                    <td>{!! substr(strip_tags($lb->title), 0, 30) !!}...</td>
                                     @else
                                     <td>{!! $lb->title !!}</td>
                                     @endif
-                                    @if(strlen($lb->content) > 40)
-                                    <td>{!! substr(strip_tags($lb->content), 0, 40) !!}...</td>
+                                    @if(strlen($lb->content) > 30)
+                                    <td>{!! substr(strip_tags($lb->content), 0, 30) !!}...</td>
                                     @else
                                     <td>{!! $lb->content !!}</td>
                                     @endif
@@ -87,10 +87,12 @@
                                                 Sửa
                                             </button>
                                             <button class="btn btn-danger btn-sm" type="button" data-toggle="modal"
-                                                data-target="#modal-delete-blog" data-id="{{ $lb->idblog }}" data-title="{{ $lb->title }}"
-                                                data-content="{!! htmlspecialchars($lb->content) !!}" data-timeread="{{ $lb->timeread }}"
-                                                data-imageblog="{{ $lb->imageblog }}" data-category="{{ $lb->category }}"
-                                                data-read="{{ $lb->read }}">
+                                                data-target="#modal-delete-blog" data-id="{{ $lb->idblog }}"
+                                                data-title="{{ $lb->title }}"
+                                                data-content="{!! htmlspecialchars($lb->content) !!}"
+                                                data-timeread="{{ $lb->timeread }}"
+                                                data-imageblog="{{ $lb->imageblog }}"
+                                                data-category="{{ $lb->category }}" data-read="{{ $lb->read }}">
                                                 <i class="bi bi-trash"></i> Xóa
                                             </button>
                                         </div>
@@ -278,6 +280,13 @@ tinymce.init({
 
 @section('js')
 <script>
+// Ngăn chặn sự kiện paste vào textarea
+$('textarea[name="content"]').on('paste', function(e) {
+    e.preventDefault();
+    var text = e.originalEvent.clipboardData.getData('text/plain');
+    document.execCommand("insertText", false, text);
+});
+
 function previewImage(event) {
     const preview = document.getElementById('preview');
     const file = event.target.files[0];
