@@ -345,26 +345,6 @@ $(document).ready(function() {
         modal.find('img.imageblog').attr('src', imageblog);
     });
 
-
-    // $('#search').on('input', function() {
-    //     var search = $(this).val();
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '{{ route("findblog.search") }}',
-    //         data: {
-    //             _token: '{{ csrf_token() }}',
-    //             search: search
-    //         },
-    //         success: function(response) {
-    //             var html = response.html;
-    //             var count = response.count;
-    //             $('#capnhat').html(html);
-    //             $('.card-title').text('Tổng cộng: ' + count + ' đơn');
-    //         },
-    //         error: function(xhr, status, error) {}
-    //     });
-    // });
-
 });
 </script>
 
