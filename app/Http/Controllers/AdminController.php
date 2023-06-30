@@ -407,14 +407,17 @@ class AdminController extends Controller
             $html .= "<tr>";
             $html .= "<td>" . $lb->idblog . "</td>";
             $html .= "<td><img src='" . $lb->imageblog . "' class='fixanhnen'></td>";
-            $html .= "<td>" . $lb->title . "</td>";
-
-            if (strlen($lb->content) > 40) {
-                $html .= "<td>" . substr($lb->content, 0, 40) . "...</td>";
+            if (strlen($lb->title) > 40) {
+                $html .= "<td>" . substr(strip_tags($lb->title), 0, 40) . "...</td>";
+            } else {
+                $html .= "<td>" . $lb->title . "</td>";
+            }
+            
+            if (strlen($lb->content) > 50) {
+                $html .= "<td>" . substr(strip_tags($lb->content), 0, 50) . "...</td>";
             } else {
                 $html .= "<td>" . $lb->content . "</td>";
             }
-
             $html .= "<td>" . $lb->timeread . "</td>";
             $html .= "<td>" . $lb->category . "</td>";
             $html .= "<td>" . $lb->read . "</td>";

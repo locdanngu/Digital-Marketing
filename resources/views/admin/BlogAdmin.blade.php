@@ -60,9 +60,13 @@
                                 <tr>
                                     <td>{{ $lb->idblog }}</td>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
-                                    <td>{{ $lb->title }}</td>
-                                    @if(strlen($lb->content) > 100)
-                                    <td>{!! substr($lb->content, 0, 100) !!}...</td>
+                                    @if(strlen($lb->title) > 40)
+                                    <td>{!! substr(strip_tags($lb->title), 0, 40) !!}...</td>
+                                    @else
+                                    <td>{!! $lb->title !!}</td>
+                                    @endif
+                                    @if(strlen($lb->content) > 50)
+                                    <td>{!! substr(strip_tags($lb->content), 0, 50) !!}...</td>
                                     @else
                                     <td>{!! $lb->content !!}</td>
                                     @endif
@@ -231,7 +235,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nội dung</span>
-                    <p name="content" class="spanpopup" style="margin-bottom:0 !important"></p>
+                    <p name="content" class="spanpopup" style="margin:1em 0 0 0 !important;display: block;"></p>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Thời gian đọc</span>
