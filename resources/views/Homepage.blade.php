@@ -205,46 +205,17 @@
     <div class="box box8 d-flex flex-column">
         <p class="txt2 text-center">Thêm thông tin, Thêm hiểu biết</p>
         <div class="d-flex justify-content-between fixclass1">
+            @foreach($blog as $bl)
             <div class="minibox4">
-                <img src="images/img1.png" class="widthimg">
+                <img src="{{ $bl->imageblog }}" class="widthimg">
                 <div class="p-3">
-                    <p class="txt8">26 thg 1</p>
-                    <p class="txt9">Tiêu đề</p>
-                    <p class="txt8">Bạn có muốn tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?
-                    </p>
-                    <a href="">Xem chi tiết</a>
+                    <p class="txt8">{{ $bl->created_at }}</p>
+                    <p class="txt9">{{ $bl->title }}</p>
+                    <p class="txt8">{!! substr(strip_tags($bl->content), 0, 100) !!}...</p>
+                    <a href="{{ route('contentblog.page', ['idbaiviet' => $bl->idblog ]) }}">Xem chi tiết</a>
                 </div>
             </div>
-            <div class="minibox4">
-                <img src="images/img2.png" class="widthimg">
-                <div class="p-3">
-                    <p class="txt8">26 thg 1</p>
-                    <p class="txt9">Tiêu đề</p>
-                    <p class="txt8">Bạn có muốn tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?
-                    </p>
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="minibox4">
-                <img src="images/img3.png" class="widthimg">
-                <div class="p-3">
-                    <p class="txt8">26 thg 1</p>
-                    <p class="txt9">Tiêu đề</p>
-                    <p class="txt8">Bạn có muốn tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?
-                    </p>
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="minibox4">
-                <img src="images/img4.png" class="widthimg">
-                <div class="p-3">
-                    <p class="txt8">26 thg 1</p>
-                    <p class="txt9">Tiêu đề</p>
-                    <p class="txt8">Bạn có muốn tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?
-                    </p>
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

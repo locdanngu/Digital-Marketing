@@ -41,4 +41,10 @@ class UserController extends Controller
         $blog->save();
         return view('Contentblog',compact('topblog','popularblog','blog'));
     }
+
+    public function homepage()
+    {
+        $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
+        return view('Homepage',compact('blog'));
+    }
 }

@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/test', function () { return view('test'); })->name('test');
+// Route::get('/test', function () { return view('test'); })->name('test');
 
-Route::get('/', function () { return view('Homepage'); })->name('home.page');
+// Route::get('/', function () { return view('Homepage'); })->name('home.page');
+Route::get('/', [UserController::class, 'homepage'])->name('home.page');
 
 Route::get('/google-ads', function () { return view('Googleads'); })->name('googleads.page');
 
