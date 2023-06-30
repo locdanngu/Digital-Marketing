@@ -16,7 +16,7 @@
         <div class="leftbox1 d-flex flex-column">
             <div class="headbox1 d-flex justify-content-between mb-3">
                 <div class="d-flex justify-content-between" style="width: 40%;">
-                    <img src="{{ asset($blog->user->avatar) }}" class="avatar">
+                    <img src="{{ asset($blog->user->avatar) }}" class="avatar" style="border-radius: 50%;">
                     <div class="d-flex flex-column justify-content-between">
                         <span class="txtuser">{{ $blog->user->name }}</span>
                         <span class="txtuser2">{{ $blog->updated_at }}</span>
@@ -26,6 +26,7 @@
                 <a href="" class="share"><i class="bi bi-share-fill"></i></a>
             </div>
             <div class="bodybox1">
+                <img src="{{ $blog->imageblog }}" style="width:100%">
                 <p class="txtcontent">{{ $blog->title }}</p>
                 <!-- <p class="txtcontent">Digital Marketing là làm gì? Top những kỹ năng Digital Marketer phải biết Digital
                     Marketing là một mảng nhỏ hơn của Marketing, yêu cầu những kiến </p> -->
@@ -81,7 +82,7 @@
                 @continue
                 @endif
                 <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="phantubox1 d-flex">
-                    <img src="{{ $tb->imageblog }}">
+                    <img src="{{ $tb->imageblog }}" style="height:100px">
                     <div class="d-flex flex-column">
                         <p class="txt5box1">{{ $tb->category }}</p>
                         <p class="txt6box1">{{ $tb->title }}</p>
