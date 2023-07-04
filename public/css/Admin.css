@@ -8,19 +8,21 @@ td {
     margin-left: 1em;
 }
 
-#inputGroup-sizing-default {
-    width: 15% !important;
-}
-
 .card-footer{
     background-color: transparent !important;
 }
 
 
+#inputGroup-sizing-default {
+    width: 15% !important;
+}
+
 .modal-content.fix {
     width: 100% !important;
     right: 0% !important;
 }
+
+
 
 .modal-content {
     width: 200% !important;
@@ -73,6 +75,10 @@ input[type="file"]{
 @media screen and (max-width: 767px) {
     #inputGroup-sizing-default {
         width: 30% !important;
+    }
+    
+    .tox.tox-tinymce {
+        width: 100% !important;
     }
 
 
