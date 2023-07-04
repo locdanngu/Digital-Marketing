@@ -93,6 +93,10 @@ body {
         margin: 0 !important;
     }
 
+    body{
+        padding: 1em !important;
+    }
+
 
 }
 

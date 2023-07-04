@@ -180,6 +180,9 @@ th {
         flex-direction: column;
     }
 
+    body{
+        padding: 1em !important;
+    }
     
 }
 
@@ -189,6 +192,8 @@ th {
     .box10 {
         padding: 0 !important;
     }
+
+    
 
     .box8{
         flex-direction: column;
