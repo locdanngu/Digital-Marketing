@@ -9,6 +9,13 @@
     display: flex;
 }
 
+.box2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    justify-content: center;
+    gap: 1.5em;
+}
+
 .txt1 {
     font-weight: 400;
     font-size: 2em;

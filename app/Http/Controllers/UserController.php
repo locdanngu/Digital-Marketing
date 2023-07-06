@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blog;
+use App\Models\Thuonghieu;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -45,6 +46,7 @@ class UserController extends Controller
     public function homepage()
     {
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
-        return view('Homepage',compact('blog'));
+        $thuonghieu = Thuonghieu::all();
+        return view('Homepage',compact('blog','thuonghieu'));
     }
 }

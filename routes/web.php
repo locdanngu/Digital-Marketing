@@ -73,17 +73,26 @@ Route::middleware('user')->group(function () {
     Route::post('/change-blog', [AdminController::class, 'changeblog'])->name('blog.change');
     Route::post('/delete-blog', [AdminController::class, 'deleteblog'])->name('blog.delete');
     Route::get('/find-blog', [AdminController::class, 'findblog'])->name('findblog.search');
+
     Route::get('/in4admin', [AdminController::class, 'in4admin'])->name('adminin4.page');
     Route::post('/in4admin', [AdminController::class, 'changein4admin'])->name('adminin4.change');
     Route::post('/in4adminpassword', [AdminController::class, 'changepassadmin'])->name('adminin4.changepass');
+
     Route::get('/dichvu', [AdminController::class, 'dichvu'])->name('dichvu.page');
     Route::post('/dichvuadd', [AdminController::class, 'dichvuadd'])->name('dichvu.add');
     Route::post('/dichvuchange', [AdminController::class, 'dichvuchange'])->name('dichvu.change');
     Route::post('/dichvudelete', [AdminController::class, 'dichvudelete'])->name('dichvu.delete');
     Route::post('/dichvusearch', [AdminController::class, 'dichvusearch'])->name('dichvu.search');
+
     Route::get('/dauvao', [AdminController::class, 'dauvao'])->name('dauvao.page');
     Route::get('/daura', [AdminController::class, 'daura'])->name('daura.page');
     Route::post('/dauraadd', [AdminController::class, 'dauraadd'])->name('daura.add');
     Route::post('/daurachange', [AdminController::class, 'daurachange'])->name('daura.change');
     Route::post('/dauradelete', [AdminController::class, 'dauradelete'])->name('daura.delete');
+
+    Route::get('/danh-sach-thuong-hieu', [AdminController::class, 'danhsachthuonghieu'])->name('listthuonghieu.page');
+    Route::post('/add-thuong-hieu', [AdminController::class, 'addthuonghieu'])->name('trade.add');
+    Route::post('/change-thuong-hieu', [AdminController::class, 'changethuonghieu'])->name('trade.change');
+    Route::post('/delete-thuong-hieu', [AdminController::class, 'deletethuonghieu'])->name('trade.delete');
+    Route::post('/find-thuong-hieu', [AdminController::class, 'findthuonghieu'])->name('trade.find');
 });

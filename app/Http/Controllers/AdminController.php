@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Service;
 use App\Models\Daura;
 use App\Models\Serviceads;
+use App\Models\Thuonghieu;
 use App\Models\Servicechange;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -632,6 +633,106 @@ class AdminController extends Controller
         $daura->delete();
         return redirect()->back();
     }
+
+
+    public function danhsachthuonghieu(Request $request){
+        $user = Auth::user();
+        $listthuonghieu = Thuonghieu::all();
+        $count = $listthuonghieu->count();
+    
+        return view('admin/ThuonghieuAdmin', compact('user','listthuonghieu','count'));
+    }
+
+    public function addthuonghieu(Request $request){
+        $user = Auth::user();
+        $th = new Thuonghieu;
+        $th->tenthuonghieu = $request['name'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('thuonghieuimg/');
+            $image->move($path, $filename);
+            $th->anhthuonghieu = '/thuonghieuimg/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/thuonghieuimg/';
+        //     $image->move($path, $filename);
+        //     $th->anhthuonghieu = '/thuonghieuimg/' . $filename;
+        // }
+
+        $th->save();
+        return back();
+    }
+
+    public function changethuonghieu(Request $request){
+        $user = Auth::user();
+        $th = Thuonghieu::where('idth', $request['id'])->first();
+        $th->tenthuonghieu = $request['name'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('thuonghieuimg/');
+            $image->move($path, $filename);
+            $th->anhthuonghieu = '/thuonghieuimg/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/thuonghieuimg/';
+        //     $image->move($path, $filename);
+        //     $th->anhthuonghieu = '/thuonghieuimg/' . $filename;
+        // }
+        $th->save();
+        return back();
+    }
+
+    public function deletethuonghieu(Request $request){
+        $user = Auth::user();
+        $th = Thuonghieu::where('idth', $request['id'])->first()->delete();
+        return back();
+    }
+
+    public function findthuonghieu(Request $request){
+        $user = Auth::user();
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $th = Thuonghieu::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $th = Thuonghieu::where('tenthuonghieu', 'like', '%' . $search . '%')->get();
+        }
+
+        $count = $th->count();
+
+        $html = '';
+
+        foreach ($th as $lth) {
+            $html .= '<tr>';
+            $html .= '<td>' . $lth->tenthuonghieu . '</td>';
+            $html .= '<td><img src="' . $lth->anhthuonghieu . '" class="fixanhnen"></td>';
+            $html .= '<td>' . $lth->created_at . '</td>';
+            $html .= '<td>';
+            $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-trade" data-id="' . $lth->idth . '" data-name="' . $lth->tenthuonghieu . '" data-img="' . $lth->anhthuonghieu . '">';
+            $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
+            $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-trade" data-id="' . $lth->idth . '" data-name="' . $lth->tenthuonghieu . '" data-img="' . $lth->anhthuonghieu . '">';
+            $html .= '<i class="bi bi-trash"></i> Xóa</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+
+        return response()->json([
+            'html' => $html,
+            'count' => $count
+        ]);
+
+    }
+
+
 
 
 }

@@ -139,6 +139,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('listthuonghieu.page') }}"
+                        class="nav-link {{ request()->is('danh-sach-thuong-hieu') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-badge-tm"></i>
+                        <p>Quản lí Thương hiệu</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('notification.page') }}"
                         class="nav-link {{ request()->is('danh-sach-email-nhan-thong-bao') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-bell"></i>

@@ -24,13 +24,16 @@
         <img src="images/imgbox1.png">
     </div>
 
-    <div class="box box2 d-flex justify-content-between align-items-center">
-        <img src="images/lifeboy.png" class="fiximg">
+    <div class="box box2">
+        @foreach($thuonghieu as $th)
+            <img src="{{ $th->anhthuonghieu }}" class="fiximg" style="width:auto; height: 80px">
+        @endforeach
+        <!-- <img src="images/lifeboy.png" class="fiximg">
         <img src="images/knorr.png" class="fiximg">
         <img src="images/vpbank.png" class="fiximg">
         <img src="images/sunlight.png" class="fiximg">
         <img src="images/cocacola.png" class="fiximg">
-        <img src="images/pepsi.png" class="fiximg">
+        <img src="images/pepsi.png" class="fiximg"> -->
     </div>
 
     <div class="box box2 d-flex justify-content-between">
