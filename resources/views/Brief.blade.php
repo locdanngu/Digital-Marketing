@@ -22,14 +22,22 @@
     </div>
 
     <div class="box box2">
+        @foreach($brief as $br)
         <div class="phantubox2 d-flex flex-column justify-content-between">
+            <p class="txtbox1">{{ $br->namebrief }}</p>
+            <p class="txt2box1">{{ $br->contentbrief }}
+            </p>
+            <button data-bs-toggle="modal" data-bs-target="#a" class="linkbox2">Brief Về {{ $br->titlebrief }}</button>
+        </div>
+        @endforeach
+        <!-- <div class="phantubox2 d-flex flex-column justify-content-between">
             <p class="txtbox1">Digital Marketing</p>
             <p class="txt2box1">Digital Marketing là chiến lược dùng Internet làm phương tiện cho các hoạt động
                 marketing và trao đổi thông tin
             </p>
             <button data-bs-toggle="modal" data-bs-target="#a" class="linkbox2">Brief Về Digital Marketing</button>
-        </div>
-        <div class="phantubox2 d-flex flex-column justify-content-between">
+        </div> -->
+        <!-- <div class="phantubox2 d-flex flex-column justify-content-between">
             <p class="txtbox1">Quảng Cáo</p>
             <p class="txt2box1">Quảng cáo (advertising) là hoạt động của doanh nghiệp nhằm làm tăng mức tiêu thụ hàng
                 hóa của mình...
@@ -77,7 +85,7 @@
                 doanh nghiệp gặp ...
             </p>
             <button data-bs-toggle="modal" data-bs-target="#a" class="linkbox2">Brief Về Thuê tài khoản quảng cáo</button>
-        </div>
+        </div> -->
         <div class="phantubox2 d-flex flex-column justify-content-between text-center">
             <p class="txtbox1">Tư vấn miễn phí</p>
             <p class="txt2box1">Tư vấn MIỄN PHÍ chiến dịch truyền thông & quảng cáo về sản phẩm của bạn?</p>

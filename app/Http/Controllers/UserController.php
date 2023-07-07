@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Thuonghieu;
+use App\Models\Brief;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -48,5 +49,11 @@ class UserController extends Controller
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
         $thuonghieu = Thuonghieu::all();
         return view('Homepage',compact('blog','thuonghieu'));
+    }
+
+    public function briefpage()
+    {
+        $brief = Brief::all();
+        return view('Brief',compact('brief'));
     }
 }

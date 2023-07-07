@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\Daura;
 use App\Models\Serviceads;
 use App\Models\Thuonghieu;
+use App\Models\Brief;
 use App\Models\Servicechange;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -735,4 +736,79 @@ class AdminController extends Controller
 
 
 
+
+
+
+    public function danhsachbrief(Request $request){
+        $user = Auth::user();
+        $listbrief = Brief::all();
+        $count = $listbrief->count();
+    
+        return view('admin/Brief', compact('user','listbrief','count'));
+    }
+
+    public function addbrief(Request $request){
+        $user = Auth::user();
+        $th = new Brief;
+        $th->namebrief = $request['name'];
+        $th->contentbrief = $request['content'];
+        $th->titlebrief = $request['title'];
+
+        $th->save();
+        return back();
+    }
+
+    public function changebrief(Request $request){
+        $user = Auth::user();
+        $th = Brief::where('idbrief', $request['id'])->first();
+        $th->namebrief = $request['name'];
+        $th->contentbrief = $request['content'];
+        $th->titlebrief = $request['title'];
+        
+        $th->save();
+        return back();
+    }
+
+    public function deletebrief(Request $request){
+        $user = Auth::user();
+        $th = Brief::where('idbrief', $request['id'])->first()->delete();
+        return back();
+    }
+
+    public function findbrief(Request $request){
+        $user = Auth::user();
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $th = Brief::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $th = Brief::where('namebrief', 'like', '%' . $search . '%')->get();
+        }
+
+        $count = $th->count();
+
+        $html = '';
+
+        foreach ($th as $br) {
+            $html .= '<tr>';
+            $html .= '<td style="color:red;font-weight:800">' . $br->namebrief . '</td>';
+            $html .= '<td>' . $br->contentbrief . '</td>';
+            $html .= '<td>' . $br->titlebrief . '</td>';
+            $html .= '<td>' . $br->created_at . '</td>';
+            $html .= '<td>';
+            $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-brief" data-id="' . $br->idbrief . '" data-name="' . $br->namebrief . '" data-content="' . $br->contentbrief . '" data-title="' . $br->titlebrief . '">';
+            $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
+            $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-brief" data-id="' . $br->idbrief . '" data-name="' . $br->namebrief . '" data-content="' . $br->contentbrief . '" data-title="' . $br->titlebrief . '">';
+            $html .= '<i class="bi bi-trash"></i> Xóa</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+
+        return response()->json([
+            'html' => $html,
+            'count' => $count
+        ]);
+
+    }
 }

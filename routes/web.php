@@ -33,7 +33,10 @@ Route::get('/KOL', function () { return view('KOL'); })->name('KOL.page');
 
 Route::get('/booking', function () { return view('Booking'); })->name('booking.page');
 
-Route::get('/brief', function () { return view('Brief'); })->name('brief.page');
+// Route::get('/brief', function () { return view('Brief'); })->name('brief.page');
+// Route::get('/brief', function () { return view('Brief'); })->name('brief.page');
+Route::get('/brief', [UserController::class, 'briefpage'])->name('brief.page');
+
 Route::get('/portfolio', function () { return view('Portfolio'); })->name('portfolio.page');
 
 Route::get('/blog', [UserController::class, 'blogview'])->name('blog.page');
@@ -95,4 +98,10 @@ Route::middleware('user')->group(function () {
     Route::post('/change-thuong-hieu', [AdminController::class, 'changethuonghieu'])->name('trade.change');
     Route::post('/delete-thuong-hieu', [AdminController::class, 'deletethuonghieu'])->name('trade.delete');
     Route::post('/find-thuong-hieu', [AdminController::class, 'findthuonghieu'])->name('trade.find');
+
+    Route::get('/danh-sach-brief', [AdminController::class, 'danhsachbrief'])->name('listbrief.page');
+    Route::post('/add-brief', [AdminController::class, 'addbrief'])->name('brief.add');
+    Route::post('/change-brief', [AdminController::class, 'changebrief'])->name('brief.change');
+    Route::post('/delete-brief', [AdminController::class, 'deletebrief'])->name('brief.delete');
+    Route::post('/find-brief', [AdminController::class, 'findbrief'])->name('brief.find');
 });
