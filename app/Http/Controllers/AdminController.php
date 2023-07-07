@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Service;
 use App\Models\Daura;
 use App\Models\Serviceads;
+use App\Models\Video;
 use App\Models\Thuonghieu;
 use App\Models\Brief;
 use App\Models\Servicechange;
@@ -733,12 +734,6 @@ class AdminController extends Controller
 
     }
 
-
-
-
-
-
-
     public function danhsachbrief(Request $request){
         $user = Auth::user();
         $listbrief = Brief::all();
@@ -800,6 +795,117 @@ class AdminController extends Controller
             $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-brief" data-id="' . $br->idbrief . '" data-name="' . $br->namebrief . '" data-content="' . $br->contentbrief . '" data-title="' . $br->titlebrief . '">';
             $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
             $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-brief" data-id="' . $br->idbrief . '" data-name="' . $br->namebrief . '" data-content="' . $br->contentbrief . '" data-title="' . $br->titlebrief . '">';
+            $html .= '<i class="bi bi-trash"></i> Xóa</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+
+        return response()->json([
+            'html' => $html,
+            'count' => $count
+        ]);
+
+    }
+
+
+
+    public function danhsachvideo(Request $request){
+        $user = Auth::user();
+        $listvideo = Video::all();
+        $count = $listvideo->count();
+    
+        return view('admin/Video', compact('user','listvideo','count'));
+    }
+
+
+    public function addvideo(Request $request){
+        $user = Auth::user();
+        $th = new Video;
+        $th->namevideo = $request['name'];
+        $th->contentvideo = $request['content'];
+        $th->like = $request['like'];
+        $th->comment = $request['comment'];
+        $th->share = $request['share'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('quangcao/');
+            $image->move($path, $filename);
+            $th->imgvideo = '/quangcao/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/quangcao/';
+        //     $image->move($path, $filename);
+        //     $th->imgvideo = '/quangcao/' . $filename;
+        // }
+        $th->save();
+        return back();
+    }
+
+    public function changevideo(Request $request){
+        $user = Auth::user();
+        $th = Video::where('idvd', $request['id'])->first();
+        $th->namevideo = $request['name'];
+        $th->contentvideo = $request['content'];
+        $th->like = $request['like'];
+        $th->comment = $request['comment'];
+        $th->share = $request['share'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('quangcao/');
+            $image->move($path, $filename);
+            $th->imgvideo = '/quangcao/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/quangcao/';
+        //     $image->move($path, $filename);
+        //     $th->imgvideo = '/quangcao/' . $filename;
+        // }
+        $th->save();
+        return back();
+    }
+
+    public function deletevideo(Request $request){
+        $user = Auth::user();
+        $th = Video::where('idvd', $request['id'])->first()->delete();
+        return back();
+    }
+
+    public function findvideo(Request $request){
+        $user = Auth::user();
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $th = Video::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $th = Video::where('namevideo', 'like', '%' . $search . '%')->get();
+        }
+
+        $count = $th->count();
+
+        $html = '';
+
+        foreach ($th as $vd) {
+            $html .= '<tr>';
+            $html .= '<td>' . $vd->namevideo . '</td>';
+            $html .= '<td><img src="' . $vd->imgvideo . '" class="fixanhnen"></td>';
+            $html .= '<td>' . $vd->contentvideo . '</td>';
+            $html .= '<td>' . $vd->like . ' tr</td>';
+            $html .= '<td>' . $vd->comment . ' tr</td>';
+            $html .= '<td>' . $vd->share . ' tr</td>';
+            $html .= '<td>' . $vd->created_at . '</td>';
+            $html .= '<td>';
+            $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-video" data-id="' . $vd->idvd . '" data-name="' . $vd->namevideo . '" data-content="' . $vd->contentvideo . '" data-like="' . $vd->like . '" data-comment="' . $vd->comment . '" data-share="' . $vd->share . '" data-img="' . $vd->imgvideo . '">';
+            $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
+            $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-video" data-id="' . $vd->idvd . '" data-name="' . $vd->namevideo . '" data-content="' . $vd->contentvideo . '" data-like="' . $vd->like . '" data-comment="' . $vd->comment . '" data-share="' . $vd->share . '" data-img="' . $vd->imgvideo . '">';
             $html .= '<i class="bi bi-trash"></i> Xóa</button>';
             $html .= '</td>';
             $html .= '</tr>';

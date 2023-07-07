@@ -148,6 +148,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('listvideo.page') }}"
+                        class="nav-link {{ request()->is('danh-sach-video') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-camera-reels"></i>
+                        <p>Quản lí Viral Video</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('listthuonghieu.page') }}"
                         class="nav-link {{ request()->is('danh-sach-thuong-hieu') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-badge-tm"></i>

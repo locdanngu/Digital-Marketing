@@ -104,4 +104,10 @@ Route::middleware('user')->group(function () {
     Route::post('/change-brief', [AdminController::class, 'changebrief'])->name('brief.change');
     Route::post('/delete-brief', [AdminController::class, 'deletebrief'])->name('brief.delete');
     Route::post('/find-brief', [AdminController::class, 'findbrief'])->name('brief.find');
+
+    Route::get('/danh-sach-video', [AdminController::class, 'danhsachvideo'])->name('listvideo.page');
+    Route::post('/add-video', [AdminController::class, 'addvideo'])->name('video.add');
+    Route::post('/change-video', [AdminController::class, 'changevideo'])->name('video.change');
+    Route::post('/delete-video', [AdminController::class, 'deletevideo'])->name('video.delete');
+    Route::post('/find-video', [AdminController::class, 'findvideo'])->name('video.find');
 });
