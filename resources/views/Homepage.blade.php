@@ -211,7 +211,7 @@
             @foreach($blog as $bl)
             <div class="minibox4">
                 <img src="{{ $bl->imageblog }}" class="widthimg">
-                <div class="p-3">
+                <div class="p-3 d-flex justify-content-between flex-column" style="height:64%">
                     <p class="txt8">{{ $bl->created_at }}</p>
                     <p class="txt9">{{ $bl->title }}</p>
                     <p class="txt8">{!! substr(strip_tags($bl->content), 0, 100) !!}...</p>
