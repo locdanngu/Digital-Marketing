@@ -14,6 +14,11 @@ class Brief extends Authenticatable
     protected $primaryKey = 'idbrief'; // Tên trường khóa chính
     protected $fillable = ['namebrief', 'contentbrief','titlebrief']; // Các trường trong bảng có thể được gán giá trị
     
+
+    public function serviceads()
+    {
+        return $this->hasMany(Serviceads::class, 'idads');
+    }
 }
    
 

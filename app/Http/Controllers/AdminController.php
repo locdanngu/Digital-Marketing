@@ -466,7 +466,7 @@ class AdminController extends Controller
         $user = Auth::user();
         $dichvu = Serviceads::all();
         $countdichvu = $dichvu->count();
-        $service = Service::all();
+        $service = Brief::all();
         return view('admin/Dichvu', compact('user','dichvu','countdichvu','service'));
     }
 
@@ -477,7 +477,7 @@ class AdminController extends Controller
         $dichvu->name = $request['name'];
         $dichvu->email = $request['email'];
         $dichvu->phone = $request['phone'];
-        $dichvu->idservice = $request['idservice'];
+        $dichvu->idbrief = $request['idservice'];
         $dichvu->cost = $request['cost'];
         $dichvu->save();
         return redirect()->back();
@@ -490,7 +490,7 @@ class AdminController extends Controller
         $dichvu->name = $request['name'];
         $dichvu->email = $request['email'];
         $dichvu->phone = $request['phone'];
-        $dichvu->idservice = $request['idservice'];
+        $dichvu->idbrief = $request['idservice'];
         $dichvu->cost = $request['cost'];
         $dichvu->timechange += 1;
         $dichvu->save();
@@ -533,7 +533,7 @@ class AdminController extends Controller
             $html .= '<td>'. $dv->name .'</td>';
             $html .= '<td>'. $dv->email .'</td>';
             $html .= '<td>'. $dv->phone .'</td>';
-            $html .= '<td>'. $dv->service->nameservice .'</td>';
+            $html .= '<td>'. $dv->service->namebrief .'</td>';
             $html .= '<td>'. number_format($dv->cost, 0, ',', '.') .' đ</td>';
             $html .= '<td>'. $dv->created_at .'</td>';
             $html .= '<td>';
@@ -553,7 +553,7 @@ class AdminController extends Controller
             $html .= 'data-target="#modal-change-serviceads" data-id="'. $dv->idads .'"';
             $html .= 'data-name="'. $dv->name .'" data-email="'. $dv->email .'"';
             $html .= 'data-phone="'. $dv->phone .'" data-cost="'. $dv->cost .'"';
-            $html .= 'data-idservice="'. $dv->service->idservice .'">';
+            $html .= 'data-idservice="'. $dv->service->idbrief .'">';
             $html .= '<i class="bi bi-pencil"></i>';
             $html .= 'Chỉnh sửa';
             $html .= '</button>';
@@ -562,7 +562,7 @@ class AdminController extends Controller
             $html .= 'data-name="'. $dv->name .'" data-email="'. $dv->email .'"';
             $html .= 'data-phone="'. $dv->phone .'"';
             $html .= 'data-cost="'. number_format($dv->cost, 0, ',', '.') .' đ"';
-            $html .= 'data-nameservice="'. $dv->service->nameservice .'">';
+            $html .= 'data-nameservice="'. $dv->service->namebrief .'">';
             $html .= '<i class="bi bi-pencil"></i>';
             $html .= 'Xóa';
             $html .= '</button>';

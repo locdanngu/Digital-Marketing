@@ -61,7 +61,7 @@
                                     <td>{{ $dv->name }}</td>
                                     <td>{{ $dv->email }}</td>
                                     <td>{{ $dv->phone }}</td>
-                                    <td>{{ $dv->service->nameservice }}</td>
+                                    <td>{{ $dv->service->namebrief }}</td>
                                     <td>{{ number_format($dv->cost, 0, ',', '.') }} đ</td>
                                     <td>{{ $dv->created_at }}</td>
                                     <td>@if($dv->created_at != $dv->updated_at)
@@ -80,7 +80,7 @@
                                             data-target="#modal-change-serviceads" data-id="{{ $dv->idads }}"
                                             data-name="{{ $dv->name }}" data-email="{{ $dv->email }}"
                                             data-phone="{{ $dv->phone }}" data-cost="{{ $dv->cost }}"
-                                            data-idservice="{{ $dv->service->idservice }}">
+                                            data-idservice="{{ $dv->service->idbrief }}">
                                             <i class="bi bi-pencil"></i>
                                             Chỉnh sửa
                                         </button>
@@ -89,7 +89,7 @@
                                             data-name="{{ $dv->name }}" data-email="{{ $dv->email }}"
                                             data-phone="{{ $dv->phone }}"
                                             data-cost="{{ number_format($dv->cost, 0, ',', '.') }} đ"
-                                            data-nameservice="{{ $dv->service->nameservice }}">
+                                            data-nameservice="{{ $dv->service->namebrief }}">
                                             <i class="bi bi-pencil"></i>
                                             Xóa
                                         </button>
@@ -170,8 +170,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">Loại dịch vụ</span>
                     <select style="width: 85%;padding-left:1em;" name="idservice">
                         @foreach($service as $sv)
-                        <option value="{{ $sv->idservice }}">{{ $sv->idservice }}.
-                            {{ $sv->nameservice }}</option>
+                        <option value="{{ $sv->idbrief }}">{{ $loop->iteration }}. {{ $sv->namebrief }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -226,8 +225,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">Loại dịch vụ</span>
                     <select style="width: 85%;padding-left:1em;" name="idservice">
                         @foreach($service as $sv)
-                        <option value="{{ $sv->idservice }}">{{ $sv->idservice }}.
-                            {{ $sv->nameservice }}</option>
+                        <option value="{{ $sv->idbrief }}">{{ $loop->iteration }}. {{ $sv->namebrief }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -14,10 +14,6 @@ class Service extends Authenticatable
     protected $primaryKey = 'idservice'; // Tên trường khóa chính
     protected $fillable = ['namservice']; // Các trường trong bảng có thể được gán giá trị
     
-    public function serviceads()
-    {
-        return $this->hasMany(Serviceads::class, 'idads');
-    }
 }
    
 
