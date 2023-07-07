@@ -135,6 +135,19 @@
     color: #151A35;
 }
 
+.box5 {
+    position: relative;
+    overflow: hidden;
+}
+
+.fix100{
+    width: 100%;
+    height: auto;
+}
+#slider .carousel-inner {
+    width: 70%;
+  }
+
 .btnchoice {
     padding: .5em 1.75em;
     font-weight: 400;
@@ -335,33 +348,33 @@ p .bi-check-lg {
         height: fit-content;
     }
 
-    .box4{
+    .box4 {
         padding: 0;
     }
 
-    .anhbox5{
+    .anhbox5 {
         width: 100vw;
     }
 
-    .fadeimg{
+    .fadeimg {
         width: 100%;
     }
 
-    .footbox5{
+    .footbox5 {
         width: 100% !important;
         font-size: 1em;
     }
 
-    .box6 div{
+    .box6 div {
         width: 100% !important;
         display: flex;
         flex-direction: column;
     }
 
-    .leftbox6{
+    .leftbox6 {
         margin: 2em 0 0 0;
     }
-   
+
 
 
 }
