@@ -49,10 +49,11 @@
     text-decoration: none;
     font-weight: 500;
 font-size: 16px;
-
+background-color: transparent;
 color: #653FD5;
-
-
+border: 0;
+text-align: left;
+cursor: pointer;
 }
 
 .linkbox2:hover{
