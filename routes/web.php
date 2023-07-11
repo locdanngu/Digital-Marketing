@@ -27,7 +27,8 @@ Route::get('/facebook-ads', function () { return view('Facebookads'); })->name('
 
 Route::get('/creative-content', function () { return view('Creativecontent'); })->name('creativecontent.page');
 
-Route::get('/viral-video', function () { return view('Viralvideo'); })->name('viralvideo.page');
+// Route::get('/viral-video', function () { return view('Viralvideo'); })->name('viralvideo.page');
+Route::get('/viral-video', [UserController::class, 'viralvideo'])->name('viralvideo.page');
 
 Route::get('/KOL', function () { return view('KOL'); })->name('KOL.page');
 

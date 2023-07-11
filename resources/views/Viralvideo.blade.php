@@ -147,92 +147,37 @@
         <div id="slider" class="carousel slide d-flex justify-content-center align-items-center" data-ride="carousel">
 
             <div class="carousel-inner">
-
-                <div class="carousel-item">
+                @foreach($video as $key => $vd)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                     <div class="d-flex justify-content-between">
                         <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">12 Tr</p>
+                            <p class="txtbox4">{{ $vd->like }} Tr</p>
                             <p class="txt2box4">Like</p>
                         </div>
                         <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">6.3 Tr</p>
+                            <p class="txtbox4">{{ $vd->comment }} Tr</p>
                             <p class="txt2box4">Bình Luận</p>
                         </div>
                         <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">4 Tr</p>
+                            <p class="txtbox4">{{ $vd->share }} Tr</p>
                             <p class="txt2box4">Chia sẻ</p>
                         </div>
                     </div>
                     <a class="d-block wrap-img-16-9">
-                        <img class="d-block w-100 img-16-9"
-                            src="images/cr2.png">
+                        <img class="d-block w-100 img-16-9" src="{{ $vd->imgvideo }}">
                     </a>
                     <p class="lead text-center mt-3">
-                        Chiến thắng đại dịch covid
+                        {{ $vd->contentvideo }}
                     </p>
                 </div>
 
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-between">
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">12 Tr</p>
-                            <p class="txt2box4">Like</p>
-                        </div>
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">6.3 Tr</p>
-                            <p class="txt2box4">Bình Luận</p>
-                        </div>
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">4 Tr</p>
-                            <p class="txt2box4">Chia sẻ</p>
-                        </div>
-                    </div>
-                    <a class="d-block wrap-img-16-9">
-                        <img class="d-block w-100 img-16-9"
-                            src="images/cr2.png">
-                    </a>
-                    <p class="lead text-center mt-3">
-                        lâm vtm Online Open Close
-                    </p>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">12 Tr</p>
-                            <p class="txt2box4">Like</p>
-                        </div>
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">6.3 Tr</p>
-                            <p class="txt2box4">Bình Luận</p>
-                        </div>
-                        <div class="phantubox4 d-flex flex-column">
-                            <p class="txtbox4">4 Tr</p>
-                            <p class="txt2box4">Chia sẻ</p>
-                        </div>
-                    </div>
-                    <a class="d-block wrap-img-16-9">
-                        <img class="d-block w-100 img-16-9"
-                            src="images/cr2.png">
-                    </a>
-                    <p class="lead text-center mt-3">
-                        Sau 3 ngày lên sóng, MV quảng cáo của JustaTee x ViettelPay lọt vào Top Trending trên Youtube
-                        với vị trí 40 cùng 600 nghìn lượt xem.
-                    </p>
-                </div>
+                @endforeach
             </div>
             <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
                 <i class="bi bi-chevron-right" style="color:black !important"></i>
             </a>
         </div>
     </div>
-
-    <!-- <div class="d-flex justify-content-center hidemobile" style="width:100%">
-        <p class="footbox5 d-flex justify-content-center text-center" style="width:60%">Sau 1 ngày lên sóng, MV quảng
-            cáo của JustaTee x ViettelPay lọt vào Top Trending trên
-            Youtube
-            với vị trí 40 cùng 600 nghìn lượt xem.</p>
-    </div> -->
     <!-- <div class="box d-flex justify-content-center hidemobile" style="width:100%;margin:0 !important">
         <div class="box d-flex justify-content-between" style="width: 15%;margin:0 0 2em 0 !important">
             <button class="btnchuyenanh active" onclick="changeImage(0)"></button>

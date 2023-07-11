@@ -2,7 +2,11 @@ body {
     background-image: url('../images/background.png');
     font-family: 'Open Sans';
     font-style: normal;
-    padding: 2em 15% 0 15% !important;
+    max-width:1140px;
+    width:100%;
+    margin-right:auto;
+    margin-left:auto;
+    padding-top:2em;
 }
 
 .navbar {
@@ -92,7 +96,7 @@ body {
     .navbar-collapse {
         margin: 0 !important;
     }
-
+    
     body{
         padding: 1em !important;
     }

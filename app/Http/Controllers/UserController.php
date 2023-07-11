@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Thuonghieu;
 use App\Models\Brief;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -55,5 +56,12 @@ class UserController extends Controller
     {
         $brief = Brief::all();
         return view('Brief',compact('brief'));
+    }
+
+
+    public function viralvideo()
+    {
+        $video = Video::all();
+        return view('Viralvideo',compact('video'));
     }
 }
