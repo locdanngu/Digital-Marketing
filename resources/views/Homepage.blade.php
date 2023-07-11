@@ -214,7 +214,7 @@
                 <div class="p-3 d-flex justify-content-between flex-column" style="height:64%">
                     <p class="txt8">{{ $bl->created_at }}</p>
                     <p class="txt9">{{ $bl->title }}</p>
-                    <p class="txt8">{!! substr(strip_tags($bl->content), 0, 100) !!}...</p>
+                    <p class="txt8">{!! mb_substr(strip_tags($bl->content), 0, 100) !!}...</p>
                     <a href="{{ route('contentblog.page', ['idbaiviet' => $bl->idblog ]) }}">Xem chi tiết</a>
                 </div>
             </div>
