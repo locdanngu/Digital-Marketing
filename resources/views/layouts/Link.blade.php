@@ -22,6 +22,6 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <link type="image/png" sizes="16x16" rel="icon" href="/images/icon.png">
-<link rel="stylesheet" href="/css/Header.css">
-<link rel="stylesheet" href="/css/Footer.css">
-<link rel="stylesheet" href="/css/Popup.css">
+<link rel="stylesheet" href="/css/Header.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="/css/Footer.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="/css/Popup.css?v=<?php echo time(); ?>">
