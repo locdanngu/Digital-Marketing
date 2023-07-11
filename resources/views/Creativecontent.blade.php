@@ -78,7 +78,7 @@
             <img src="images/cr14.png">
             <img src="images/cr15.png">
         </div>
-        <a href="" class="text-decoration-none buttonbox3">Tìm hiểu thêm</a>
+        <a href="{{ route('contact.page') }}" class="text-decoration-none buttonbox3">Tìm hiểu thêm</a>
     </div>
     <p class="txthead text-center">Thành tựu của chúng tôi</p>
     <div class="d-flex justify-content-center" style="width:100%">

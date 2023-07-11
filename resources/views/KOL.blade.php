@@ -111,7 +111,7 @@
             <img src="images/cr14.png">
             <img src="images/cr15.png">
         </div>
-        <a href="" class="text-decoration-none buttonbox3">Tìm hiểu thêm</a>
+        <a href="{{ route('contact.page') }}" class="text-decoration-none buttonbox3">Tìm hiểu thêm</a>
     </div>
 
     <div class="box box6 d-flex justify-content-between">
