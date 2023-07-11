@@ -19,10 +19,10 @@
                 <img src="{{ $tb->imageblog }}" style="height:100%">
             </div>
 
-            <div class="d-flex flex-column justify-content-center" style="width:38%">
+            <div class="d-flex flex-column justify-content-between" style="width:38%">
                 <p class="txtbox1">{{ $tb->category }}</p>
                 <p class="txt2box1">{{ $tb->title }}</p>
-                <span class="txt3box1">{!! substr(strip_tags($tb->content), 0, 50) !!}...</span>
+                <span class="txt3box1">{!! mb_substr(strip_tags($tb->content), 0, 50) !!}...</span>
                 <p class="txt4box1" style="margin:1em 0 0 1rem ;">{{ $tb->timeread }} phút để đọc</p>
             </div>
             
@@ -35,10 +35,10 @@
             @continue
             @endif
             <a href="{{ route('contentblog.page', ['idbaiviet' => $tb->idblog ]) }}" class="phantubox1 d-flex">
-                <img src="{{ $tb->imageblog }}" style="height:100px">
+                <img src="{{ $tb->imageblog }}" style="height:80px">
                 <div class="d-flex flex-column">
                     <p class="txt5box1">{{ $tb->category }}</p>
-                    <p class="txt6box1">{{ $tb->title }}</p>
+                    <p class="txt6box1">{!! mb_substr(strip_tags($tb->title), 0, 50) !!}...</p>
                 </div>
             </a>
             @endforeach
@@ -76,7 +76,7 @@
                     <span class="txtbox2">{{ $ab->category }}</span>
                     <span class="txt2box2">{{ $ab->title }}
                     </span>
-                    <span class="txt3box2">{!! substr(strip_tags($ab->content), 0, 100) !!}...</span>
+                    <span class="txt3box2">{!! mb_substr(strip_tags($ab->content), 0, 100) !!}...</span>
                     <span class="txt4box2">{{ $ab->timeread }} phút để đọc</span>
                 </div>
             </a>

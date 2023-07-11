@@ -59,7 +59,7 @@
                                 <tr>
                                     <td>{{ $vd->namevideo }}</td>
                                     <td><img src="{{ $vd->imgvideo }}" class="fixanhnen"></td>
-                                    <td>{{ $vd->contentvideo }}</td>
+                                    <td>{!! mb_substr($vd->contentvideo, 0, 30) !!}...</td>
                                     <td>{{ $vd->like }} tr</td>
                                     <td>{{ $vd->comment }} tr</td>
                                     <td>{{ $vd->share }} tr</td>
@@ -194,7 +194,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Ảnh thương hiệu</span>
                     <input class="form-control" type="file" id="formFile" accept="image/*" style="max-width:100%"
-                        onchange="previewImage2(event)" name="image" required>
+                        onchange="previewImage2(event)" name="image">
                 </div>
                 <img id="preview2" src="" alt="" style="max-width:30%;margin-bottom:1em" class="image">
             </div>

@@ -59,12 +59,12 @@
                                 <tr>
                                     <td><img src="{{ $lb->imageblog }}" class="fixanhnen"></td>
                                     @if(strlen($lb->title) > 30)
-                                    <td>{!! substr(strip_tags($lb->title), 0, 30) !!}...</td>
+                                    <td>{!! mb_substr(strip_tags($lb->title), 0, 30) !!}...</td>
                                     @else
                                     <td>{!! $lb->title !!}</td>
                                     @endif
                                     @if(strlen($lb->content) > 30)
-                                    <td>{!! substr(strip_tags($lb->content), 0, 30) !!}...</td>
+                                    <td>{!! mb_substr(strip_tags($lb->content), 0, 30) !!}...</td>
                                     @else
                                     <td>{!! $lb->content !!}</td>
                                     @endif
