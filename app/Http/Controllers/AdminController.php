@@ -897,7 +897,7 @@ class AdminController extends Controller
             $html .= '<tr>';
             $html .= '<td>' . $vd->namevideo . '</td>';
             $html .= '<td><img src="' . $vd->imgvideo . '" class="fixanhnen"></td>';
-            $html .= '<td>' . $vd->contentvideo . '</td>';
+            $html .= '<td>' . mb_substr($vd->contentvideo, 0, 30) . '...</td>';
             $html .= '<td>' . $vd->like . ' tr</td>';
             $html .= '<td>' . $vd->comment . ' tr</td>';
             $html .= '<td>' . $vd->share . ' tr</td>';
