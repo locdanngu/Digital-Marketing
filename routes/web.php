@@ -111,4 +111,10 @@ Route::middleware('user')->group(function () {
     Route::post('/change-video', [AdminController::class, 'changevideo'])->name('video.change');
     Route::post('/delete-video', [AdminController::class, 'deletevideo'])->name('video.delete');
     Route::post('/find-video', [AdminController::class, 'findvideo'])->name('video.find');
+
+    Route::get('/danh-sach-kol', [AdminController::class, 'danhsachkol'])->name('listkol.page');
+    Route::post('/add-kol', [AdminController::class, 'addkol'])->name('kol.add');
+    Route::post('/change-kol', [AdminController::class, 'changekol'])->name('kol.change');
+    Route::post('/delete-kol', [AdminController::class, 'deletekol'])->name('kol.delete');
+    Route::post('/find-kol', [AdminController::class, 'findkol'])->name('kol.find');
 });

@@ -155,6 +155,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('listkol.page') }}"
+                        class="nav-link {{ request()->is('danh-sach-kol') ? 'active' : '' }}">
+                        <i class="nav-icon bi bi-person-circle"></i>
+                        <p>Quản lí KOL</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('listthuonghieu.page') }}"
                         class="nav-link {{ request()->is('danh-sach-thuong-hieu') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-badge-tm"></i>

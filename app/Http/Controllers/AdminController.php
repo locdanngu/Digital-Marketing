@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\Daura;
 use App\Models\Serviceads;
 use App\Models\Video;
+use App\Models\KOL;
 use App\Models\Thuonghieu;
 use App\Models\Brief;
 use App\Models\Servicechange;
@@ -906,6 +907,104 @@ class AdminController extends Controller
             $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-video" data-id="' . $vd->idvd . '" data-name="' . $vd->namevideo . '" data-content="' . $vd->contentvideo . '" data-like="' . $vd->like . '" data-comment="' . $vd->comment . '" data-share="' . $vd->share . '" data-img="' . $vd->imgvideo . '">';
             $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
             $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-video" data-id="' . $vd->idvd . '" data-name="' . $vd->namevideo . '" data-content="' . $vd->contentvideo . '" data-like="' . $vd->like . '" data-comment="' . $vd->comment . '" data-share="' . $vd->share . '" data-img="' . $vd->imgvideo . '">';
+            $html .= '<i class="bi bi-trash"></i> Xóa</button>';
+            $html .= '</td>';
+            $html .= '</tr>';
+        }
+
+        return response()->json([
+            'html' => $html,
+            'count' => $count
+        ]);
+
+    }
+
+
+    public function danhsachkol(Request $request){
+        $user = Auth::user();
+        $listkol = Kol::all();
+        $count = $listkol->count();
+    
+        return view('admin/Kol', compact('user','listkol','count'));
+    }
+
+
+    public function addkol(Request $request){
+        $user = Auth::user();
+        $th = new Kol;
+        $th->namekol = $request['name'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('kol/');
+            $image->move($path, $filename);
+            $th->imgkol = '/kol/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/quangcao/';
+        //     $image->move($path, $filename);
+        //     $th->imgkol = '/quangcao/' . $filename;
+        // }
+        $th->save();
+        return back();
+    }
+
+    public function changekol(Request $request){
+        $user = Auth::user();
+        $th = Kol::where('idkol', $request['id'])->first();
+        $th->namekol = $request['name'];
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('kol/');
+            $image->move($path, $filename);
+            $th->imgkol = '/kol/' . $filename;
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $path = '../public_html/quangcao/';
+        //     $image->move($path, $filename);
+        //     $th->imgkol = '/quangcao/' . $filename;
+        // }
+        $th->save();
+        return back();
+    }
+
+    public function deletekol(Request $request){
+        $user = Auth::user();
+        $th = Kol::where('idkol', $request['id'])->first()->delete();
+        return back();
+    }
+
+    public function findkol(Request $request){
+        $user = Auth::user();
+        $search = $request->input('search');
+        if(!$search || !is_string($search)){
+            // Nếu không có giá trị search hoặc không phải chuỗi thì trả về tất cả bản ghi
+            $th = Kol::all();
+        } else {
+            // Nếu có giá trị search và là chuỗi thì truy vấn với điều kiện
+            $th = Kol::where('namekol', 'like', '%' . $search . '%')->get();
+        }
+
+        $count = $th->count();
+
+        $html = '';
+
+        foreach ($th as $vd) {
+            $html .= '<tr>';
+            $html .= '<td style="color:red;font-weight:bold">' . $vd->namekol . '</td>';
+            $html .= '<td><img src="' . $vd->imgkol . '" class="fixanhnen"></td>';
+            $html .= '<td>' . $vd->created_at . '</td>';
+            $html .= '<td>';
+            $html .= '<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-change-kol" data-id="' . $vd->idkol . '" data-name="' . $vd->namekol . '" data-img="' . $vd->imgkol . '">';
+            $html .= '<i class="bi bi-pencil"></i> Sửa</button>';
+            $html .= '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modal-delete-kol" data-id="' . $vd->idkol . '" data-name="' . $vd->namekol . '" data-img="' . $vd->imgkol . '">';
             $html .= '<i class="bi bi-trash"></i> Xóa</button>';
             $html .= '</td>';
             $html .= '</tr>';
