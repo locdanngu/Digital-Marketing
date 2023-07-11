@@ -4,8 +4,8 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @extends('layouts.Link')
-    <link rel="stylesheet" href="/css/Facebookads.css">
-    <link rel="stylesheet" href="/css/Layoutads.css">
+    <link rel="stylesheet" href="/css/Facebookads.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="/css/Layoutads.css?v=<?php echo time(); ?>">
     <title>Facebook Ads</title>
 </head>
 

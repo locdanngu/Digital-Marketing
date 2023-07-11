@@ -9,6 +9,10 @@ body {
     padding-top:2em;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 .navbar {
     background-color: transparent !important;
 }

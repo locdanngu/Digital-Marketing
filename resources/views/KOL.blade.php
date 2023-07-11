@@ -73,7 +73,7 @@
         </div>
         <div class="phantubox5">
             <img src="images/kol6.png">
-            <p class="txtbox5">Đứa Phúc</p>
+            <p class="txtbox5">Đức Phúc</p>
         </div>
         <div class="phantubox5">
             <img src="images/kol7.png">
